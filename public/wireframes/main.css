@@ -109,3 +109,7 @@ form button {
 form ul button {
   display: inline;
 }
+
+.user-name {
+  margin-bottom: 0;
+}
