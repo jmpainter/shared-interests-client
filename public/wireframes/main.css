@@ -11,6 +11,10 @@ body {
   line-height: 1.5;
 }
 
+h2 {
+  font-size: 1.2em;
+}
+
 nav,
 footer {
   padding: 1% 0;
@@ -39,6 +43,49 @@ section:nth-child(even) {
   background-color: #ddd;
 }
 
+a {
+  color: black;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+p + p {
+  margin-top: 15px;
+}
+
+form {
+  text-align: left;
+  margin: auto;
+}
+
+input, textarea {
+  width: 100%;
+  max-width: 500px;
+}
+
+input[type="number"] {
+  width: 50px;
+}
+
+label {
+  display: block;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+ul, ol {
+  padding: 0;
+}
+
 ul {
   list-style: none;
 }
@@ -51,4 +98,14 @@ ol {
   font-size: 18px;
   padding: 12px;
   border-radius: 5px;
+  margin-top: 20px;
+}
+
+form button {
+  display: block;
+  margin-top: 14px;
+}
+
+form ul button {
+  display: inline;
 }
