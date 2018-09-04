@@ -1,0 +1,12 @@
+language: node_js
+node_js: node
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: m1hYAVKHr4Aj3LtVf7NsOXN49+VlL0Io/KniXXx49X3jUlr2lY970AiqY3biVRmNdlbw6i4ReWsUfAATF9hgg8bSko5/xtaOAxiHHkgRluqAbt6zKtZa1DZXes1DG3jqtHb9jT27j0IRySgl+tPrOu1+0342b88Rg44Ui0O//y1nSxkvVhgFqLN2MO39Sl7EPUmOR0V84RYSLIbboU4maci/gIkA7kQuGw8WjBDIB1Xr6Q7s8KFyILbXZh2a/XGbw5T1QPeCJQB5YPNQF+V2QHofh18FIdFMkvVY4ANpuZgGtb3vKX/dqt6eW+OmxaPeGNPPY4HGnAagSYhD2kYPJ5ozF7yJq/oIGn8C046XS3bnauCcfWR3657CIMH19pFR2XqVNci4FqRo9ontvhkw5YE0oN/mS31GZwm3SkcMo1iWMHh5eH5gHOfh7trwKqoq2Yz+Y8ejywhbNAaW+NU66mevWjgUT9lxoPp9KwgEt29n4BDWNe0wQWvtFkXK44z8Nbdf/3chOMcEI9FGgOwPTDMPve048unhrn6vbO8EQZNm7zOhRVf2TmiWzZ786DiN/hkOvWggoup7k2yw2X4iK+FZXqQVVdALQPSxvTE0swLJNwhwOElsqQ5it3iUig2CZpuSMvV3cWRJErDBvlXpwV8wRxTpZett0DPatKJZARE=
+  app: safe-coast-65126
+  on:
+    repo: jmpainter/shared-interests-client
