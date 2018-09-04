@@ -1,9 +1,10 @@
 import React from 'react';
 import './Home.css';
-import LatestInterests from './LatestInterests';
+import InterestsList from './InterestsList';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default function Home(props) {
+export function Home(props) {
   return (
     <div className="home-page">
       <header>
@@ -20,11 +21,21 @@ export default function Home(props) {
       </section>
       <section>
         <h2>Latest on Shared Interests:</h2>
-        <LatestInterests />
+        <InterestsList list={ props.InterestsList } />
       </section>   
       <section>
-        <Link to="/register"><button class="large-button">Get Started!</button></Link>
+        <Link to="/register"><button className="large-button">Get Started!</button></Link>
       </section>         
     </div>
   );
 }
+
+Home.defaultProps = {
+  InterestsList: null
+};
+
+export const mapStateToProps = state => ({
+  InterestsList: state.latestInterests
+});
+
+export default connect(mapStateToProps)(Home);
