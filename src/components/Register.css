@@ -1,0 +1,17 @@
+form {
+  text-align: left;
+  margin: auto;
+}
+
+input, textarea {
+  width: 100%;
+  max-width: 500px;
+}
+
+input[type="number"] {
+  width: 50px;
+}
+
+label {
+  display: block;
+}
