@@ -14,7 +14,8 @@ export function Dashboard(props) {
       </header>
 
       <section>
-        <Conversations />
+        <h2>Conversations</h2>
+        <Conversations list={ props.conversations } />
       </section>    
     
       <section>
@@ -24,7 +25,7 @@ export function Dashboard(props) {
 
       <section>
         <h2>My Interests</h2>
-        <InterestsList />
+        <InterestsList list={ props.interestsList } />
         <Link to="/add-edit-interests">Edit Interests</Link>
       </section>
 
@@ -42,8 +43,10 @@ Dashboard.defaultProps = {
 };
 
 export const mapStateToProps = state => ({
-  firstName: state.firstName,
-  lastName: state.lastName
+  firstName: state.user.firstName,
+  lastName: state.user.lastName,
+  interestsList: state.user.interests,
+  conversations: state.user.conversations
 });
 
 export default connect(mapStateToProps)(Dashboard);

@@ -30,16 +30,19 @@ const initialState = {
         messages: [
           {
             userId: 1,
+            screenName: 'joshp',
             date: '10/10/2017',
             content: 'Hi, I see you like gardening'
           },
           {
             userId: 2,
+            screenName: 'sally4',          
             date: '10/10/2017',
             content: 'Yes, I really do'
           },
           {
             userId: 1,
+            screenName: 'joshp',
             date: '10/10/2017',
             content: 'What kinds do you like to plant?'
           }      
@@ -54,16 +57,19 @@ const initialState = {
         messages: [
           {
             userId: 3,
+            screenName: 'russer',
             date: '10/20/2017',
             content: 'What kind of biking do you have there?'
           },
           {
             userId: 1,
+            screenName: 'joshp',
             date: '10/21/2017',
             content: 'Road and mountain.'
           },
           {
             userId: 3,
+            screenName: 'russer',
             date: '10/22/2017',
             content: 'How good is it?'
           }   

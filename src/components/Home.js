@@ -21,7 +21,7 @@ export function Home(props) {
       </section>
       <section>
         <h2>Latest on Shared Interests:</h2>
-        <InterestsList list={ props.InterestsList } />
+        <InterestsList list={ props.interestsList } />
       </section>   
       <section>
         <Link to="/register"><button className="large-button">Get Started!</button></Link>
@@ -31,11 +31,11 @@ export function Home(props) {
 }
 
 Home.defaultProps = {
-  InterestsList: null
+  interestsList: null
 };
 
 export const mapStateToProps = state => ({
-  InterestsList: state.latestInterests
+  interestsList: state.latestInterests
 });
 
 export default connect(mapStateToProps)(Home);

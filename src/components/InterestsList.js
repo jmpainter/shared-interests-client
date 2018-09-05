@@ -2,8 +2,8 @@ import React from 'react';
 import './InterestList.css';
 
 export default function InterestList(props) {
-  const interests = props.list.map(interest => 
-    <li>{ interest.name }</li>
+  const interests = props.list.map((interest, index) => 
+    <li key={ index } >{ interest.name }</li>
   );
   return (  
     <ul>
