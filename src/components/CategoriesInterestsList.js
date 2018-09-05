@@ -1,23 +1,29 @@
 import React from 'react';
 import './CategoriesInterestsList.css';
+import { Link } from 'react-router-dom';
 
 export default function CategoriesInterestsList(props) {
+
+  const categoriesInterests = props.list.map(interest => {
+    const users = interest.users.map(user => {
+      const userLink = '/conversation/' + user.id;
+      return (
+        <li key={ 'u' + user.id } ><Link to={ userLink } >{ user.screenName }</Link></li>
+      )
+    });
+    return (
+      <div key={ 'd' + interest.id } >
+        <li key={ 'i' + interest.id } className="interest">{ interest.name }</li>
+        <ul>
+          { users }
+        </ul>
+      </div>
+    )
+  });
+
   return (
-    <ul>
-      <li>Knitting</li>
-      <ul>
-        <li><a href="user-detail.html">sknit, Tahoe, CA</a></li>
-        <li><a href="user-detail.html">rrenolds, VT</a></li>
-      </ul>
-      <li>Football</li>
-      <ul>
-        <li><a href="user-detail.html">Barry, NY</a></li>
-      </ul>
-      <li>Tennis</li>
-      <ul>
-        <li><a href="user-detail.html">Sue, Los Angeles, CA</a></li>
-        <li><a href="user-detail.html">footBallLvr, Philadelphia, PA</a></li>
-      </ul>
+    <ul className="categoriesInterests">
+      { categoriesInterests }
     </ul>
   );
 }

@@ -20,7 +20,7 @@ export function Dashboard(props) {
     
       <section>
         <h2>Matching Interests</h2>
-        <CategoriesInterestsList />
+        <CategoriesInterestsList list={ props.interestMatches }/>
       </section>
 
       <section>
@@ -31,7 +31,7 @@ export function Dashboard(props) {
 
       <section>
         <h2>Others' Interests</h2>
-        <CategoriesInterestsList />
+        <CategoriesInterestsList list={ props.latestInterests } />
       </section>    
     </div>
   );
@@ -39,14 +39,20 @@ export function Dashboard(props) {
 
 Dashboard.defaultProps = {
   firstName: 'Josh',
-  lastName: 'Painter'
+  lastName: 'Painter',
+  interestsList: [],
+  conversations: [],
+  latestInterests: [],
+  interestMatches: []
 };
 
 export const mapStateToProps = state => ({
   firstName: state.user.firstName,
   lastName: state.user.lastName,
   interestsList: state.user.interests,
-  conversations: state.user.conversations
+  conversations: state.user.conversations,
+  latestInterests: state.latestInterests,
+  interestMatches: state.interestMatches
 });
 
 export default connect(mapStateToProps)(Dashboard);

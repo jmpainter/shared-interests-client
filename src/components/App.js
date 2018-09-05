@@ -22,7 +22,7 @@ export default function App(props) {
           <Route exact path="/login" component={ Login } />
           <Route exact path="/add-edit-interests" component={ AddEditInterests } />
           <Route exact path="/dashboard" component={ Dashboard } />
-          <Route exact path="/conversation" component={ Conversation } />
+          <Route path="/conversation/:id" component={ Conversation } />
         </main>
       </div>
     </Router>

@@ -7,8 +7,6 @@ export default function NavBar(props) {
     <div className="nav-bar">
       <Link to="/">Home </Link>
       <Link to="/login">Log In </Link>
-      <Link to="/register">Register </Link>
-      <Link to="/add-edit-interests">Add / Edit Interests </Link>
       <Link to="/dashboard">Dashboard</Link>
     </div>
   );

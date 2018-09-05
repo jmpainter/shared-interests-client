@@ -22,10 +22,25 @@ const initialState = {
     ],
     conversations: [
       {
-        id: 45,
+        id: 43,
         user: {
           id: 2,
-          screenName: 'sally4'
+          screenName: 'sally4',
+          location: 'Oakland, CA',
+          interests: [
+            {
+              id: 8,
+              name: 'Italian Cooking'
+            },      
+            {
+              id: 51,
+              name: 'Bowling'
+            },  
+            {
+              id: 61,
+              name: 'Salami'
+            } 
+          ]
         },
         messages: [
           {
@@ -49,10 +64,25 @@ const initialState = {
         ]
       },
       {
-        id: 46,
+        id: 44,
         user: {
           id: 3,
-          screenName: 'russer'
+          screenName: 'russer',
+          location: 'New York, NY',
+          interests: [
+            {
+              id: 8,
+              name: 'Italian Cooking'
+            },      
+            {
+              id: 51,
+              name: 'Bowling'
+            },  
+            {
+              id: 61,
+              name: 'Salami'
+            } 
+          ]
         },
         messages: [
           {
@@ -80,20 +110,20 @@ const initialState = {
       {
         userId: 2,
         screenName: 'sally4',
-        interestId: 8,
+        id: 8,
         name: 'Italian Cooking'
       },
       {
         userId: 3,
         screenName: 'russer',
-        interestId: 3,
+        id: 3,
         name: 'Mountain Biking'
       }  
     ]
   },
   latestInterests: [
     {
-      interestId: 9,
+      id: 9,
       name: 'Astronomy',
       users: [
         {
@@ -107,7 +137,7 @@ const initialState = {
       ]
     },
     {
-      interestId: 22,
+      id: 22,
       name: 'Bunnies',
       users: [
         {
@@ -117,7 +147,7 @@ const initialState = {
       ]
     },
     {
-      interestId: 23,
+      id: 23,
       name: 'Dune Buggies',
       users: [
         {
@@ -133,7 +163,47 @@ const initialState = {
           screenName: 'sandyb'
         }             
       ]
-    },    
+    }
+  ],
+  interestMatches: [
+    {
+      id: 3,
+      name: 'Mountain biking',
+      users: [
+        {
+          id: 34,
+          screenName: 'dennyA'
+        },
+        {
+          id: 13,
+          screenName: 'ray'
+        }        
+      ]
+    },
+    {
+      id: 4,
+      name: 'Italian Cooking',
+      users: [
+        {
+          id: 2,
+          screenName: 'sueD'
+        }    
+      ]
+    },
+    {
+      id: 23,
+      name: 'Gardening',
+      users: [
+        {
+          id: 2,
+          screenName: 'henry4'
+        },
+        {
+          id: 33,
+          screenName: 'rose'
+        }          
+      ]
+    }
   ]
 };
 
