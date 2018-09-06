@@ -10,7 +10,7 @@ export function Dashboard(props) {
   return (
     <div className="dashboard">
       <header>
-        <h1>{ props.firstName + ' ' + props.lastName }</h1>
+        <h1>Dashboard</h1>
       </header>
 
       <section>

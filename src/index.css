@@ -63,8 +63,8 @@ p + p {
 }
 
 form {
-  text-align: left;
   margin: auto;
+  max-width: 500px;
 }
 
 input, textarea {
@@ -78,6 +78,7 @@ input[type="number"] {
 
 label {
   display: block;
+  text-align: left;
 }
 
 .form-section {
@@ -106,6 +107,11 @@ ol {
 button {
   display: block;
   margin: 5px auto;
+}
+
+button[type="submit"] {
+  text-align: left;
+  margin: 10px 0;
 }
 
 .user-name {

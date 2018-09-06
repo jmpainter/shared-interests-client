@@ -7,6 +7,7 @@ import AddEditInterests from './AddEditInterests';
 import Dashboard from './Dashboard';
 import Conversation from './Conversation';
 import NavBar from './NavBar';
+import DisplayUser from './DisplayUser';
 import './App.css';
 
 export default function App(props) {
@@ -23,6 +24,7 @@ export default function App(props) {
           <Route exact path="/add-edit-interests" component={ AddEditInterests } />
           <Route exact path="/dashboard" component={ Dashboard } />
           <Route path="/conversation/:id" component={ Conversation } />
+          <Route path="/display-user/:id" component={ DisplayUser } />
         </main>
       </div>
     </Router>

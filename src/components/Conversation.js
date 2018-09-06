@@ -7,7 +7,8 @@ import { connect } from 'react-redux';
 
 export class Conversation extends React.Component {
   render() {
-    const conversation = this.props.conversations.find(conversation => conversation.id === parseInt(this.props.match.params.id, 10));
+    const conversationId = parseInt(this.props.match.params.id, 10);
+    const conversation = this.props.conversations.find(conversation => conversation.id === conversationId);
     return (
       <div className="conversation">
       <header>

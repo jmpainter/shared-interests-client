@@ -2,6 +2,7 @@ import React from 'react';
 import './AddEditInterests.css';
 import EditInterests from './EditInterests';
 import AddInterest from './AddInterest';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 export function AddEditInterests(props) {
@@ -13,6 +14,7 @@ export function AddEditInterests(props) {
       <section>
         <EditInterests list={ props.interests } />
         <AddInterest />
+        <Link to="/dashboard">(Not implemented yet) Click to continue</Link>
       </section>
     </div>
   );

@@ -6,7 +6,7 @@ export default function CategoriesInterestsList(props) {
 
   const categoriesInterests = props.list.map(interest => {
     const users = interest.users.map(user => {
-      const userLink = '/conversation/' + user.id;
+      const userLink = '/display-user/' + user.id;
       return (
         <li key={ 'u' + user.id } ><Link to={ userLink } >{ user.screenName }</Link></li>
       )
