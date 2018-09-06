@@ -4,7 +4,7 @@ import DeleteInterest from './DeleteInterest';
 
 export default function EditInterests(props) {
   const editInterests = props.list.map((interest, index) => (
-    <DeleteInterest id={ interest.id } name={ interest.name } />
+    <DeleteInterest key={ index } id={ interest.id } name={ interest.name } />
   ))
   return (
     <ul className="edit-interests">

@@ -29,10 +29,10 @@ export function Dashboard(props) {
         <Link to="/add-edit-interests">Edit Interests</Link>
       </section>
 
-      <section>
+      {/* <section>
         <h2>Others' Interests</h2>
         <CategoriesInterestsList list={ props.latestInterests } />
-      </section>    
+      </section>     */}
     </div>
   );
 }
@@ -50,9 +50,9 @@ export const mapStateToProps = state => ({
   firstName: state.user.firstName,
   lastName: state.user.lastName,
   interestsList: state.user.interests,
-  conversations: state.user.conversations,
-  latestInterests: state.latestInterests,
-  interestMatches: state.interestMatches
+  conversations: state.conversations,
+  latestInterests: state.survey.latestInterests,
+  interestMatches: state.user.interestMatches
 });
 
 export default connect(mapStateToProps)(Dashboard);

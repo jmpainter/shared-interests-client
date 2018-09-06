@@ -1,4 +1,10 @@
-import { createStore } from 'redux';
-import { sharedInterestsReducer } from './reducers';
+import { combineReducers, createStore } from 'redux';
+import { userReducer, conversationsReducer, surveyReducer } from './reducers';
 
-export default createStore(sharedInterestsReducer);
+const combinedReducer = combineReducers({
+  user: userReducer,
+  conversations: conversationsReducer,
+  survey: surveyReducer
+});
+
+export default createStore(combinedReducer);

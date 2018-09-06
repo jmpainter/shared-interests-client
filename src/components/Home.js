@@ -35,7 +35,7 @@ Home.defaultProps = {
 };
 
 export const mapStateToProps = state => ({
-  interestsList: state.latestInterests
+  interestsList: state.survey.latestInterests
 });
 
 export default connect(mapStateToProps)(Home);

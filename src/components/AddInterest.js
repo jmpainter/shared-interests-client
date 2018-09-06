@@ -5,7 +5,7 @@ export default function AddInterest(props) {
   return (
     <form className="add-interest">
       <label htmlFor="interest">New Interest:</label>
-      <input type="text" name="interest" id="interest" value="Gardening" />
+      <input type="text" name="interest" id="interest" defaultValue="Gardening" />
       <button type="submit">Search</button> 
     </form>
   )

@@ -45,7 +45,7 @@ Conversation.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  conversations: state.user.conversations
+  conversations: state.conversations
 });
 
 export default connect(mapStateToProps)(Conversation);
