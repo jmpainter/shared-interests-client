@@ -18,20 +18,6 @@ function setMenu(type) {
   }
 }
 
-function setHeader(xhr) {
-  xhr.setRequestHeader('Authorization', `Bearer ${Cookies.get('_dream-catcher-token')}`);
-}
-
-function setJournalDreams(data) {
-  appState.journalDreams = data.dreams;
-}
-
-function getUserOnAppStartError() {
-  $('.home-screen-message')
-  .text('There was an error in retrieving your user information.')
-  .css('display', 'block');  
-}
-
 function handleToggleNav() {
   $('.menu-link').click(() => {
     toggleNav();

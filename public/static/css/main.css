@@ -34,7 +34,7 @@ a {
 main {
   padding: 0;
 }
-h1, h2 {
+h1, h2, h3 {
   font-family: 'Patua One', serif;
 }
 h2 {
@@ -46,8 +46,106 @@ h3 {
   font-size: 1.5rem;
   padding: 1.5rem;
 }
+p {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+}
 .clr {
   clear: both;
+}
+.section-background {
+  background-color: #56a3b8;
+}
+
+
+/* Navigation Bar */
+
+.top-nav {
+  padding: 16px;
+  background-color: #fcffc0;
+}
+.nav-links {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  margin: 0;
+  float: right;
+}
+.logo {
+  display: inline-block;
+  margin: 7px;
+}
+.logo-type {
+  cursor: pointer;
+  position: absolute;
+  font-family: 'Patua One', cursive;
+  font-size: 2.4rem;
+  letter-spacing: -1px;
+  margin-top: 5px;
+  display: inline-block;
+  color: #6B6B6B;
+}
+.nav-links li {
+  float:right;
+}
+.nav-links li a, .dreams-nav-link{
+  display: none;
+  color: #6B6B6B;
+  text-align: center;
+  font-size: 17px;
+}
+.dreams-nav-link {
+  padding: 15px 0;
+}
+.nav-links li a {
+  padding: 26px 14px 8px 10px;
+}
+.nav-links li.icon a {
+  padding: 8px 0 10px;
+  font-size: 24px;
+}
+/* Hide the list item that contains the link that should open
+and close the top-nav on small screens */
+.nav-links li.icon {
+  display: none;
+  margin: 0;
+}
+
+/* Home Screen */
+
+.splash {
+  margin: 30px 0;
+  /* padding: 9px 15px; */
+  text-align: center;
+}
+.splash button {
+  display: block;
+  margin: 12px auto;
+}
+.splash img {
+  width: 430px;
+}
+.steps {
+  padding: 1rem;
+}
+.step {
+  margin: .5rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.step h3 {
+  padding: 0 0 1rem;
+}
+.start {
+  text-align: center;
+  padding: 40px 10px;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
 }
 
 /* Buttons  */
@@ -136,99 +234,22 @@ input[type="button"].special,
 button.special,
 .button.special {
   margin: 17px;
-  background-color: #456fdb;
-  color: #ffffff !important;
+  background-color: #f6ff4a;
+  color: #303030 !important;
 }
 
 input[type="submit"].special:hover,
 input[type="button"].special:hover,
 button.special:hover,
 .button.special:hover {
-  background-color: #6f90e2;
+  background-color: #dfe92d;
 }
 
 input[type="submit"].special:active,
 input[type="button"].special:active,
 button.special:active,
 .button.special:active {
-  background-color: #a0b0da;
-}
-
-/* Navigation Bar */
-
-.top-nav {
-  border-bottom: 1px solid #ffb500;
-  padding: 16px;
-  background-color: #ffe0b1;
-}
-.nav-links {
-  list-style-type: none;
-  padding: 0;
-  overflow: hidden;
-  margin: 0;
-  float: right;
-}
-.logo {
-  display: inline-block;
-  margin: 7px;
-}
-
-.logo-type {
-  cursor: pointer;
-  position: absolute;
-  font-family: 'Patua One', cursive;
-  font-size: 2.4rem;
-  letter-spacing: -1px;
-  margin-top: 5px;
-  display: inline-block;
-  color: #808080;
-}
-
-.nav-links li {
-  float:right;
-}
-.nav-links li a, .dreams-nav-link{
-  display: none;
-  color: #808080;
-  text-align: center;
-  font-size: 17px;
-}
-.dreams-nav-link {
-  padding: 15px 0;
-}
-.nav-links li a {
-  padding: 26px 14px 8px 10px;
-}
-.nav-links li.icon a {
-  padding: 8px 0 10px;
-  font-size: 24px;
-}
-/* Hide the list item that contains the link that should open
- and close the top-nav on small screens */
- .nav-links li.icon {
-  display: none;
-  margin: 0;
-}
-
-/* Home Screen */
-
-.splash {
-  margin: 30px 0;
-  /* padding: 9px 15px; */
-  text-align: center;
-}
-.splash button {
-  display: block;
-  margin: 12px auto;
-}
-.splash img {
-  width: 430px;
-}
-
-/* Footer */
-
-footer {
-  text-align: center;
+  background-color: #f2ff00;
 }
 
 /* Tablet */
@@ -245,7 +266,7 @@ footer {
 /* Mobile */
 @media only screen and (max-width: 640px) {
   html {
-    font-size: 12px;
+    font-size: 14px;
   }
   .top-nav {
     padding: 7px;
@@ -255,6 +276,7 @@ footer {
   }
   .logo-type {
     margin: 2px;
+    font-size: 2rem;
   }
   .splash img {
     width: 85%;
