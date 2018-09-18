@@ -151,7 +151,7 @@ input[type="submit"].special:active,
 input[type="button"].special:active,
 button.special:active,
 .button.special:active {
-  background-color: #849ddb;
+  background-color: #a0b0da;
 }
 
 /* Navigation Bar */
@@ -232,8 +232,19 @@ footer {
   text-align: center;
 }
 
+/* Tablet */
+
+@media only screen and (max-width: 950px) {
+  .container {
+    width: 100%;
+  }
+}
+
 /* Mobile */
 @media only screen and (max-width: 640px) {
+  html {
+    font-size: 12px;
+  }
   .top-nav {
     padding: 7px;
   }
@@ -241,11 +252,7 @@ footer {
     width: 30px;
   }
   .logo-type {
-    font-size: 1.8rem;
     margin: 2px;
-  }
-  .container {
-    width: 100%;
   }
   .splash img {
     width: 100%;
