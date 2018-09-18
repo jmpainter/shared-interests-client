@@ -213,9 +213,8 @@ button.special:active,
 /* Home Screen */
 
 .splash {
-  margin-bottom: 30px;
-  padding: 9px 15px;
-  margin-top: 30px;
+  margin: 30px 0;
+  /* padding: 9px 15px; */
   text-align: center;
 }
 .splash button {
@@ -238,6 +237,9 @@ footer {
   .container {
     width: 100%;
   }
+  .splash img {
+    width: 300px;
+  }
 }
 
 /* Mobile */
@@ -255,13 +257,12 @@ footer {
     margin: 2px;
   }
   .splash img {
-    width: 100%;
+    width: 85%;
   }
   .nav-links li:not(:last-child){
     display:none;
   }
   .nav-links li.icon {
-    float: right;
     display: inline-block;
   }
   .nav-links.responsive {
@@ -272,13 +273,16 @@ footer {
     right: 0;
     top: 0;
   }
+  .nav-links.responsive li:first-child {
+    padding-top: 30px;
+  }
   .nav-links.responsive li {
-    float:none;
-    display:inline;
+    float: none;
+    display: block;
   }
   .nav-links.responsive li a {
-    display:block;
-    text-align:left;
+    display: block;
+    text-align: left;
   }
   input[type="submit"],
   input[type="button"],
