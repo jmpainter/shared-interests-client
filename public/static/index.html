@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/float-grid.css">
   <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Patua+One" rel="stylesheet">
-  <title>Shared Interests</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  <title>Shared Interests</title>
 </head>
 <body>
 
@@ -16,7 +16,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <a href="index.html"><img src="img/logo.png" class="logo" alt="Shared Interests logo" /><h1 class="logo-type">Shared Interests</h1></a>
+          <a href="index.html"><img src="img/logo.png" class="logo" alt="Shared Interests logo" /><span class="logo-type">Shared Interests</span></a>
           <ul class="nav-links">
             <li><a class="home-link public-link user-link" href="javascript:void(0)">Home</a></li>
             <li><a class="logout-link user-link" href="javascript:void(0)">Log out</a></li>
@@ -41,8 +41,8 @@
           <div class="col-12">
             <div class="splash">
               <img src="img/handshake.png" alt="Handshake" />
-              <h2>Shared Interests</h2>
-              <h3>Where you can share your interests and connect with others</h3>
+              <h1>Shared Interests</h1>
+              <h2>Where you can share your interests and connect with others</h2>
             </div>
           </div>            
         </div>
@@ -86,6 +86,7 @@
       </div>
     </section>
 
+
     <section class="section-background">
       <div class="container latest">
         <div class="row">
@@ -106,6 +107,136 @@
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Register -->
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <h1>Sign Up</h1>
+            <form action="">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" name="first-name"/>
+              <label for="first-name">Last Name</label>
+              <input type="text" id="last-name" name="last-name"/>
+              <label for="screen-name">Screen Name (public)</label>
+              <input type="text" id="screen-name" name="first-name"/>
+              <label for="location">Location</label>
+              <div class="select-wrapper">
+                <select name="location" id="location">
+                  <option value=""></option>
+                  <option value="1">San Francisco</option>
+                  <option value="2">Concord</option>
+                </select>
+              </div>
+              <label for="username">Username (for login)</label>
+              <input type="text" id="username" name="username"/>
+              <label for="first-name">Password</label>
+              <input type="password" id="password" name="password"/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Edit Interests -->
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <h1>My Interests</h1>
+            <form>
+              <ul class="left"> 
+                <li>Mountain Biking <button class="small">Delete</button></li>
+                <li>Cross Country Skiing <button class="small">Delete</button></li>
+                <li>Pizza <button class="small">Delete </button></li>
+              </ul>
+                <label htmlFor="interest">New Interest:</label>
+                <input type="text" name="interest" id="interest" value="Gardening">
+                <br />
+                <a href="#">Gardening: Practice of growing and cultivating plants</a><br />
+                <a href="#">Gardening in Spain</a><br />
+                <a href="#">Gardening in Scotland</a><br />
+              </form>
+              <a class="button">Finished</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profile -->
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1>Profile</h1>
+            <img src="img/head.png" alt="smiling face" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <h2>Messages</h2>
+            <ul>
+              <li><a href="conversation.html">What do you think of gardenias..." rose2</a></li>
+              <li><a href="conversation.html">Going on a ride Sunday..." rider 1</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-6">
+            <h3>Matching Interests</h3>
+            <ul>
+              <li><a href="user-detail.html">Mountain Biking: biker1, Santa Cruz, CA</a></li>
+              <li><a href="user-detail.html">Mountain Biking: sunny, Boulder, CA</a></li>
+              <li><a href="user-detail.html">Gardening: rose, San Francisco, CA</a></li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <h3>Nearby</h3>
+            <ul>
+              <li>Stan53 - Greenbrae, CA</li>
+              <li>Randy4 - San Francisco, CA</li>
+              <li>Stargazer - Oakand, CA</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <h3>My Interests</h3>
+            <ul>
+              <li>Moutain Biking</li>
+              <li>Cross Country Skiing</li>
+              <li>Gardening</li>
+            </ul>     
+            <a href="add-interests.html">Edit</a>
+          </div>
+          <div class="col-6">
+            <h3>Other's Interests</h3>
+            <ul>
+              <li>Knitting</li>
+              <li><a href="user-detail.html">sknit, Tahoe, CA</a></li>
+              <li><a href="user-detail.html">rrenolds, VT</a></li>
+              <li>Football</li>
+              <li><a href="user-detail.html">Barry, NY</a></li>
+              <li>Tennis</li>
+              <li><a href="user-detail.html">Sue, Los Angeles, CA</a></li>
+              <li><a href="user-detail.html">footBallLvr, Philadelphia, PA</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
         </div>
       </div>
     </section>
