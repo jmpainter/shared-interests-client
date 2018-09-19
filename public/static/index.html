@@ -121,7 +121,7 @@
             <form action="">
               <label for="first-name">First Name</label>
               <input type="text" id="first-name" name="first-name"/>
-              <label for="first-name">Last Name</label>
+              <label for="last-name">Last Name</label>
               <input type="text" id="last-name" name="last-name"/>
               <label for="screen-name">Screen Name (public)</label>
               <input type="text" id="screen-name" name="first-name"/>
@@ -135,7 +135,7 @@
               </div>
               <label for="username">Username (for login)</label>
               <input type="text" id="username" name="username"/>
-              <label for="first-name">Password</label>
+              <label for="password">Password</label>
               <input type="password" id="password" name="password"/>
             </form>
           </div>
@@ -156,7 +156,7 @@
                 <li>Cross Country Skiing <button class="small">Delete</button></li>
                 <li>Pizza <button class="small">Delete </button></li>
               </ul>
-                <label htmlFor="interest">New Interest:</label>
+                <label For="interest">New Interest:</label>
                 <input type="text" name="interest" id="interest" value="Gardening">
                 <br />
                 <a href="#">Gardening: Practice of growing and cultivating plants</a><br />
@@ -172,16 +172,16 @@
     <!-- Profile -->
 
     <section>
-      <div class="container">
+      <div class="container profile">
         <div class="row">
           <div class="col-12">
             <h1>Profile</h1>
-            <img src="img/head.png" alt="smiling face" />
+            <img class="face" src="img/head.png" alt="smiling face" />
           </div>
         </div>
         <div class="row">
           <div class="col-6">
-            <h2>Messages</h2>
+            <h2>Conversations</h2>
             <ul>
               <li><a href="conversation.html">What do you think of gardenias..." rose2</a></li>
               <li><a href="conversation.html">Going on a ride Sunday..." rider 1</a></li>
@@ -201,9 +201,9 @@
           <div class="col-6">
             <h3>Nearby</h3>
             <ul>
-              <li>Stan53 - Greenbrae, CA</li>
-              <li>Randy4 - San Francisco, CA</li>
-              <li>Stargazer - Oakand, CA</li>
+              <li><a href="user-detail.html">Stan53 - Greenbrae, CA</a></li>
+              <li><a href="user-detail.html">Randy4 - San Francisco, CA</a></li>
+              <li><a href="user-detail.html">Stargazer - Oakand, CA</a></li>
             </ul>
           </div>
         </div>
@@ -220,15 +220,40 @@
           <div class="col-6">
             <h3>Other's Interests</h3>
             <ul>
-              <li>Knitting</li>
-              <li><a href="user-detail.html">sknit, Tahoe, CA</a></li>
-              <li><a href="user-detail.html">rrenolds, VT</a></li>
-              <li>Football</li>
-              <li><a href="user-detail.html">Barry, NY</a></li>
-              <li>Tennis</li>
-              <li><a href="user-detail.html">Sue, Los Angeles, CA</a></li>
-              <li><a href="user-detail.html">footBallLvr, Philadelphia, PA</a></li>
+              <li>
+                <header>Knitting</header>
+                <ul>
+                  <li><a href="user-detail.html">sknit, Tahoe, CA</a></li>
+                  <li><a href="user-detail.html">rrenolds, VT</a></li>
+                </ul>
+              </li>
+              <li>
+                <header>Football</header>
+                <ul>
+                  <li><a href="user-detail.html">Barry, NY</a></li>
+                </ul>
+              <li>
+                <header>Tennis</header>
+                <ul>
+                  <li><a href="user-detail.html">Sue, Los Angeles, CA</a></li>
+                  <li><a href="user-detail.html">footBallLvr, Philadelphia, PA</a></li>
+                </ul>
             </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Detail -->
+
+    <section class="section-background user-detail">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="blurb">
+              <h1>Barry</h1>
+              <p>New York NY</p>
+            </div>
           </div>
         </div>
       </div>
@@ -237,6 +262,32 @@
     <section>
       <div class="container">
         <div class="row">
+          <div class="col-4">
+            <h2>Interests:</h2>
+              <ul>
+                <li>Baseball</li>
+                <li>Mexican Food</li>
+                <li>Rare Books</li>
+                <li>Birding</li>
+              </ul>
+          </div>
+          <div class="col-8"> 
+            <form>
+              <h2>Send a message:</h2>
+              <label for="message">Message:</label>
+              <textarea name="message" id="message" cols="80" rows="10"></textarea>
+            </form>
+            <a href="dashboard.html"><button>Send</button></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="user-detail">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+          </div>
         </div>
       </div>
     </section>

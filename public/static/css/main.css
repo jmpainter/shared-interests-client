@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(font-awesome.min.css);
 
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, 
 fieldset, form, label, legend,
@@ -31,7 +30,7 @@ body {
   margin: 2rem auto;
 }
 a {
-  color: black;
+  color: #3B7A8C;
   text-decoration: none;
 }
 main {
@@ -173,8 +172,35 @@ and close the top-nav on small screens */
   font-size: 1.2rem;
 }
 
-/* Register */
+/* Profile */
 
+.profile h1 {
+  display: inline-block;
+}
+.profile .face {
+  display: inline-block;
+  position: relative;
+  top: 9px;
+  width: 53px;
+}
+.profile h3 {
+  padding-bottom: 0;
+}
+.profile ul li header {
+  margin: 7px 0 3px;
+}
+
+/* User Detail */
+
+.user-detail {
+  text-align: center;
+}
+.user-detail h1 {
+  padding-bottom: 0;
+}
+.user-detail p {
+  padding-bottom: 2em;
+}
 
 /* Footer */
 
@@ -182,6 +208,7 @@ and close the top-nav on small screens */
   padding: 2rem;
 }
 footer {
+  border-top: 1px solid #d4d4d4;
   text-align: center;
 }
 footer p {
@@ -216,21 +243,23 @@ button,
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-  border: 1px solid #dde637;
+  border: 1px solid #e7f119;
 }
 
 input[type="submit"]:hover,
 input[type="button"]:hover,
 button:hover,
 .button:hover {
-  background-color: #56a3b8;
+  background-color: #faff9e;
+  border: 2px solid #d1f5ff;
+
 }
 
 input[type="submit"]:active,
 input[type="button"]:active,
 button:active,
 .button:active {
-  background-color: #f2ff00;
+  border: 3px solid #91e6fd;
 }
 
 input[type="submit"].icon,
@@ -309,8 +338,8 @@ label {
 input[type="text"],
 input[type="password"],
 input[type="email"],
-select,
-textarea {
+select
+{
   -moz-appearance: none;
   -webkit-appearance: none;
   -ms-appearance: none;
