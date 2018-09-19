@@ -172,6 +172,12 @@ and close the top-nav on small screens */
   font-size: 1.2rem;
 }
 
+/* Log In */
+
+button[type="submit"] {
+  margin-top: 20px;
+}
+
 /* Profile */
 
 .profile h1 {

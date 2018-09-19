@@ -1,3 +1,93 @@
-.nav-bar a {
-  padding-right: 9px;
+.header {
+  margin: 0 auto;
+}
+.top-nav {
+  padding: 16px;
+  background-color: #fcffc0;
+}
+.nav-links {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  margin: 0;
+  float: right;
+  position: relative;
+  top: 20px;
+}
+.logo {
+  display: inline-block;
+  margin: 7px;
+}
+.logo-type {
+  cursor: pointer;
+  position: absolute;
+  font-family: 'Patua One', cursive;
+  font-size: 2.4rem;
+  letter-spacing: -1px;
+  margin-top: 5px;
+  display: inline-block;
+  color: #6B6B6B;
+  padding: 0;
+}
+.nav-links li {
+  float:right;
+}
+.nav-links li a {
+  color: #6B6B6B;
+  text-align: center;
+  font-size: 17px;
+}
+.nav-links li a {
+  padding: 26px 14px 8px 10px;
+}
+.nav-links li.icon a {
+  padding: 8px 0 10px;
+  font-size: 24px;
+}
+/* Hide the list item that contains the link that should open
+and close the top-nav on small screens */
+.nav-links li.icon {
+  display: none;
+  margin: 0;
+}
+
+@media only screen and (max-width: 640px) {
+  .top-nav {
+    padding: 7px;
+  }
+  .logo {
+    width: 30px;
+  }
+  .logo-type {
+    margin: 2px;
+    font-size: 2rem;
+  }
+  .nav-links {
+    top: 5px;
+  }
+  .nav-links li:not(:last-child){
+    display:none;
+  }
+  .nav-links li.icon {
+    display: inline-block;
+  }
+  .nav-links.responsive {
+    position:relative;
+  }
+  .nav-links.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .nav-links.responsive li:first-child {
+    padding-top: 30px;
+  }
+  .nav-links.responsive li {
+    float: none;
+    display: block;
+  }
+  .nav-links.responsive li a {
+    display: block;
+    text-align: left;
+  }
 }

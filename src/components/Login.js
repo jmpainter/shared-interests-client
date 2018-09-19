@@ -1,6 +1,5 @@
 import React from 'react';
 import './Login.css';
-import { Link } from 'react-router-dom';
 
 export default class Login extends React.Component {
   submit(event) {
@@ -9,20 +8,22 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <div className="login">
-        <header>
-          <h1>Log In</h1>
-        </header>
-        <section>
-          <form onSubmit={event => this.submit(event)}>
-            <label htmlFor="username">Username:</label>
-            <input type="text" name="username" id="username" />
-            <label htmlFor="password">Password:</label>
-            <input type="text" name="password" id="password" />
-            <Link to="/dashboard"><button type="submit">Submit</button></Link>
-          </form>
-        </section>
+    <section>
+      <div className="container">
+        <div className="row">
+          <div className="col-6">
+            <h1>Log In</h1>
+            <form action="">
+              <label htmlFor="username">Username</label>
+              <input type="text" id="username" name="username"/>
+              <label htmlFor="password">Password</label>
+              <input type="password" id="password" name="password"/>
+              <button type="submit">Log In</button>
+            </form>
+          </div>
+        </div>
       </div>
+    </section>    
     );
   }
 }

@@ -1,0 +1,43 @@
+.splash {
+  margin: 30px 0;
+  text-align: center;
+}
+.splash button {
+  display: block;
+  margin: 12px auto;
+}
+.splash img {
+  width: 430px;
+}
+.splash h3 {
+  padding: 0 0 2rem;
+}
+.steps {
+  padding: 1rem;
+}
+.blurb {
+  margin: .5rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.blurb h3 {
+  font-size: 1.5rem;
+  padding: 0 0 .7rem;
+  line-height: 1.4rem;
+}
+.start {
+  text-align: center;
+  padding: 40px 10px;
+}
+.latest {
+  text-align: center;
+}
+.latest ul {
+  list-style: none;
+}
+.latest ul li {
+  display: inline-block;
+  margin: 0 1rem 1rem 0;
+  font-size: 1.2rem;
+}

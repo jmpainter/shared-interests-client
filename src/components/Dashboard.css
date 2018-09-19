@@ -1,0 +1,16 @@
+.profile h1 {
+  display: inline-block;
+}
+.profile .face {
+  display: inline-block;
+  position: relative;
+  top: 9px;
+  width: 53px;
+  padding-right: 7px;
+}
+.profile h3 {
+  padding-bottom: 0;
+}
+.profile ul li header {
+  margin: 7px 0 3px;
+}

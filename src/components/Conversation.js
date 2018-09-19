@@ -11,30 +11,33 @@ export class Conversation extends React.Component {
     const conversation = this.props.conversations.find(conversation => conversation.id === conversationId);
     return (
       <div className="conversation">
-      <header>
-        <h1>Conversation</h1>
-      </header>
-      
-      <section>
-        <h2 className="user-name">{ conversation.user.screenName }</h2>
-        <p>{ conversation.user.location }</p>
-        <p>Interests:</p>
-        <InterestList list={ conversation.user.interests }/>
-      </section>
-      
-      <section>
-        <MessageThread messages={ conversation.messages }/>
-      </section>
-      
-      <section>
-        <h2>Reply:</h2>
-        <SendMessage />
-      </section>
-      
-      <section>
-        <button>Delete this conversation</button>
-        <button>Block This Person</button>
-      </section>
+        <section className="section-background user-detail">
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <div className="blurb">
+                  <h2 className="user-name">{ conversation.user.screenName }</h2>
+                  <p>{ conversation.user.location }</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div className="container">
+            <div className="row">
+              <div className="col-4">
+                <h2>Interests:</h2>
+                <InterestList list={ conversation.user.interests }/>
+              </div>
+              <div className="col-8"> 
+                <MessageThread messages={ conversation.messages }/>
+                <SendMessage />
+              </div>
+            </div>
+          </div>
+        </section>      
       </div>
     );
   }

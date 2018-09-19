@@ -1,0 +1,9 @@
+.user-detail {
+  text-align: center;
+}
+.user-detail h1 {
+  padding-bottom: 0;
+}
+.user-detail p {
+  padding-bottom: 2em;
+}
