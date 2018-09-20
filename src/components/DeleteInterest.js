@@ -4,7 +4,7 @@ import './DeleteInterest.css';
 export default class DeleteInterest extends React.Component {
   render() {
     return (
-      <li key={ this.props.id }>{ this.props.name } <button>delete</button></li>
+      <li key={ this.props.id }>{ this.props.name } <button className="small">delete</button></li>
     )  
   }
 }

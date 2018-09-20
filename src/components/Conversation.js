@@ -10,35 +10,23 @@ export class Conversation extends React.Component {
     const conversationId = parseInt(this.props.match.params.id, 10);
     const conversation = this.props.conversations.find(conversation => conversation.id === conversationId);
     return (
-      <div className="conversation">
-        <section className="section-background user-detail">
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
-                <div className="blurb">
-                  <h2 className="user-name">{ conversation.user.screenName }</h2>
-                  <p>{ conversation.user.location }</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <div className="container">
-            <div className="row">
-              <div className="col-4">
-                <h2>Interests:</h2>
+      <section>
+        <div className="container">
+          <div className="row">
+            <div className="col-4">
+              <div className="user-detail">
+                <h2 className="user-name">{ conversation.user.screenName }</h2>
+                <p>{ conversation.user.location }</p>
                 <InterestList list={ conversation.user.interests }/>
               </div>
-              <div className="col-8"> 
-                <MessageThread messages={ conversation.messages }/>
-                <SendMessage />
-              </div>
+            </div>
+            <div className="col-8"> 
+              <MessageThread messages={ conversation.messages }/>
+              <SendMessage />
             </div>
           </div>
-        </section>      
-      </div>
+        </div>
+      </section>  
     );
   }
 }

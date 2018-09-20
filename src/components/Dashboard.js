@@ -14,7 +14,7 @@ export function Dashboard(props) {
         <div className="row">
           <div className="col-12">
             <img className="face" src="images/head.png" alt="smiling face" />
-            <h1>Profile</h1>
+            <h1>Happening</h1>
           </div>
         </div>
         <div className="row">

@@ -7,16 +7,18 @@ import { connect } from 'react-redux';
 
 export function AddEditInterests(props) {
   return (
-    <div className="add-edit-interests">
-      <header>
-        <h1>My Interests</h1>
-      </header>
-      <section>
-        <EditInterests list={ props.interests } />
-        <AddInterest />
-        <Link to="/dashboard">(Not implemented yet) Click to continue</Link>
-      </section>
-    </div>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <h1>My Interests</h1>
+              <EditInterests list={ props.interests } />
+              <AddInterest />
+              <Link to="/dashboard">(Not implemented yet) Click to continue</Link>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

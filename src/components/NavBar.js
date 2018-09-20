@@ -22,7 +22,7 @@ export default class NavBar extends React.Component {
       <div className="container header">
         <div className="row">
           <div className="col-12">
-            <Link to="/"><img src="images/logo.png" className="logo" alt="Shared Interests logo" /><span className="logo-type">Shared Interests</span></Link>
+            <Link to="/"><img src="/images/logo.png" className="logo" alt="Shared Interests logo" /><span className="logo-type">Shared Interests</span></Link>
             <ul className="nav-links">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/login">Log In</Link></li>
