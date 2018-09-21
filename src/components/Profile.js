@@ -5,6 +5,7 @@ import InterestsList from './InterestsList';
 import CategoriesInterestsList from './CategoriesInterestsList';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import requiresLogin from './RequiresLogin';
 
 export function Profile(props) {
   return (
@@ -72,4 +73,4 @@ export const mapStateToProps = state => ({
   interestMatches: state.user.interestMatches
 });
 
-export default connect(mapStateToProps)(Profile);
+export default requiresLogin()(connect(mapStateToProps)(Profile));

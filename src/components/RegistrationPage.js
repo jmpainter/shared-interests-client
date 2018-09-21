@@ -8,10 +8,10 @@ export function RegistrationPage(props) {
     // If we are logged in (which happens automatically when registration
     // is successful) redirect to the user's profile
     if(props.loggedIn) {
-      return <Redirect to="/dashboard" />;
+      return <Redirect to="/profile" />;
     }
     return (
-      <section>
+      <section className="registration-form">
         <div className="container">
           <div className="row">
             <div className="col-6">

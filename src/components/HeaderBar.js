@@ -8,48 +8,45 @@ import { toggleMainMenu } from '../actions/misc';
 
 export class HeaderBar extends React.Component {
  
-  // constructor(props) {
-  //   super(props);
-  // }
-
-  // toggleNav() {
-  //   const nav = $('.nav-links');
-  //   if (nav.attr('class') === 'nav-links'){
-  //     nav.attr('class', 'nav-links responsive');
-  //   } else {
-  //     nav.attr('class', 'nav-links');
-  //   }
-  // }
   logOut() {
     this.props.dispatch(clearAuth());
     clearAuthToken();
+    if(this.props.mainMenuOpen) {
+      this.props.dispatch(toggleMainMenu());
+    }
   }
 
   toggleMenu() {
     this.props.dispatch(toggleMainMenu());
   }
 
+  linkClick() {
+    if(this.props.mainMenuOpen) {
+      this.props.dispatch(toggleMainMenu());
+    }
+  }
+
   render() {
     let userLinks;
+
     if(this.props.loggedIn) {
       userLinks = (
         <span>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/profile">Profile</Link></li>
+          <li><Link onClick={() => this.linkClick()} to="/">Home</Link></li>
+          <li><Link onClick={() => this.linkClick()} to="/profile">Profile</Link></li>
           <li><a className="logout-link" onClick={() => this.logOut()}>Log Out</a></li>
         </span>
       );
     } else {
       userLinks = (
         <span>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/register">Register</Link></li>
-          <li><Link to="/login">Log In</Link></li>
+          <li><Link onClick={() => this.linkClick()} to="/">Home</Link></li>
+          <li><Link onClick={() => this.linkClick()} to="/register">Register</Link></li>
+          <li><Link onClick={() => this.linkClick()} to="/login">Log In</Link></li>
         </span>
       );
     }
     let navLinksClassName = 'nav-links';
-    console.log('this.props.mainMenuOpen: ' + this.props.mainMenuOpen);
     if(this.props.mainMenuOpen) {
       navLinksClassName += ' responsive';
     }

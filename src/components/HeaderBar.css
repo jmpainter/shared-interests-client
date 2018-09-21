@@ -76,10 +76,12 @@ and close the top-nav on small screens */
   .nav-links.responsive {
     display: inline-block;
     margin-top: 40px;
+    width: 100%;
   }
   .nav-links.responsive li a {
     display: block;
     text-align: right;
     padding: 10px 0;
+    border-top: 1px solid #cecece;
   }
 }

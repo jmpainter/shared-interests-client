@@ -45,7 +45,7 @@ h1 {
 }
 h2 {
   font-size: 1.5rem;
-  line-height: 1rem;
+  line-height: 1.7rem;
   padding: 1rem 0;
 }
 h3 {
@@ -471,5 +471,9 @@ input[type="radio"] + label:before {
     padding: 0;
     width: 100%;
     margin: 0;
+  }
+  input, textarea {
+    width: 100%;
+    max-width: 100%;
   }
 }

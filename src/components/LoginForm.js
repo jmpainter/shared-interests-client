@@ -3,6 +3,8 @@ import { Field, reduxForm, focus } from 'redux-form';
 import Input from './Input';
 import { login } from '../actions/auth';
 import { required, nonEmpty } from '../validators';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './LoginForm.css';
 
 export class LoginForm extends React.Component {
@@ -11,6 +13,9 @@ export class LoginForm extends React.Component {
   }
 
   render() {
+    if (this.props.loggedIn) {
+      return <Redirect to="/profile" />;
+    }
     let error;
     if(this.props.error) {
       error = (
@@ -20,7 +25,7 @@ export class LoginForm extends React.Component {
       );
     }
     return (
-    <section>
+    <section className="login-form"> 
       <div className="container">
         <div className="row">
           <div className="col-6">
@@ -43,7 +48,6 @@ export class LoginForm extends React.Component {
                 label="Password"
                 validate={[required, nonEmpty]}
               />
-
               <button disabled={this.props.pristing || this.props.submitting}>
                 Log In
               </button>
@@ -56,7 +60,17 @@ export class LoginForm extends React.Component {
   }
 }
 
+LoginForm.defaultProps = {
+  latitude: 0,
+  longitude: 0,
+  loggedIn: false
+};
+
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser !== null
+});
+
 export default reduxForm({
   form: 'login',
-  onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
-})(LoginForm)
+  onSubmitFail: (errors, dispatch) => dispatch(focus('login', Object.keys(errors)[0]))
+ })(connect(mapStateToProps)(LoginForm));

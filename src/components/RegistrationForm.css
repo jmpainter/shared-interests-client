@@ -5,7 +5,7 @@ form {
 
 input, textarea {
   width: 100%;
-  max-width: 500px;
+  max-width: 640px;
 }
 
 input[type="number"] {
@@ -14,4 +14,8 @@ input[type="number"] {
 
 label {
   display: block;
+}
+
+.registration-form button {
+  margin-top: 15px;
 }
