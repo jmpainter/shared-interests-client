@@ -41,7 +41,7 @@ export class HeaderBar extends React.Component {
       userLinks = (
         <span>
           <li><Link onClick={() => this.linkClick()} to="/">Home</Link></li>
-          <li><Link onClick={() => this.linkClick()} to="/register">Register</Link></li>
+          <li><Link onClick={() => this.linkClick()} to="/register">Sign Up</Link></li>
           <li><Link onClick={() => this.linkClick()} to="/login">Log In</Link></li>
         </span>
       );

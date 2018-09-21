@@ -7,6 +7,7 @@ import AddEditInterests from './AddEditInterests';
 import Profile from './Profile';
 import Conversation from './Conversation';
 import HeaderBar from './HeaderBar';
+import Footer from './Footer';
 import './App.css';
 
 export default function App(props) {
@@ -22,6 +23,7 @@ export default function App(props) {
           <Route exact path="/profile" component={ Profile } />
           <Route path="/conversation/:id" component={ Conversation } />
         </main>
+        <Footer />
       </div>
     </Router>
   );
