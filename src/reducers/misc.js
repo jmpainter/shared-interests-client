@@ -1,24 +1,21 @@
-import { SET_COORDINATES } from '../actions/misc';
+import { SET_COORDINATES, TOGGLE_MAIN_MENU } from '../actions/misc';
 
 const initialState = {
   latitude: null,
-  longitude: null
+  longitude: null,
+  mainMenuOpen: false
 };
 
 export const miscReducer = (state = initialState, action) => {
   if(action.type === SET_COORDINATES) {
-    console.log(action);
-
-    const newState =  Object.assign({}, state, {
+    return Object.assign({}, state, {
       latitude: action.latitude,
       longitude: action.longitude
     });
-    console.log('new State: ' + JSON.stringify(newState));
-    return newState;
-    // return Object.assign({}, state, {
-    //   latitude: action.latitude,
-    //   longitude: action.longitude
-    // });
+  } else if (action.type === TOGGLE_MAIN_MENU) {
+    return Object.assign({}, state, {
+      mainMenuOpen: !state.mainMenuOpen
+    });
   }
   return state;
 }

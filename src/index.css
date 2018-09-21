@@ -99,6 +99,7 @@ button,
   text-decoration: none;
   white-space: nowrap;
   border: 1px solid #e7f119;
+  margin-top: 20px;
 }
 
 input[type="submit"]:hover,
@@ -194,7 +195,6 @@ button:disabled,
 form {
   margin: 0 0 2rem 0;
 }
-
 label {
   color: #555;
   display: block;
@@ -202,7 +202,6 @@ label {
   font-weight: 600;
   margin: 1rem 0 .4rem;
 }
-
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -225,7 +224,6 @@ select
   height: 2.6rem;
   font-size: 1.2rem;
 }
-
 /* input[type="text"]:invalid,
 input[type="password"]:invalid,
 input[type="email"]:invalid,
@@ -234,7 +232,6 @@ select:invalid,
 textarea:invalid {
   box-shadow: none;
 } */
-
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
@@ -243,13 +240,11 @@ textarea:focus {
   border-color: #56a3b8;
   box-shadow: 0 0 0 1px #5385c1;
 }
-
 .select-wrapper {
   text-decoration: none;
   display: block;
   position: relative;
 }
-
 .select-wrapper:before {
   content: "";
   -moz-osx-font-smoothing: grayscale;
@@ -259,7 +254,6 @@ textarea:focus {
   font-weight: normal;
   text-transform: none !important;
 }
-
 .select-wrapper:before {
   color: #dbdbdb;
   display: block;
@@ -272,11 +266,9 @@ textarea:focus {
   top: 0;
   width: 2.75em;
 }
-
 .select-wrapper select::-ms-expand {
   display: none;
 }
-
 textarea {
   padding: 0.75em 1em;
 }
@@ -381,6 +373,9 @@ input[type="radio"] + label:before {
   opacity: 1.0;
 }
 
+.form-error {
+  color: red;
+}
 /* Float grid */
 
 /* Grid measurements:
@@ -422,7 +417,7 @@ input[type="radio"] + label:before {
 
 /* Mobile defaults */
 .col-2, .col-3, .col-4, .col-6, .col-12 {
-  width: 97%;
+  width: 100%;
 }
 
 /* Non-mobile, grid */
