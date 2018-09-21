@@ -12,7 +12,7 @@ export function Start(props) {
           <div className="row">
             <div className="col-12">
               <div className="splash">
-                <img src="images/handshake.png" alt="Handshake" />
+                <img src={require('../images/handshake.png')} alt="Handshake" />
                 <h1>Shared Interests</h1>
                 <h2>Where you can share your interests and connect with others</h2>
               </div>

@@ -1,20 +1,20 @@
 import React from 'react';
-import './Dashboard.css';
+import './Profile.css';
 import Conversations from './Conversations';
 import InterestsList from './InterestsList';
 import CategoriesInterestsList from './CategoriesInterestsList';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-export function Dashboard(props) {
+export function Profile(props) {
   return (
 
     <section>
       <div className="container profile">
         <div className="row">
           <div className="col-12">
-            <img className="face" src="images/head.png" alt="smiling face" />
-            <h1>Happening</h1>
+            <img className="face" src={require('../images/head.png')} alt="smiling face" />
+            <h1>Profile</h1>
           </div>
         </div>
         <div className="row">
@@ -54,7 +54,7 @@ export function Dashboard(props) {
   );
 }
 
-Dashboard.defaultProps = {
+Profile.defaultProps = {
   firstName: 'Josh',
   lastName: 'Painter',
   interestsList: [],
@@ -72,4 +72,4 @@ export const mapStateToProps = state => ({
   interestMatches: state.user.interestMatches
 });
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Profile);

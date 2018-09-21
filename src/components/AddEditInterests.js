@@ -14,7 +14,7 @@ export function AddEditInterests(props) {
             <h1>My Interests</h1>
               <EditInterests list={ props.interests } />
               <AddInterest />
-              <Link to="/dashboard">(Not implemented yet) Click to continue</Link>
+              <Link to="/profile">(Not implemented yet) Click to continue</Link>
           </div>
         </div>
       </div>

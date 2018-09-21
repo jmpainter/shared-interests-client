@@ -22,7 +22,7 @@ export default class SendMessage extends React.Component {
         value.toString('html')
       );
     }
-  };  
+  };
 
   render() {
     return (
@@ -34,7 +34,7 @@ export default class SendMessage extends React.Component {
             value={this.state.value}
             onChange={this.onChange}
           />
-          <Link to="/dashboard"><button type="submit">Send</button></Link>
+          <Link to="/profile"><button type="submit">Send</button></Link>
         </form>
       </div>
     );

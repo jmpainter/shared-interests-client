@@ -1,10 +1,32 @@
-import { combineReducers, createStore } from 'redux';
-import { userReducer, conversationsReducer, surveyReducer } from './reducers';
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
+import { reducer as formReducer } from 'redux-form';
+import thunk from 'redux-thunk';
+import { loadAuthToken } from './local-storage';
+import authReducer from './reducers/auth';
 
-const combinedReducer = combineReducers({
-  user: userReducer,
-  conversations: conversationsReducer,
-  survey: surveyReducer
-});
+import { userReducer, conversationsReducer, surveyReducer, miscReducer } from './reducers';
+import { setAuthToken, refreshAuthToken } from './actions/auth';
 
-export default createStore(combinedReducer);
+const middleware = applyMiddleware(thunk);
+
+const store = createStore(
+  combineReducers({
+    form: formReducer,
+    auth: authReducer,
+    user: userReducer,
+    conversations: conversationsReducer,
+    survey: surveyReducer,
+    misc: miscReducer
+  }),
+  compose(middleware,  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+);
+
+// apply the authToken from localStorage if it exists
+const authToken = loadAuthToken();
+if(authToken) {
+  const token = authToken;
+  store.dispatch(setAuthToken(token));
+  store.dispatch(refreshAuthToken());
+}
+
+export default store;

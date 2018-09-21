@@ -10,12 +10,11 @@
   padding: 0;
   overflow: hidden;
   margin: 0;
-  float: right;
-  position: relative;
-  top: 20px;
+  position: absolute;
+  top: 38px;
+  right: 10px;
 }
 .logo {
-  display: inline-block;
   margin: 7px;
 }
 .logo-type {
@@ -25,12 +24,11 @@
   font-size: 2.4rem;
   letter-spacing: -1px;
   margin-top: 5px;
-  display: inline-block;
   color: #6B6B6B;
   padding: 0;
 }
 .nav-links li {
-  float:right;
+  display: inline;
 }
 .nav-links li a {
   color: #6B6B6B;
@@ -38,7 +36,7 @@
   font-size: 17px;
 }
 .nav-links li a {
-  padding: 26px 14px 8px 10px;
+  padding: 10px;
 }
 .nav-links li.icon a {
   padding: 8px 0 10px;
@@ -62,22 +60,18 @@ and close the top-nav on small screens */
     margin: 2px;
     font-size: 2rem;
   }
-  .nav-links {
-    top: 5px;
-  }
   .nav-links li:not(:last-child){
     display:none;
   }
   .nav-links li.icon {
-    display: inline-block;
+    display: block;
   }
   .nav-links.responsive {
     position:relative;
   }
-  .nav-links.responsive li.icon {
-    position: absolute;
-    right: 0;
-    top: 0;
+  .nav-links {
+    top: 15px;
+    right: 10px;
   }
   .nav-links.responsive li:first-child {
     padding-top: 30px;
