@@ -36,3 +36,32 @@ export const addInterest = interest => (dispatch, getState) => {
     dispatch(addInterestError(err));
   });
 }
+
+export const DELETE_INTEREST_SUCCESS = 'DELETE_INTEREST_SUCCESS';
+export const deleteInterestSuccess = () => ({
+  type: DELETE_INTEREST_SUCCESS
+});
+
+export const DELETE_INTEREST_ERROR = 'DELETE_INTEREST_ERROR';
+export const deleteInterestError = error => ({
+  type: DELETE_INTEREST_ERROR,
+  error
+});
+
+export const deleteInterest = id => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/interests/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    },
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(() => {
+    dispatch(deleteInterestSuccess());
+    dispatch(getUserInfo());
+  })
+  .catch(err => {
+    dispatch(deleteInterestError(err));
+  });
+}
