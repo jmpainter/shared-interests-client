@@ -205,6 +205,7 @@ label {
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input,
 select
 {
   -moz-appearance: none;
@@ -235,6 +236,7 @@ textarea:invalid {
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
+input:focus,
 select:focus,
 textarea:focus {
   border-color: #56a3b8;

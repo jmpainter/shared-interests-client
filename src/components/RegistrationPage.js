@@ -14,7 +14,7 @@ export function RegistrationPage(props) {
       <section className="registration-form">
         <div className="container">
           <div className="row">
-            <div className="col-6">
+            <div className="col-4">
               <h1>Sign Up</h1>
               <RegistrationForm />
             </div>

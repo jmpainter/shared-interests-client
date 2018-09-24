@@ -2,19 +2,20 @@ import React from 'react';
 import './AddEditInterests.css';
 import EditInterests from './EditInterests';
 import AddInterest from './AddInterest';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 export function AddEditInterests(props) {
   return (
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-6">
+    <section className="add-edit-interests"> 
+      <div className="container">
+        <div className="row">
+          <div className="col-6">
             <h1>My Interests</h1>
               <EditInterests list={ props.interests } />
+              <p>New Interest:</p>
               <AddInterest />
-              <Link to="/profile">(Not implemented yet) Click to continue</Link>
+              <button>Done</button>
           </div>
         </div>
       </div>

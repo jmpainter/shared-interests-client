@@ -9,3 +9,21 @@ export const TOGGLE_MAIN_MENU = 'TOGGLE_MAIN_MENU';
 export const toggleMainMenu = () => ({
   type: TOGGLE_MAIN_MENU
 });
+
+export const SET_AUTO_COMPLETE_DATA = 'SET_AUTO_COMPLETE_DATA';
+export const setAutoCompleteData = data => ({
+  type: SET_AUTO_COMPLETE_DATA,
+  data
+});
+
+export const SET_INPUT_VALUE = 'SET_INPUT_VALUE';
+export const setInputValue = value => ({
+  type: SET_INPUT_VALUE,
+  value
+});
+
+export const SET_NEW_INTEREST = 'SET_NEW_INTEREST';
+export const setNewInterest = interest => ({
+  type: SET_NEW_INTEREST,
+  interest
+});
