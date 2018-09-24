@@ -3,8 +3,12 @@ import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
 import { loadAuthToken } from './local-storage';
 import authReducer from './reducers/auth';
-
-import { userReducer, conversationsReducer, surveyReducer, miscReducer } from './reducers';
+import { 
+  userReducer,
+  conversationsReducer,
+  surveyReducer,
+  miscReducer,
+  interestsReducer } from './reducers';
 import { setAuthToken, refreshAuthToken } from './actions/auth';
 
 const middleware = applyMiddleware(thunk);
@@ -16,6 +20,7 @@ const store = createStore(
     user: userReducer,
     conversations: conversationsReducer,
     survey: surveyReducer,
+    interests: interestsReducer,
     misc: miscReducer
   }),
   compose(middleware,  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

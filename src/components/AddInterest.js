@@ -4,6 +4,7 @@ import Autocomplete from 'react-autocomplete';
 import {
   setAutoCompleteData, 
   setInputValue} from '../actions/misc';
+import { addInterest } from '../actions/intererests';
 import './AddInterest.css';
 
 export class AddInterest extends React.Component {
@@ -20,7 +21,12 @@ export class AddInterest extends React.Component {
   }
 
   addInterest(interest) {
-
+    // get wikipidiaId from state
+    const item = this.props.autoCompleteData.find(item => item.title === interest);
+    this.props.dispatch(addInterest({
+      wikiPageId: item.pageid,
+      name: item.title}
+    ));
   }
 
   // Updates the state of the autocomplete data with the remote data obtained via AJAX.
@@ -52,7 +58,6 @@ export class AddInterest extends React.Component {
   onSelect(val){
     this.props.dispatch(setInputValue(val));    
     this.addInterest(val);
-    console.log("Option from 'database' selected : ", val);
   }
 
   // Markup of every rendered item of the autocomplete.

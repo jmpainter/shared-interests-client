@@ -39,7 +39,6 @@ export const getUserInfoError = error => ({
 
 export const getUserInfo = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-
   return fetch(`${API_BASE_URL}/users`, {
     method: 'GET',
     headers: {
