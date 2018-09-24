@@ -39,7 +39,6 @@ export const getUserInfoError = error => ({
 
 export const getUserInfo = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  console.log('authToken : ' + authToken);
 
   return fetch(`${API_BASE_URL}/users`, {
     method: 'GET',
@@ -50,7 +49,6 @@ export const getUserInfo = () => (dispatch, getState) => {
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then(user => {
-    console.log('json: ' + JSON.stringify(user));
     dispatch(getUserInfoSuccess(user))
   })
   .catch(err => {

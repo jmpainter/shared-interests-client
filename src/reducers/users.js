@@ -7,7 +7,6 @@ const initialState = {
 
 export const userReducer = (state = initialState, action) => {
   if(action.type === GET_USER_INFO_SUCCESS) {
-    console.log('from reducer user: ' + action.user);
     return Object.assign({}, state, {
       user: action.user,
       error: null

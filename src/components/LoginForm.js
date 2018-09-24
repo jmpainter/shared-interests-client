@@ -13,7 +13,7 @@ export class LoginForm extends React.Component {
   }
 
   render() {
-    if (this.props.loggedIn) {
+    if (this.props.authToken) {
       return <Redirect to="/profile" />;
     }
     let error;
@@ -63,11 +63,11 @@ export class LoginForm extends React.Component {
 LoginForm.defaultProps = {
   latitude: 0,
   longitude: 0,
-  loggedIn: false
+  authToken: null
 };
 
 const mapStateToProps = state => ({
-  loggedIn: state.auth.currentUser !== null
+  authToken: state.auth.authToken
 });
 
 export default reduxForm({
