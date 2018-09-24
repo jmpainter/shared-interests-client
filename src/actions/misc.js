@@ -21,9 +21,3 @@ export const setInputValue = value => ({
   type: SET_INPUT_VALUE,
   value
 });
-
-export const SET_NEW_INTEREST = 'SET_NEW_INTEREST';
-export const setNewInterest = interest => ({
-  type: SET_NEW_INTEREST,
-  interest
-});

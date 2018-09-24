@@ -1,12 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Autocomplete from 'react-autocomplete';
 import {
   setAutoCompleteData, 
-  setInputValue,
-  setNewInterest} from '../actions/misc';
-
-// Import the Autocomplete Component
-import Autocomplete from 'react-autocomplete';
+  setInputValue} from '../actions/misc';
 import './AddInterest.css';
 
 export class AddInterest extends React.Component {
@@ -22,12 +19,13 @@ export class AddInterest extends React.Component {
     this.retrieveDataAsynchronously = this.retrieveDataAsynchronously.bind(this);
   }
 
-  /**
-   * Updates the state of the autocomplete data with the remote data obtained via AJAX.
-   */ 
+  addInterest(interest) {
+
+  }
+
+  // Updates the state of the autocomplete data with the remote data obtained via AJAX.
 
   retrieveDataAsynchronously(searchText){
-    console.log('retrieveDataAsynchronously ' + searchText);
     if(searchText.length >= 3) {
       const url = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=1&origin=*&srsearch=${searchText}`
   
@@ -42,46 +40,42 @@ export class AddInterest extends React.Component {
     }
   }
 
-  /**
-   * Callback triggered when the user types in the autocomplete field
-   */
+  // Callback triggered when the user types in the autocomplete field
+
   onChange(e){
     this.props.dispatch(setInputValue(e.target.value));
     this.retrieveDataAsynchronously(e.target.value);
   }
   
-  /**
-   * Callback triggered when the autocomplete input changes.
-   */
+  // Callback triggered when the autocomplete input changes.
+
   onSelect(val){
-    this.props.dispatch(setNewInterest(val));
+    this.props.dispatch(setInputValue(val));    
+    this.addInterest(val);
     console.log("Option from 'database' selected : ", val);
   }
 
-  /**
-   * Define the markup of every rendered item of the autocomplete.
-   */
+  // Markup of every rendered item of the autocomplete.
+
   renderItem(item, isHighlighted){
+    let className = 'suggestion';
+    className = isHighlighted ? className + ' highlighted' : className;
     return (
-      <div key={item.pageid} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+      <div className={className} key={item.pageid}>
         {item.title}
       </div>   
     ); 
   }
 
-  /**
-   * Define which property of the autocomplete source will be show to the user.
-   */
+  // Which property of the autocomplete source will be shown to the user.
+
   getItemValue(item){
-    // You can obviously only return the Label or the component you need to show
-    // In this case we are going to show the value and the label that shows in the input
-    // something like "1 - Microsoft"
     return item.title;
   }
 
   render() {
     return (
-      <div>
+      <div className="interests-autocomplete">
         <Autocomplete
           getItemValue={this.getItemValue}
           items={this.props.autoCompleteData}

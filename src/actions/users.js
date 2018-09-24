@@ -24,3 +24,65 @@ export const registerUser = user => dispatch => {
     }
   });
 }
+
+export const GET_USER_INFO_SUCCESS = 'GET_USER_INFO_SUCCESS';
+export const getUserInfoSuccess = user => ({
+  type: GET_USER_INFO_SUCCESS,
+  user
+});
+
+export const GET_USER_INFO_ERROR = 'GET_USER_INFO_ERROR';
+export const getUserInfoError = error => ({
+  type: GET_USER_INFO_ERROR,
+  error
+});
+
+export const getUserInfo = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  console.log('authToken : ' + authToken);
+
+  return fetch(`${API_BASE_URL}/users`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(user => {
+    console.log('json: ' + JSON.stringify(user));
+    dispatch(getUserInfoSuccess(user))
+  })
+  .catch(err => {
+    dispatch(getUserInfoError(err));
+  });
+}
+
+export const PUT_USER_INFO_SUCCESS = 'PUT_USER_INFO_SUCCESS';
+export const putUserInfoSuccess = data => ({
+  type: PUT_USER_INFO_SUCCESS,
+  data
+});
+
+export const PUT_USER_INFO_ERROR = 'PUT_USER_INFO_ERROR';
+export const putUserInfoError = error => ({
+  type: GET_USER_INFO_ERROR,
+  error
+});
+
+export const putUserInfo = user => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/users`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    },
+    body: user
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(({ data }) => dispatch(putUserInfoSuccess(data)))
+  .catch(err => {
+    dispatch(putUserInfoError(err));
+  });
+}
