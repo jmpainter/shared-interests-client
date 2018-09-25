@@ -78,10 +78,52 @@ export const getInterestMatches = () => (dispatch, getState) => {
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then(matches => {
-    dispatch(getInterestMatchesSuccess(matches))
+    // group results by interest
+    const resultObj = {};
+    const resultArray = [];
+    matches.forEach(match => {
+      if(!resultObj[match.interest]) {
+        resultObj[match.interest.name] = [];
+      }
+      resultObj[match.interest.name].push(match.user);
+    });
+    for(let interest in resultObj) {
+      resultArray.push({interest: interest, users: resultObj[interest]});
+    }
+    dispatch(getInterestMatchesSuccess(resultArray));
   })
   .catch(err => {
     dispatch(getInterestMatchesError(err));
+  });
+}
+
+export const GET_OTHER_USER_SUCCESS = 'GET_OTHER_USER_SUCCESS';
+export const getOtherUserSuccess = userData => ({
+  type: GET_OTHER_USER_SUCCESS,
+  userData
+});
+
+export const GET_OTHER_USER_ERROR = 'GET_OTHER_USER_ERROR';
+export const getOtherUserError = error => ({
+  type: GET_OTHER_USER_ERROR,
+  error
+});
+
+export const getOtherUser = userId => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/users/${userId}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(user => {
+    dispatch(getOtherUserSuccess(user));
+  })
+  .catch(err => {
+    dispatch(getOtherUserError(err));
   });
 }
 

@@ -4,6 +4,7 @@ import Conversations from './Conversations';
 import InterestsList from './InterestsList';
 import CategoriesInterestsList from './CategoriesInterestsList';
 import { getUserInfo, getInterestMatches } from '../actions/users';
+import { getConversations } from '../actions/conversations';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import requiresLogin from './RequiresLogin';
@@ -12,6 +13,7 @@ export class Profile extends React.Component {
   componentDidMount() {
     this.props.dispatch(getUserInfo());
     this.props.dispatch(getInterestMatches());
+    this.props.dispatch(getConversations());
   }
   render() {
     return (
@@ -26,7 +28,7 @@ export class Profile extends React.Component {
           <div className="row">
             <div className="col-6">
               <h2>Conversations</h2>
-              <Conversations list={ this.props.conversations } />
+              <Conversations userId={this.props.userId} list={ this.props.conversations } />
             </div>
           </div>
           <hr />
@@ -71,10 +73,11 @@ Profile.defaultProps = {
 };
 
 export const mapStateToProps = state => ({
+  userId: state.user.user.id,
   firstName: state.user.firstName,
   lastName: state.user.lastName,
   interestsList: state.user.user.interests,
-  conversations: state.conversations,
+  conversations: state.conversations.conversations,
   latestInterests: state.survey.latestInterests,
   interestMatches: state.user.interestMatches
 });

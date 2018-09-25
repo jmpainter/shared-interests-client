@@ -5,7 +5,7 @@ import RegistrationPage from './RegistrationPage';
 import LoginForm from './LoginForm';
 import AddEditInterests from './AddEditInterests';
 import Profile from './Profile';
-import Conversation from './Conversation';
+import MeetUser from './MeetUser';
 import HeaderBar from './HeaderBar';
 import Footer from './Footer';
 import './App.css';
@@ -21,7 +21,7 @@ export default function App(props) {
           <Route exact path="/login" component={ LoginForm } />
           <Route exact path="/add-edit-interests" component={ AddEditInterests } />
           <Route exact path="/profile" component={ Profile } />
-          <Route path="/conversation/:id" component={ Conversation } />
+          <Route path="/meet-user/:id" component={ MeetUser } />
         </main>
         <Footer />
       </div>
