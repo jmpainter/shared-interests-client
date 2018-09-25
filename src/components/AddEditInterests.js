@@ -2,25 +2,31 @@ import React from 'react';
 import './AddEditInterests.css';
 import EditInterests from './EditInterests';
 import AddInterest from './AddInterest';
-// import { Link } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-export function AddEditInterests(props) {
-  return (
-    <section className="add-edit-interests"> 
-      <div className="container">
-        <div className="row">
-          <div className="col-6">
-            <h1>My Interests</h1>
-              <EditInterests list={ props.interests } />
-              <p>New Interest:</p>
-              <AddInterest />
-              <button>Done</button>
+export class AddEditInterests extends React.Component {
+
+  doneEditing() {
+    this.props.history.push('/profile');
+  }
+  render() {
+    return (
+      <section className="add-edit-interests"> 
+        <div className="container">
+          <div className="row">
+            <div className="col-6">
+              <h1>My Interests</h1>
+                <EditInterests list={ this.props.interests } />
+                <p>New Interest:</p>
+                <AddInterest />
+                <button onClick={() => this.doneEditing()}>Done</button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
+      </section>
+    );
+  }
 }
 
 AddEditInterests.defaultProps = {

@@ -16,11 +16,17 @@ export class LoginForm extends React.Component {
     if (this.props.authToken) {
       return <Redirect to="/profile" />;
     }
-    let error;
+    let errorMessage;
     if(this.props.error) {
-      error = (
+      let errorText;
+      if(this.props.error.code === 401) {
+        errorText = 'Incorrect Login information';
+      } else {
+        errorText = 'There was a problem with logging in ';
+      }
+      errorMessage = (
         <div className="form-error" aria-live="polite">
-          { this.props.error }
+          <p>{errorText}</p>
         </div>
       );
     }
@@ -31,7 +37,7 @@ export class LoginForm extends React.Component {
           <div className="col-4">
             <h1>Log In</h1>
             <form onSubmit={ this.props.handleSubmit(values => this.onSubmit(values))}>
-              { error }
+              { errorMessage }
               <Field
                 component={Input}
                 type="text"
@@ -63,11 +69,12 @@ export class LoginForm extends React.Component {
 LoginForm.defaultProps = {
   latitude: 0,
   longitude: 0,
-  authToken: null
+  authToken: null,
 };
 
 const mapStateToProps = state => ({
-  authToken: state.auth.authToken
+  authToken: state.auth.authToken,
+  error: state.auth.error
 });
 
 export default reduxForm({

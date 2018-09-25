@@ -3,7 +3,7 @@ import './Profile.css';
 import Conversations from './Conversations';
 import InterestsList from './InterestsList';
 import CategoriesInterestsList from './CategoriesInterestsList';
-import { getUserInfo } from '../actions/users';
+import { getUserInfo, getInterestMatches } from '../actions/users';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import requiresLogin from './RequiresLogin';
@@ -11,6 +11,7 @@ import requiresLogin from './RequiresLogin';
 export class Profile extends React.Component {
   componentDidMount() {
     this.props.dispatch(getUserInfo());
+    this.props.dispatch(getInterestMatches());
   }
   render() {
     return (
@@ -72,7 +73,7 @@ Profile.defaultProps = {
 export const mapStateToProps = state => ({
   firstName: state.user.firstName,
   lastName: state.user.lastName,
-  interestsList: state.user.interests,
+  interestsList: state.user.user.interests,
   conversations: state.conversations,
   latestInterests: state.survey.latestInterests,
   interestMatches: state.user.interestMatches

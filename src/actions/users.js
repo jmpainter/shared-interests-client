@@ -55,31 +55,61 @@ export const getUserInfo = () => (dispatch, getState) => {
   });
 }
 
-export const PUT_USER_INFO_SUCCESS = 'PUT_USER_INFO_SUCCESS';
-export const putUserInfoSuccess = data => ({
-  type: PUT_USER_INFO_SUCCESS,
-  data
+export const GET_INTEREST_MATCHES_SUCCESS = 'GET_INTEREST_MATCHES_SUCCESS';
+export const getInterestMatchesSuccess = matches => ({
+  type: GET_INTEREST_MATCHES_SUCCESS,
+  matches
 });
 
-export const PUT_USER_INFO_ERROR = 'PUT_USER_INFO_ERROR';
-export const putUserInfoError = error => ({
-  type: GET_USER_INFO_ERROR,
+export const GET_INTEREST_MATCHES_ERROR = 'GET_INTEREST_MATCHES_ERROR';
+export const getInterestMatchesError = error => ({
+  type: GET_INTEREST_MATCHES_ERROR,
   error
 });
 
-export const putUserInfo = user => (dispatch, getState) => {
+export const getInterestMatches = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  return fetch(`${API_BASE_URL}/users`, {
-    method: 'PUT',
+  return fetch(`${API_BASE_URL}/users?interests=true`, {
+    method: 'GET',
     headers: {
       Authorization: `Bearer ${authToken}`
-    },
-    body: user
+    }
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then(({ data }) => dispatch(putUserInfoSuccess(data)))
+  .then(matches => {
+    dispatch(getInterestMatchesSuccess(matches))
+  })
   .catch(err => {
-    dispatch(putUserInfoError(err));
+    dispatch(getInterestMatchesError(err));
   });
 }
+
+// export const PUT_USER_INFO_SUCCESS = 'PUT_USER_INFO_SUCCESS';
+// export const putUserInfoSuccess = data => ({
+//   type: PUT_USER_INFO_SUCCESS,
+//   data
+// });
+
+// export const PUT_USER_INFO_ERROR = 'PUT_USER_INFO_ERROR';
+// export const putUserInfoError = error => ({
+//   type: GET_USER_INFO_ERROR,
+//   error
+// });
+
+// export const putUserInfo = user => (dispatch, getState) => {
+//   const authToken = getState().auth.authToken;
+//   return fetch(`${API_BASE_URL}/users`, {
+//     method: 'PUT',
+//     headers: {
+//       Authorization: `Bearer ${authToken}`
+//     },
+//     body: user
+//   })
+//   .then(res => normalizeResponseErrors(res))
+//   .then(res => res.json())
+//   .then(({ data }) => dispatch(putUserInfoSuccess(data)))
+//   .catch(err => {
+//     dispatch(putUserInfoError(err));
+//   });
+// }

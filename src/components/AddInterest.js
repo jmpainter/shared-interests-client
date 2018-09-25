@@ -56,8 +56,9 @@ export class AddInterest extends React.Component {
   // Callback triggered when the autocomplete input changes.
 
   onSelect(val){
-    this.props.dispatch(setInputValue(val));    
     this.addInterest(val);
+    this.props.dispatch(setInputValue(''));    
+    this.props.dispatch(setAutoCompleteData([]));
   }
 
   // Markup of every rendered item of the autocomplete.
