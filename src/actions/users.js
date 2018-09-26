@@ -127,6 +127,36 @@ export const getOtherUser = userId => (dispatch, getState) => {
   });
 }
 
+export const GET_NEARBY_USERS_SUCCESS = 'GET_NEARBY_USERS_SUCCESS';
+export const getNearbyUsersSuccess = users => ({
+  type: GET_NEARBY_USERS_SUCCESS,
+  users
+});
+
+export const GET_NEARBY_USERS_ERROR = 'GET_NEARBY_USERS_ERROR';
+export const getNearbyUsersError = error => ({
+  type: GET_NEARBY_USERS_ERROR,
+  error
+});
+
+export const getNearbyUsers = userId => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/users?nearby=true`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(user => {
+    dispatch(getNearbyUsersSuccess(user));
+  })
+  .catch(err => {
+    dispatch(getNearbyUsersError(err));
+  });
+}
+
 // export const PUT_USER_INFO_SUCCESS = 'PUT_USER_INFO_SUCCESS';
 // export const putUserInfoSuccess = data => ({
 //   type: PUT_USER_INFO_SUCCESS,

@@ -2,8 +2,9 @@ import React from 'react';
 import './Profile.css';
 import Conversations from './Conversations';
 import InterestsList from './InterestsList';
+import UserList from './UserList';
 import CategoriesInterestsList from './CategoriesInterestsList';
-import { getUserInfo, getInterestMatches } from '../actions/users';
+import { getUserInfo, getInterestMatches, getNearbyUsers } from '../actions/users';
 import { getConversations } from '../actions/conversations';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -14,6 +15,7 @@ export class Profile extends React.Component {
     this.props.dispatch(getUserInfo());
     this.props.dispatch(getInterestMatches());
     this.props.dispatch(getConversations());
+    this.props.dispatch(getNearbyUsers());
   }
   render() {
     return (
@@ -39,11 +41,7 @@ export class Profile extends React.Component {
             </div>
             <div className="col-6">
               <h3>Nearby</h3>
-              <ul>
-                <li><a href="user-detail.html">Stan53 - Greenbrae, CA</a></li>
-                <li><a href="user-detail.html">Randy4 - San Francisco, CA</a></li>
-                <li><a href="user-detail.html">Stargazer - Oakand, CA</a></li>
-              </ul>
+              <UserList list={ this.props.nearbyUsers } />
             </div>
           </div>
           <div className="row">
@@ -69,7 +67,8 @@ Profile.defaultProps = {
   interestsList: [],
   conversations: [],
   latestInterests: [],
-  interestMatches: []
+  interestMatches: [],
+  nearbyUsers: []
 };
 
 export const mapStateToProps = state => ({
@@ -79,7 +78,8 @@ export const mapStateToProps = state => ({
   interestsList: state.user.user.interests,
   conversations: state.conversations.conversations,
   latestInterests: state.survey.latestInterests,
-  interestMatches: state.user.interestMatches
+  interestMatches: state.user.interestMatches,
+  nearbyUsers: state.user.nearbyUsers
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Profile));

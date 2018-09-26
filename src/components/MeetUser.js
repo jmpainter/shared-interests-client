@@ -3,7 +3,6 @@ import './MeetUser.css';
 import InterestList from './InterestsList';
 import MessageThread from './MessageThread';
 import SendMessage from './SendMessage';
-import { getConversations } from '../actions/conversations';
 import { getOtherUser } from '../actions/users';
 import { connect } from 'react-redux';
 
@@ -12,11 +11,25 @@ export class MeetUser extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(getOtherUser(this.props.match.params.id));
-    this.props.dispatch(getConversations());
   }
   render() {
     // may or may not be a conversation yet!!!
-    // const conversation = this.props.conversations.find(conversation => conversation.id === conversationId);
+    let currentConversation = null;
+    const otherUserId = this.props.match.params.id;
+    currentConversation = this.props.conversations.find(conversation => {
+      return conversation.users.find(user => user._id === otherUserId)
+    });
+    let conversationInterface;
+    if(currentConversation) {
+      conversationInterface = (
+        <div>
+          <MessageThread messages={ currentConversation.messages }/>
+          <SendMessage />       
+        </div>
+      )
+    } else {
+      conversationInterface = <button>Start a conversation</button>;
+    }
     return (
       <section>
         <div className="container">
@@ -28,20 +41,19 @@ export class MeetUser extends React.Component {
                 <InterestList list={ this.props.meetUser.interests }/>
               </div>
             </div>
-            <div className="col-8"> 
-              <MessageThread messages={ this.props.conversations.messages }/>
-              <SendMessage />
+            <div className="col-8">
+              { conversationInterface }
             </div>
           </div>
         </div>
-      </section>  
+      </section>
     );
   }
 }
   
 MeetUser.defaultProps = {
   meetUser: {},
-  conversations: {}
+  conversations: []
 };
 
 const mapStateToProps = state => ({

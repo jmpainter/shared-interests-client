@@ -1,4 +1,6 @@
-import { GET_CONVERSATIONS_SUCCESS, GET_CONVERSATIONS_ERROR } from '../actions/conversations';
+import { 
+  GET_CONVERSATIONS_SUCCESS,
+  GET_CONVERSATIONS_ERROR  } from '../actions/conversations';
 
 const initialState = {
   conversations: [],
