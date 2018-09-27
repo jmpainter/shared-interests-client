@@ -4,7 +4,7 @@ import Conversations from './Conversations';
 import InterestsList from './InterestsList';
 import UserList from './UserList';
 import CategoriesInterestsList from './CategoriesInterestsList';
-import { getUserInfo, getInterestMatches, getNearbyUsers } from '../actions/users';
+import { getUserInfo, getInterestMatches, getNearbyUsers, getOtherUsers } from '../actions/users';
 import { getConversations } from '../actions/conversations';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -16,6 +16,7 @@ export class Profile extends React.Component {
     this.props.dispatch(getInterestMatches());
     this.props.dispatch(getConversations());
     this.props.dispatch(getNearbyUsers());
+    this.props.dispatch(getOtherUsers());
   }
   render() {
     return (
@@ -30,7 +31,7 @@ export class Profile extends React.Component {
           <div className="row">
             <div className="col-6">
               <h2>Conversations</h2>
-              <Conversations userId={this.props.userId} list={ this.props.conversations } />
+              <Conversations user={this.props.user} list={ this.props.conversations } />
             </div>
           </div>
           <hr />
@@ -47,12 +48,12 @@ export class Profile extends React.Component {
           <div className="row">
             <div className="col-6">
               <h3>My Interests</h3>
-              <InterestsList list={ this.props.interestsList } />    
+              <InterestsList list={ this.props.user.interests } />    
               <Link to='/add-edit-interests'>Edit</Link>
             </div>
             <div className="col-6">
               <h3>Other's Interests</h3>
-              <CategoriesInterestsList list={ this.props.interestMatches }/>
+              <CategoriesInterestsList list={ this.props.otherUsers }/>
             </div>
           </div>
         </div>
@@ -62,24 +63,21 @@ export class Profile extends React.Component {
 }
 
 Profile.defaultProps = {
-  firstName: 'Josh',
-  lastName: 'Painter',
-  interestsList: [],
+  user: {},
   conversations: [],
   latestInterests: [],
   interestMatches: [],
-  nearbyUsers: []
+  nearbyUsers: [],
+  otherUsers: []
 };
 
 export const mapStateToProps = state => ({
-  userId: state.user.user.id,
-  firstName: state.user.firstName,
-  lastName: state.user.lastName,
-  interestsList: state.user.user.interests,
+  user: state.user.user,
   conversations: state.conversations.conversations,
   latestInterests: state.survey.latestInterests,
   interestMatches: state.user.interestMatches,
-  nearbyUsers: state.user.nearbyUsers
+  nearbyUsers: state.user.nearbyUsers,
+  otherUsers: state.user.otherUsers
 });
 
 export default requiresLogin()(connect(mapStateToProps)(Profile));

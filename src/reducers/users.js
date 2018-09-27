@@ -6,7 +6,11 @@ import {
   GET_OTHER_USER_SUCCESS,
   GET_OTHER_USER_ERROR,
   GET_NEARBY_USERS_SUCCESS,
-  GET_NEARBY_USERS_ERROR
+  GET_NEARBY_USERS_ERROR,
+  GET_OTHER_USERS_SUCCESS,
+  GET_OTHER_USERS_ERROR,
+  PUT_USER_INFO_SUCCESS,
+  PUT_USER_INFO_ERROR
 } from "../actions/users";
 
 const initialState = {
@@ -14,6 +18,7 @@ const initialState = {
   interestMatches: [],
   nearbyUsers: [],
   meetUser: {},
+  otherUsers: [],
   error: null
 }
 
@@ -52,6 +57,23 @@ export const userReducer = (state = initialState, action) => {
       error: null
     });
   } else if (action.type === GET_NEARBY_USERS_ERROR) { 
+    return Object.assign({}, state, {
+      error: action.error
+    });
+  } else if(action.type === GET_OTHER_USERS_SUCCESS) {
+    return Object.assign({}, state, {
+      otherUsers: action.users,
+      error: null
+    });
+  } else if (action.type === GET_OTHER_USERS_ERROR) { 
+    return Object.assign({}, state, {
+      error: action.error
+    });
+  } else if(action.type === PUT_USER_INFO_SUCCESS) {
+    return Object.assign({}, state, {
+      error: null
+    });
+  } else if (action.type === PUT_USER_INFO_ERROR) { 
     return Object.assign({}, state, {
       error: action.error
     });

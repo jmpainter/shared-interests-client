@@ -1,6 +1,5 @@
 import { API_BASE_URL } from '../config';
 import {normalizeResponseErrors} from './utils';
-import { getUserInfo } from '../actions/users';
 
 export const ADD_INTEREST_SUCCESS = 'ADD_INTEREST_SUCCESS';
 export const addInterestSuccess = () => ({
@@ -30,7 +29,6 @@ export const addInterest = interest => (dispatch, getState) => {
   .then(res => normalizeResponseErrors(res))
   .then(() => {
     dispatch(addInterestSuccess());
-    dispatch(getUserInfo());
   })
   .catch(err => {
     dispatch(addInterestError(err));
@@ -38,8 +36,9 @@ export const addInterest = interest => (dispatch, getState) => {
 }
 
 export const DELETE_INTEREST_SUCCESS = 'DELETE_INTEREST_SUCCESS';
-export const deleteInterestSuccess = () => ({
-  type: DELETE_INTEREST_SUCCESS
+export const deleteInterestSuccess = interests => ({
+  type: DELETE_INTEREST_SUCCESS,
+  interests
 });
 
 export const DELETE_INTEREST_ERROR = 'DELETE_INTEREST_ERROR';
@@ -59,9 +58,34 @@ export const deleteInterest = id => (dispatch, getState) => {
   .then(res => normalizeResponseErrors(res))
   .then(() => {
     dispatch(deleteInterestSuccess());
-    dispatch(getUserInfo());
   })
   .catch(err => {
     dispatch(deleteInterestError(err));
+  });
+}
+
+export const GET_LATEST_INTERESTS_SUCCESS = 'GET_LATEST_INTERESTS_SUCCESS';
+export const getLatestInterestsSuccess = interests => ({
+  interests,
+  type: GET_LATEST_INTERESTS_SUCCESS
+});
+
+export const GET_LATEST_INTERESTS_ERROR = 'GET_LATEST_INTERESTS_ERROR';
+export const getLatestInterestsError = error => ({
+  type: GET_LATEST_INTERESTS_ERROR,
+  error
+});
+
+export const getLatestInterests = id => (dispatch, getState) => {
+  return fetch(`${API_BASE_URL}/interests`, {
+    method: 'GET'
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(interests => {
+    dispatch(getLatestInterestsSuccess(interests));
+  })
+  .catch(err => {
+    dispatch(getLatestInterestsError(err));
   });
 }

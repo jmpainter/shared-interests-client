@@ -1,0 +1,6 @@
+.message-date, .message-sender {
+  font-size: .8rem;
+}
+.message-text {
+  margin-bottom: 12px;
+}

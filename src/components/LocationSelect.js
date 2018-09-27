@@ -21,20 +21,16 @@ export default class LocationSelect extends React.Component {
   }
 
   handleChange = address => {
-    console.log(address);
     this.setState({ address });
     this.props.input.onChange(address);
   };
  
   handleSelect = address => {
-    console.log(address);
-    console.log(this.props);
     this.setState({ address });
     this.props.input.onChange(address);
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(latLng => {
-        console.log('latLng: ' + JSON.stringify(latLng));
         store.dispatch(setCoordinates(latLng))
        })
       .catch(error => console.error('Error', error));

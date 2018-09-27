@@ -11,8 +11,8 @@ const initialState = {
   latitude: null,
   longitude: null,
   mainMenuOpen: false,
-  autoCompleteData: null,
-  inputValue: null,
+  autoCompleteData: [],
+  inputValue: '',
   editorState: RichTextEditor.createEmptyValue()
 };
 

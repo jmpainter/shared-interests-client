@@ -2,8 +2,7 @@ import {
   GET_CONVERSATIONS_SUCCESS,
   GET_CONVERSATIONS_ERROR,
   ADD_CONVERSATION_SUCCESS,
-  ADD_CONVERSATION_ERROR,
-  SET_CURRENT_CONVERSATION   } from '../actions/conversations';
+  ADD_CONVERSATION_ERROR } from '../actions/conversations';
 
 const initialState = {
   conversations: [],
@@ -31,10 +30,5 @@ export const conversationsReducer = (state = initialState, action) => {
       error: action.error
     });
   } 
-  // else if (action.type === SET_CURRENT_CONVERSATION) {
-  //   return Object.assign({}, state, {
-  //     currentConversation: action.conversation
-  //   });
-  // }
   return state;
 }

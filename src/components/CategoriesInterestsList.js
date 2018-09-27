@@ -3,7 +3,6 @@ import './CategoriesInterestsList.css';
 import { Link } from 'react-router-dom';
 
 export default function CategoriesInterestsList(props) {
-
   const categoriesInterests = props.list.map((interest, index) => {
     const users = interest.users.map(user => {
       const userLink = '/meet-user/' + user._id;

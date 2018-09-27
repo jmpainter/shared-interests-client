@@ -6,7 +6,6 @@ import authReducer from './reducers/auth';
 import { 
   userReducer,
   conversationsReducer,
-  surveyReducer,
   miscReducer,
   interestsReducer } from './reducers';
 import { setAuthToken, refreshAuthToken } from './actions/auth';
@@ -19,7 +18,6 @@ const store = createStore(
     auth: authReducer,
     user: userReducer,
     conversations: conversationsReducer,
-    survey: surveyReducer,
     interests: interestsReducer,
     misc: miscReducer
   }),

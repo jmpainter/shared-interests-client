@@ -3,8 +3,8 @@ import './MeetUser.css';
 import InterestList from './InterestsList';
 import MessageThread from './MessageThread';
 import SendMessage from './SendMessage';
-import { getOtherUser } from '../actions/users';
-import { addConversation, getConversations, setCurrentConversation } from '../actions/conversations';
+import { getOtherUser, putUserInfo, getUserInfo } from '../actions/users';
+import { addConversation } from '../actions/conversations';
 import { connect } from 'react-redux';
 
 
@@ -16,8 +16,16 @@ export class MeetUser extends React.Component {
   
   startConversation() {
     this.props.dispatch(addConversation(this.props.match.params.id));
-    console.log('start conversation');
   }
+
+  blockUser() {
+    console.log('block user');
+    const blockedUsers = this.props.user.blockedUsers;
+    blockedUsers.push(this.props.match.params.id);
+    this.props.dispatch(putUserInfo({ id: this.props.user.id, blockedUsers }))
+      .then(() => this.props.dispatch(getUserInfo()));
+  }
+
   render() {
     // may or may not be a conversation yet!!!
     let currentConversation = null;
@@ -26,7 +34,6 @@ export class MeetUser extends React.Component {
       return conversation.users.find(user => user._id === otherUserId)
     });
     
-    debugger;
     let conversationInterface;
     if(currentConversation) {
       conversationInterface = (
@@ -47,6 +54,7 @@ export class MeetUser extends React.Component {
                 <h2 className="user-name">{ this.props.meetUser.screenName }</h2>
                 <p>{ this.props.meetUser.location }</p>
                 <InterestList list={ this.props.meetUser.interests }/>
+                <a className="block-user" onClick={() => this.blockUser()}>Block User</a>
               </div>
             </div>
             <div className="col-8">
@@ -62,11 +70,13 @@ export class MeetUser extends React.Component {
 MeetUser.defaultProps = {
   meetUser: {},
   conversations: [],
+  user: {}
 };
 
 const mapStateToProps = state => ({
   conversations: state.conversations.conversations,
-  meetUser: state.user.meetUser
+  meetUser: state.user.meetUser,
+  user: state.user.user
 });
 
 export default connect(mapStateToProps)(MeetUser);

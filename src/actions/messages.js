@@ -1,4 +1,3 @@
-import { getConversations } from './conversations';
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 

@@ -21,3 +21,18 @@ export const normalizeResponseErrors = res => {
   }
   return res;
 }
+
+export const formatIntoInterestCategories = data => {
+  const resultObj = {};
+  const resultArray = [];
+  data.forEach(item => {
+    if(!resultObj[item.interest]) {
+      resultObj[item.interest.name] = [];
+    }
+    resultObj[item.interest.name].push(item.user);
+  });
+  for(let interest in resultObj) {
+    resultArray.push({interest: interest, users: resultObj[interest]});
+  }  
+  return resultArray;
+}
