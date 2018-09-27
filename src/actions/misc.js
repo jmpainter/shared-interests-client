@@ -21,3 +21,9 @@ export const setInputValue = value => ({
   type: SET_INPUT_VALUE,
   value
 });
+
+export const SET_EDITOR_STATE = 'SET_EDITOR_STATE';
+export const setEditorState = value => ({
+  type: SET_EDITOR_STATE,
+  value
+});

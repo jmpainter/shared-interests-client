@@ -2,12 +2,18 @@ import {
   SET_COORDINATES, 
   TOGGLE_MAIN_MENU, 
   SET_AUTO_COMPLETE_DATA, 
-  SET_INPUT_VALUE } from '../actions/misc';
+  SET_INPUT_VALUE,
+  SET_EDITOR_STATE } from '../actions/misc';
+
+ import RichTextEditor from 'react-rte';
 
 const initialState = {
   latitude: null,
   longitude: null,
-  mainMenuOpen: false
+  mainMenuOpen: false,
+  autoCompleteData: null,
+  inputValue: null,
+  editorState: RichTextEditor.createEmptyValue()
 };
 
 export const miscReducer = (state = initialState, action) => {
@@ -28,6 +34,11 @@ export const miscReducer = (state = initialState, action) => {
     return Object.assign({}, state, {
       inputValue: action.value
     });
+  } else if (action.type === SET_EDITOR_STATE) {
+    return Object.assign({}, state, {
+      editorState: action.value
+    });
   } 
+
   return state;
 }
