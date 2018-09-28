@@ -1,13 +1,12 @@
 import React from 'react';
-import { deleteInterest } from '../actions/intererests';
-import { getUserInfo } from '../actions/users';
+import { deleteInterestAndUpdateUser } from '../actions/intererests';
 
 import './DeleteInterest.css';
 
 export default class DeleteInterest extends React.Component {
+  
   deleteInterest() {
-    this.props.dispatch(deleteInterest(this.props.id))
-      .then(this.props.dispatch(getUserInfo()));
+    this.props.dispatch(deleteInterestAndUpdateUser(this.props.id));
   }
   render() {
     return (

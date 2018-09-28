@@ -1,5 +1,6 @@
 import { API_BASE_URL } from '../config';
-import {normalizeResponseErrors} from './utils';
+import { normalizeResponseErrors } from './utils';
+import { getUserInfo } from './users';
 
 export const ADD_INTEREST_SUCCESS = 'ADD_INTEREST_SUCCESS';
 export const addInterestSuccess = () => ({
@@ -76,8 +77,7 @@ export const getLatestInterestsError = error => ({
   error
 });
 
-export const getLatestInterests = id => (dispatch, getState) => {
-  console.log('base url: ' + API_BASE_URL);
+export const getLatestInterests = () => dispatch => {
   return fetch(`${API_BASE_URL}/interests`, {
     method: 'GET'
   })
@@ -89,4 +89,14 @@ export const getLatestInterests = id => (dispatch, getState) => {
   .catch(err => {
     dispatch(getLatestInterestsError(err));
   });
+}
+
+export const deleteInterestAndUpdateUser = id => dispatch => {
+  return dispatch(deleteInterest(id))
+    .then(() => dispatch(getUserInfo()));
+}
+
+export const addInterestAndUpdateUser = interest => dispatch => {
+  return dispatch(addInterest(interest))
+    .then(() => dispatch(getUserInfo()));
 }

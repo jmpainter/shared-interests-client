@@ -208,3 +208,8 @@ export const putUserInfo = newUserData => (dispatch, getState) => {
     dispatch(putUserInfoError(err));
   });
 }
+
+export const putUserInfoAndGetUserInfo = newUserData => dispatch => {
+  dispatch(putUserInfo(newUserData))
+    .then(dispatch(getUserInfo()));
+}

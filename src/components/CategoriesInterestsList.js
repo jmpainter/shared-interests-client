@@ -3,30 +3,26 @@ import './CategoriesInterestsList.css';
 import { Link } from 'react-router-dom';
 
 export default function CategoriesInterestsList(props) {
-  if(props.list.length === 0) {
-    return <p>Loading...</p>
-  } else {
-    const categoriesInterests = props.list.map((interest, index) => {
-      const users = interest.users.map(user => {
-        const userLink = '/meet-user/' + user._id;
-        return (
-          <li key={ 'u' + user.id } ><Link to={ userLink } >{ user.screenName } - { user.location}</Link></li>
-        )
-      });
+  const categoriesInterests = props.list.map((interest, index) => {
+    const users = interest.users.map(user => {
+      const userLink = '/meet-user/' + user._id;
       return (
-        <div key={ 'd' + index } >
-          <li key={ 'i' + index} className="interest">{ interest.interest }</li>
-          <ul>
-            { users }
-          </ul>
-        </div>
+        <li key={ 'u' + user.id } ><Link to={ userLink } >{ user.screenName } - { user.location}</Link></li>
       )
     });
-
     return (
-      <ul className="categoriesInterests">
-        { categoriesInterests }
-      </ul>
-    );
-  }
+      <div key={ 'd' + index } >
+        <li key={ 'i' + index} className="interest">{ interest.interest }</li>
+        <ul>
+          { users }
+        </ul>
+      </div>
+    )
+  });
+
+  return (
+    <ul className="categoriesInterests">
+      { categoriesInterests }
+    </ul>
+  );
 }

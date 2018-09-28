@@ -3,7 +3,7 @@ import './MeetUser.css';
 import InterestsList from './InterestsList';
 import MessageThread from './MessageThread';
 import SendMessage from './SendMessage';
-import { getOtherUser, putUserInfo, getUserInfo } from '../actions/users';
+import { getOtherUser, putUserInfoAndGetUserInfo } from '../actions/users';
 import { addConversation } from '../actions/conversations';
 import { connect } from 'react-redux';
 
@@ -22,8 +22,8 @@ export class MeetUser extends React.Component {
     console.log('block user');
     const blockedUsers = this.props.user.blockedUsers;
     blockedUsers.push(this.props.match.params.id);
-    this.props.dispatch(putUserInfo({ id: this.props.user.id, blockedUsers }))
-      .then(() => this.props.dispatch(getUserInfo()));
+    this.props.dispatch(putUserInfoAndGetUserInfo({ id: this.props.user.id, blockedUsers }));
+    this.props.history.push('/profile');    
   }
 
   render() {
@@ -68,7 +68,7 @@ export class MeetUser extends React.Component {
 }
   
 MeetUser.defaultProps = {
-  meetUser: {},
+  meetUser: { interests:[] },
   conversations: [],
   user: {}
 };

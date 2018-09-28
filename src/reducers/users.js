@@ -17,7 +17,7 @@ const initialState = {
   user: { interests:[] },
   interestMatches: [],
   nearbyUsers: [],
-  meetUser: {},
+  meetUser: { interests: [] },
   otherUsers: [],
   error: null
 }

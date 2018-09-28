@@ -1,6 +1,7 @@
 .interests-autocomplete .suggestion {
   height: 1.4rem;
   font-size: 1rem;
+  cursor: pointer;
 }
 .interests-autocomplete .highlighted {
   background-color: #f6ff4a;
