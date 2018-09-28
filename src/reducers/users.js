@@ -14,7 +14,7 @@ import {
 } from "../actions/users";
 
 const initialState = {
-  user: {},
+  user: { interests:[] },
   interestMatches: [],
   nearbyUsers: [],
   meetUser: {},

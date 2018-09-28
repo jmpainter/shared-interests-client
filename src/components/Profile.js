@@ -63,7 +63,7 @@ export class Profile extends React.Component {
 }
 
 Profile.defaultProps = {
-  user: {},
+  user: { interests:[] },
   conversations: [],
   latestInterests: [],
   interestMatches: [],
@@ -74,7 +74,7 @@ Profile.defaultProps = {
 export const mapStateToProps = state => ({
   user: state.user.user,
   conversations: state.conversations.conversations,
-  latestInterests: state.survey.latestInterests,
+  latestInterests: state.interests.latestInterests,
   interestMatches: state.user.interestMatches,
   nearbyUsers: state.user.nearbyUsers,
   otherUsers: state.user.otherUsers

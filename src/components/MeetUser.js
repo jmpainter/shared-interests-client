@@ -1,6 +1,6 @@
 import React from 'react';
 import './MeetUser.css';
-import InterestList from './InterestsList';
+import InterestsList from './InterestsList';
 import MessageThread from './MessageThread';
 import SendMessage from './SendMessage';
 import { getOtherUser, putUserInfo, getUserInfo } from '../actions/users';
@@ -53,7 +53,7 @@ export class MeetUser extends React.Component {
               <div className="user-detail">
                 <h2 className="user-name">{ this.props.meetUser.screenName }</h2>
                 <p>{ this.props.meetUser.location }</p>
-                <InterestList list={ this.props.meetUser.interests }/>
+                <InterestsList list={ this.props.meetUser.interests }/>
                 <a className="block-user" onClick={() => this.blockUser()}>Block User</a>
               </div>
             </div>
