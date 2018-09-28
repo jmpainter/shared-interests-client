@@ -77,6 +77,7 @@ export const getLatestInterestsError = error => ({
 });
 
 export const getLatestInterests = id => (dispatch, getState) => {
+  console.log('base url: ' + API_BASE_URL);
   return fetch(`${API_BASE_URL}/interests`, {
     method: 'GET'
   })
