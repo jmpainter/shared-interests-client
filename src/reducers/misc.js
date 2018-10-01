@@ -5,7 +5,7 @@ import {
   SET_INPUT_VALUE,
   SET_EDITOR_STATE } from '../actions/misc';
 
- import RichTextEditor from 'react-rte';
+import RichTextEditor from 'react-rte';
 
 const initialState = {
   latitude: null,

@@ -4,10 +4,10 @@ import PlacesAutocomplete, {
   getLatLng,
 } from 'react-places-autocomplete';
 import { setCoordinates } from '../actions/misc';
-import store from '../store';
+import { connect } from 'react-redux';
 import './LocationSelect.css';
 
-export default class LocationSelect extends React.Component {
+export class LocationSelect extends React.Component {
 
   constructor(props) {
     super(props);
@@ -31,7 +31,7 @@ export default class LocationSelect extends React.Component {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(latLng => {
-        store.dispatch(setCoordinates(latLng))
+        this.props.dispatch(setCoordinates(latLng))
        })
       .catch(error => console.error('Error', error));
   };
@@ -94,3 +94,7 @@ export default class LocationSelect extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({});
+
+export default connect(mapStateToProps)(LocationSelect);

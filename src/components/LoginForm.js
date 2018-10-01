@@ -8,8 +8,11 @@ import { connect } from 'react-redux';
 import './LoginForm.css';
 
 export class LoginForm extends React.Component {
-  onSubmit(values) {
-    return this.props.dispatch(login(values.username, values.password));
+
+  mySubmit(values) {
+    // will use either the actual onSubmit passed in mapDispatchToProps
+    // or the version from test
+    return this.props.props.onSubmit(values);
   }
 
   render() {
@@ -36,7 +39,7 @@ export class LoginForm extends React.Component {
         <div className="row">
           <div className="col-4">
             <h1>Log In</h1>
-            <form onSubmit={ this.props.handleSubmit(values => this.onSubmit(values))}>
+            <form onSubmit={ this.props.handleSubmit(values => this.mySubmit(values))}>
               { errorMessage }
               <Field
                 component={Input}
@@ -77,7 +80,29 @@ const mapStateToProps = state => ({
   error: state.auth.error
 });
 
+const mapDispatchToProps = dispatch => {
+  return {
+    onSubmit: values => {
+      dispatch(login(values.username, values.password));
+    }
+  }
+}
+
+// Here we can override the dispatch onSubmit with an onSubmit function passed
+// in for testing
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const mergedProps = Object.assign({}, stateProps, { props: dispatchProps }, ownProps);
+  // getting warning during test
+  delete mergedProps.ref;
+  return mergedProps;
+}
+
 export default reduxForm({
   form: 'login',
-  onSubmitFail: (errors, dispatch) => dispatch(focus('login', Object.keys(errors)[0]))
- })(connect(mapStateToProps)(LoginForm));
+  onSubmitFail: (errors, dispatch) => {
+    // There is a possible failed submit with no errors during testing
+    if(errors) {
+      dispatch(focus('login', Object.keys(errors)[0]))
+    }
+  }
+ })(connect(mapStateToProps, mapDispatchToProps, mergeProps)(LoginForm));
