@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './EditInterests.js';
+import './EditInterests.css';
 import DeleteInterest from './DeleteInterest';
 
 export class EditInterests extends React.Component {

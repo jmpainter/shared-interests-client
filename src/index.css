@@ -36,8 +36,12 @@ a {
 a:hover {
   font-weight: 700;
 }
+.nav-links a:hover {
+  font-weight: normal;
+}
 main {
   padding: 0;
+  min-height: 68vh;
 }
 h1, h2, h3 {
   font-family: 'Patua One', serif;
@@ -64,8 +68,8 @@ ul {
   padding-left: 0;
 }
 li {
-  padding-bottom: 4px;
   font-size: 1.2rem;
+  line-height: 1.7rem;
 }
 .clr {
   clear: both;
@@ -126,7 +130,7 @@ input[type="submit"].icon,
 input[type="button"].icon,
 button.icon,
 .button.icon {
-  padding-left: 1.35em;
+  padding-left: 1.735em;
 }
 
 input[type="submit"].icon:before,
@@ -457,6 +461,9 @@ input[type="radio"] + label:before {
 /* Tablet */
 @media only screen and (max-width: 950px) {
   .container {
+    width: 90%;
+  }
+  .top-nav .container {
     width: 100%;
   }
   .splash img {

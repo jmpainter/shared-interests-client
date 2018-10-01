@@ -5,12 +5,14 @@ import './DeleteInterest.css';
 
 export default class DeleteInterest extends React.Component {
   
-  deleteInterest() {
-    this.props.dispatch(deleteInterestAndUpdateUser(this.props.id));
+  deleteInterest(event) {
+    if(window.confirm(`Are you sure you want to delete ${event.target.nextSibling.data}?`)) {
+      this.props.dispatch(deleteInterestAndUpdateUser(this.props.id));
+    }
   }
   render() {
     return (
-      <li key={ this.props.id }>{ this.props.name } <button className="small" onClick={() => this.deleteInterest()}>delete</button></li>
+      <li key={ this.props.id }><i className="delete-icon far fa-minus-square" onClick={event => this.deleteInterest(event)}></i>{ this.props.name } </li>
     )  
   }
 }

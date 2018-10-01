@@ -19,10 +19,12 @@ export class MeetUser extends React.Component {
   }
 
   blockUser() {
-    const blockedUsers = this.props.user.blockedUsers;
-    blockedUsers.push(this.props.match.params.id);
-    this.props.dispatch(putUserInfoAndGetUserInfo({ id: this.props.user.id, blockedUsers }));
-    this.props.history.push('/profile');    
+    if(window.confirm('Are you sure you want to block this user?')) {
+      const blockedUsers = this.props.user.blockedUsers;
+      blockedUsers.push(this.props.match.params.id);
+      this.props.dispatch(putUserInfoAndGetUserInfo({ id: this.props.user.id, blockedUsers }));
+      this.props.history.push('/profile');    
+    }
   }
 
   render() {
@@ -48,12 +50,12 @@ export class MeetUser extends React.Component {
       <section>
         <div className="container">
           <div className="row">
-            <div className="col-4">
+            <div className="col-4 user-detail-container">
               <div className="user-detail">
-                <h2 className="user-name">{ this.props.meetUser.screenName }</h2>
-                <p>{ this.props.meetUser.location }</p>
+                <h1>{ this.props.meetUser.screenName }</h1>
+                <p className="user-location">{ this.props.meetUser.location }</p>
                 <InterestsList list={ this.props.meetUser.interests }/>
-                <a className="block-user" onClick={() => this.blockUser()}>Block User</a>
+                <a className="block-user button" onClick={() => this.blockUser()}>Block User</a>
               </div>
             </div>
             <div className="col-8">
