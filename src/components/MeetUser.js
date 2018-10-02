@@ -7,7 +7,6 @@ import { getOtherUser, putUserInfoAndGetUserInfo } from '../actions/users';
 import { addConversation } from '../actions/conversations';
 import { connect } from 'react-redux';
 
-
 export class MeetUser extends React.Component {
 
   componentDidMount() {
@@ -21,6 +20,7 @@ export class MeetUser extends React.Component {
   blockUser() {
     const blockedUsers = this.props.user.blockedUsers;
     blockedUsers.push(this.props.match.params.id);
+    debugger;
     this.props.dispatch(putUserInfoAndGetUserInfo({ id: this.props.user.id, blockedUsers }));
     this.props.history.push('/profile');    
   }
