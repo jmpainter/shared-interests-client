@@ -41,7 +41,7 @@ export class MeetUser extends React.Component {
         </div>
       )
     } else {
-      conversationInterface = <button onClick={() => this.startConversation()}>Start a conversation</button>;
+      conversationInterface = <button className="start-conversation" onClick={() => this.startConversation()}>Start a conversation</button>;
     }
     return (
       <section>
