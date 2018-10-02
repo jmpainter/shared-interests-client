@@ -47,8 +47,12 @@ export class AddInterest extends React.Component {
   // Callback triggered when the user types in the autocomplete field
 
   onChange(e){
-    this.props.dispatch(setInputValue(e.target.value));
-    this.retrieveDataAsynchronously(e.target.value);
+    if(this.props.isTest) {
+      this.addInterest(e.target.value);
+    } else {
+      this.props.dispatch(setInputValue(e.target.value));
+      this.retrieveDataAsynchronously(e.target.value);
+    }
   }
   
   // Callback triggered when the autocomplete input changes.
