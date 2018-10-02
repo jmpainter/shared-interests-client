@@ -6,7 +6,7 @@ import './DeleteInterest.css';
 export default class DeleteInterest extends React.Component {
   
   deleteInterest(event) {
-    if(window.confirm(`Are you sure you want to delete ${event.target.nextSibling.data}?`)) {
+    if(this.props.isTest || window.confirm(`Are you sure you want to delete ${event.target.nextSibling.data}?`)) {
       this.props.dispatch(deleteInterestAndUpdateUser(this.props.id));
     }
   }

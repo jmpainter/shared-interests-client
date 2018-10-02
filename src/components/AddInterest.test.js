@@ -2,16 +2,16 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { deleteInterestAndUpdateUser } from '../actions/intererests';
 
-import AddInterest from './AddInterest';
+import { AddInterest } from './AddInterest';
 
-describe('<DeleteInterest />', () => {
+describe('<AddInterest />', () => {
   
   it('Renders without crashing', () => {
-    shallow(<AddInterest key="1" id="1"name="fake" />);
+    shallow(<AddInterest />);
   });
 
   // it('Renders the interest to be deleted', () => {
-  //   const wrapper = shallow(<DeleteInterest key="1" id="1"name="fake" />);
+  //   const wrapper = shallow(<DeleteInterest key="1" id="1"name=aa"fake" />);
   //   expect(wrapper.html()).toEqual('<li>fake <button class=\"delete-interest\">delete</button></li>');
   // });
 

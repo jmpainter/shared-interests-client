@@ -21,7 +21,7 @@ describe('<MeetUser />', () => {
     const dispatch = jest.fn();
     // send in the user id parameter which would have been in the URL
     const match = { params: { id: 'fakeId' } };
-    const wrapper =  shallow(<MeetUser store={store} history={[]} user={initialState.user.user} dispatch={dispatch} match={match} list={[]} />);
+    const wrapper =  shallow(<MeetUser store={store} isTest={true} history={[]} user={initialState.user.user} dispatch={dispatch} match={match} list={[]} />);
     wrapper.find('.block-user').simulate('click');
     // make sure the last call to dispatch is for the correct thunk
     expect(dispatch.mock.calls[dispatch.mock.calls.length - 1][0].toString()).toEqual(putUserInfoAndGetUserInfo(dispatch).toString());

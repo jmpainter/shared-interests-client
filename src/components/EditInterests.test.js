@@ -12,6 +12,6 @@ describe('<EditInterests />', () => {
   it('Renders a list of intererests', () => {
     const interests = initialState.user.user.interests;
     const wrapper =  shallow(<EditInterests interests={interests} />);
-    expect(wrapper.html()).toEqual('<ul class=\"edit-interests\"><li>Mountain Biking <button class=\"delete-interest\">delete</button></li><li>Scuba diving <button class=\"delete-interest\">delete</button></li><li>Jazz <button class=\"delete-interest\">delete</button></li></ul>');
+    expect(wrapper.html()).toEqual('<ul class=\"edit-interests\"><li><i class=\"delete-icon far fa-minus-square\"></i>Mountain Biking </li><li><i class=\"delete-icon far fa-minus-square\"></i>Scuba diving </li><li><i class=\"delete-icon far fa-minus-square\"></i>Jazz </li></ul>');
   });
 });
