@@ -10,7 +10,7 @@ export default class DeleteInterest extends React.Component {
   }
   render() {
     return (
-      <li key={ this.props.id }>{ this.props.name } <button className="small" onClick={() => this.deleteInterest()}>delete</button></li>
+      <li key={ this.props.id }>{ this.props.name } <button className="delete-interest" onClick={() => this.deleteInterest()}>delete</button></li>
     )  
   }
 }
