@@ -2,10 +2,9 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { MeetUser } from './MeetUser';
 import { initialState } from '../setupTests';
-import Provider from 'redux';
 import configureStore from 'redux-mock-store' //ES6 modules
 import thunk from 'redux-thunk';
-import { getOtherUser, putUserInfoAndGetUserInfo } from '../actions/users';
+import {  putUserInfoAndGetUserInfo } from '../actions/users';
 const middlewares = [thunk]
 const mockStore = configureStore(middlewares)
 const store = mockStore(initialState)
@@ -24,6 +23,8 @@ describe('<MeetUser />', () => {
     const match = { params: { id: '5b9881ec8b887645bc2454a0' } };
     const wrapper =  shallow(<MeetUser store={store} history={[]} user={initialState.user.user} dispatch={dispatch} match={match} list={[]} />);
     wrapper.find('.block-user').simulate('click');
-    expect(dispatch).toHaveBeenCalledTimes(2);
+    // make sure the last call to dispatch is for the correct thunk
+    expect(dispatch.mock.calls[1][0].toString()).toEqual(putUserInfoAndGetUserInfo(dispatch).toString());
   });
+  
 });
