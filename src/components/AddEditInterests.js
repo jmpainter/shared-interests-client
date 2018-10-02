@@ -20,7 +20,7 @@ export class AddEditInterests extends React.Component {
                 <EditInterests list={ this.props.interests } />
                 <p>New Interest:</p>
                 <AddInterest />
-                <button onClick={() => this.doneEditing()}>Done</button>
+                <button className="done-editing" onClick={() => this.doneEditing()}>Done</button>
             </div>
           </div>
         </div>
