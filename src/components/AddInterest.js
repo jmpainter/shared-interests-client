@@ -7,16 +7,16 @@ import './AddInterest.css';
 
 export class AddInterest extends React.Component {
 
-  constructor(props, context) {
-    super(props, context);
+  // constructor(props, context) {
+  //   super(props, context);
 
-    // Bind `this` context to functions of the class
-    this.onChange = this.onChange.bind(this);
-    this.onSelect = this.onSelect.bind(this);
-    this.getItemValue = this.getItemValue.bind(this);
-    this.renderItem = this.renderItem.bind(this);
-    this.retrieveDataAsynchronously = this.retrieveDataAsynchronously.bind(this);
-  }
+  //   // Bind `this` context to functions of the class
+  //   this.onChange = this.onChange.bind(this);
+  //   this.onSelect = this.onSelect.bind(this);
+  //   this.getItemValue = this.getItemValue.bind(this);
+  //   this.renderItem = this.renderItem.bind(this);
+  //   // this.retrieveDataAsynchronously = this.retrieveDataAsynchronously.bind(this);
+  // }
 
   addInterest(interest) {
     // get wikipidiaId from state
@@ -81,12 +81,12 @@ export class AddInterest extends React.Component {
     return (
       <div className="interests-autocomplete">
         <Autocomplete
-          getItemValue={this.getItemValue}
-          items={this.props.autoCompleteData}
-          renderItem={this.renderItem}
-          value={this.props.value}
-          onChange={this.onChange}
-          onSelect={this.onSelect}
+          getItemValue={() => this.getItemValue()}
+          items={() => this.props.autoCompleteData()}
+          renderItem={() => this.renderItem()}
+          value={() => this.props.value()}
+          onChange={() => this.onChange()}
+          onSelect={() => this.onSelect()}
         />
       </div>
     );

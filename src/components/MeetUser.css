@@ -1,12 +1,23 @@
 .user-detail {
+  display: inline-block;
   text-align: center;
+  border: 1px solid #cfcfcf;
+  margin: auto;
+  padding: 1rem 1.5rem;
+  border-radius: 7px;
 }
 .user-detail h1 {
   padding-bottom: 0;
+  padding: 1rem 0 0;
 }
 .block-user {
-  display: block;
   font-size: .7rem;
   cursor: pointer;
-  margin-top: 50px;
+  margin-top: 5rem;
+}
+.user-location {
+  font-size: 1rem;
+}
+.user-detail-container {
+  text-align: center;
 }

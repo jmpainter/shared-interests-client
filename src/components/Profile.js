@@ -49,7 +49,7 @@ export class Profile extends React.Component {
             <div className="col-6">
               <h3>My Interests</h3>
               <InterestsList list={ this.props.user.interests } />    
-              <Link to='/add-edit-interests'>Edit</Link>
+              <Link className="button" to='/add-edit-interests'>Edit</Link>
             </div>
             <div className="col-6">
               <h3>Other's Interests</h3>

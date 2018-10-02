@@ -10,14 +10,6 @@ describe('<DeleteInterest />', () => {
     shallow(<DeleteInterest key="1" id="1"name="fake" />);
   });
 
-  // it('Sends the message', () => {
-  //   const dispatch = jest.fn();
-  //   const wrapper = shallow(<SendMessage dispatch={dispatch} editorState={editorState} conversationId={'fake'} />);
-  //   const form = wrapper.find('form');
-  //   form.simulate('submit');
-  //   expect(dispatch.mock.calls[dispatch.mock.calls.length - 1][0].toString()).toEqual(addMessageAndGetConversations(dispatch).toString());
-  // });
-
   it('Renders the interest to be deleted', () => {
     const wrapper = shallow(<DeleteInterest key="1" id="1"name="fake" />);
     expect(wrapper.html()).toEqual('<li>fake <button class=\"delete-interest\">delete</button></li>');

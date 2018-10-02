@@ -1,7 +1,8 @@
 .add-edit-interests button {
   display: inline;
 }
-.add-edit-interests p {
+.new-interest {
   font-size: 1.2rem;
-  margin-bottom: .5rem;
+  margin: 2.3rem 0 .5rem;
+  font-weight: 700;
 }

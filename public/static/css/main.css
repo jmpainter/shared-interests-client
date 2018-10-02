@@ -14,6 +14,10 @@ footer, header, menu, nav, section, summary
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+html, body {
+  height: 100%;
+  position: relative;
+}
 html {
   box-sizing: border-box;
 }
@@ -125,53 +129,6 @@ and close the top-nav on small screens */
   margin: 0;
 }
 
-/* Home Screen */
-
-.splash {
-  margin: 30px 0;
-  /* padding: 9px 15px; */
-  text-align: center;
-}
-.splash button {
-  display: block;
-  margin: 12px auto;
-}
-.splash img {
-  width: 430px;
-}
-.splash h3 {
-  padding: 0 0 2rem;
-}
-.steps {
-  padding: 1rem;
-}
-.blurb {
-  margin: .5rem;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 1rem;
-}
-.blurb h3 {
-  font-size: 1.5rem;
-  padding: 0 0 .7rem;
-  line-height: 1.4rem;
-}
-.start {
-  text-align: center;
-  padding: 40px 10px;
-}
-.latest {
-  text-align: center;
-}
-.latest ul {
-  list-style: none;
-}
-.latest ul li {
-  display: inline-block;
-  margin: 0 1rem 1rem 0;
-  font-size: 1.2rem;
-}
-
 /* Log In */
 
 button[type="submit"] {
@@ -206,19 +163,6 @@ button[type="submit"] {
 }
 .user-detail p {
   padding-bottom: 2em;
-}
-
-/* Footer */
-
-.footer {
-  padding: 2rem;
-}
-footer {
-  border-top: 1px solid #d4d4d4;
-  text-align: center;
-}
-footer p {
-  font-size: .9rem;
 }
 
 /* Buttons  */

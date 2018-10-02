@@ -28,10 +28,11 @@
 }
 .start {
   text-align: center;
-  padding: 40px 10px;
+  padding: 3rem 0;
 }
 .latest {
   text-align: center;
+  padding: 1rem;
 }
 .latest ul {
   list-style: none;
