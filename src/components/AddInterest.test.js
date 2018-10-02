@@ -17,6 +17,7 @@ describe('<AddInterest />', () => {
 
   it('Adds the interest', () => {
     const dispatch = jest.fn();
+    // inject autoCompleteData
     const autoCompleteData = [{
       title: "Sun",
       pageid: 26751

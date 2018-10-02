@@ -40,7 +40,7 @@
 .nav-links li a {
   padding: 10px;
 }
-.toggleButton {
+.toggle-button {
   padding: 8px 0 10px;
   font-size: 24px;
   position: absolute;
@@ -49,7 +49,7 @@
 }
 /* Hide the list item that contains the link that should open
 and close the top-nav on small screens */
-.toggleButton {
+.toggle-button {
   display: none;
   margin: 0;
 }
@@ -71,7 +71,7 @@ and close the top-nav on small screens */
   .nav-links {
     display:none;
   }
-  .toggleButton {
+  .toggle-button {
     display: inline-block;
   }
   .nav-links.responsive {

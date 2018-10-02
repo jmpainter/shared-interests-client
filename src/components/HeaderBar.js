@@ -28,7 +28,6 @@ export class HeaderBar extends React.Component {
 
   render() {
     let userLinks;
-
     if(this.props.loggedIn) {
       userLinks = (
         <span>
@@ -62,7 +61,7 @@ export class HeaderBar extends React.Component {
                 { userLinks }
               </ul>
             </nav>
-            <a className="toggleButton" onClick={() => this.toggleMenu()}>&#8801;</a>
+            <a className="toggle-button" onClick={() => this.toggleMenu()}>&#8801;</a>
           </div>
         </div>
       </div>
