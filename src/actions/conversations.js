@@ -62,9 +62,3 @@ export const addConversation = recipient => (dispatch, getState) => {
     dispatch(addConversationError(err));
   });
 }
-
-// export const SET_CURRENT_CONVERSATION = 'SET_CURRENT_CONVERSATION';
-// export const setCurrentConversation = conversation => ({
-//   type: SET_CURRENT_CONVERSATION,
-//   conversation
-// });

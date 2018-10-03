@@ -1,6 +1,7 @@
 import { SubmissionError } from 'redux-form';
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors, formatIntoInterestCategories } from './utils';
+import { login } from '../actions/auth';
 
 export const registerUser = user => dispatch => {
   return fetch(`${API_BASE_URL}/users`, {
@@ -211,5 +212,10 @@ export const putUserInfo = newUserData => (dispatch, getState) => {
 
 export const putUserInfoAndGetUserInfo = newUserData => dispatch => {
   dispatch(putUserInfo(newUserData))
-    .then(dispatch(getUserInfo()));
+    .then(() => dispatch(getUserInfo()));
+}
+
+export const registerUserAndLoginUser = user => dispatch => {
+  dispatch(registerUser(user))
+    .then(() => dispatch(login(user.username, user.password)));
 }

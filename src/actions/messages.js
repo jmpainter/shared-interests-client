@@ -36,5 +36,5 @@ export const addMessage = (conversationId, text) => (dispatch, getState) => {
 
 export const addMessageAndGetConversations = (conversationId, text) => dispatch => {
   dispatch(addMessage(conversationId, text))
-    .then(dispatch(getConversations()));
+    .then(() => dispatch(getConversations()));
 }
