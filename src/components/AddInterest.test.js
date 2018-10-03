@@ -10,11 +10,6 @@ describe('<AddInterest />', () => {
     shallow(<AddInterest />);
   });
 
-  // it('Renders the interest to be deleted', () => {
-  //   const wrapper = shallow(<DeleteInterest key="1" id="1"name=aa"fake" />);
-  //   expect(wrapper.html()).toEqual('<li>fake <button class=\"delete-interest\">delete</button></li>');
-  // });
-
   it('Adds the interest', () => {
     const dispatch = jest.fn();
     // inject autoCompleteData
