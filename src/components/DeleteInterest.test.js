@@ -4,6 +4,20 @@ import { deleteInterestAndUpdateUser } from '../actions/interests';
 
 import DeleteInterest from './DeleteInterest';
 
+// Mock the async action
+const mockDeleteInterestAndUpdateUser = {
+  type: 'DELETE_INTEREST_AND_UPDATE_USER'
+};
+
+jest.mock('../actions/interests', () => Object.assign({},
+  require.requireActual('../actions/interests'),
+  {
+    deleteInterestAndUpdateUser: jest.fn().mockImplementation(() => {
+        return mockDeleteInterestAndUpdateUser;
+    })
+  }
+));
+
 describe('<DeleteInterest />', () => {
   
   it('Renders without crashing', () => {
@@ -19,8 +33,8 @@ describe('<DeleteInterest />', () => {
     const dispatch = jest.fn();
     const wrapper = shallow(<DeleteInterest isTest={true} dispatch={dispatch} key="1" id="1"name="fake" />);
     wrapper.find('.delete-icon').simulate('click');
-    // check that the first call to dispatch is for the correct action
-    expect(dispatch.mock.calls[0][0].toString()).toEqual(deleteInterestAndUpdateUser(dispatch).toString());
+    // check that the first call to dispatch is for the mock action
+    expect(dispatch).toHaveBeenCalledWith(mockDeleteInterestAndUpdateUser);
   });
 
 });

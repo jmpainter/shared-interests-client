@@ -1,9 +1,7 @@
 import LoginForm from './LoginForm';
 import React from 'react';
 import sinon from 'sinon';
-
 import { shallow, mount } from 'enzyme'
-
 import { reducer as formReducer } from 'redux-form';
 import { authReducer } from '../reducers/auth';
 import { createStore, combineReducers } from 'redux';
@@ -26,8 +24,8 @@ describe("LoginForm", () => {
       </Provider>
     );
     const form = component.find('form')
-      // the Form, connected to Redux-Form, won't submit unless it's
-      // valid. Thus, a username and password are entered here
+      // the form, connected to Redux-Form, won't submit unless it's
+      // valid, so a username and password are entered here
     let input = component.find('input').first();
     input.simulate('change', { target: { value: 'username@gmail.com' } })
     input = component.find('input').last();

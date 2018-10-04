@@ -1,22 +1,20 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { addInterestAndUpdateUser } from '../actions/interests';
-
 import { AddInterest } from './AddInterest';
 
-// Mock the async fetchBoard action
-// const mockAddInterestAndUpdateUser = {
-//   type: 'ADD_INTEREST_AND_UPDATE_USER'
-// };
+// Mock the async action
+const mockAddInterestAndUpdateUser = {
+  type: 'ADD_INTEREST_AND_UPDATE_USER'
+};
 
-// jest.mock('../actions', () => Object.assign({},
-//   require.requireActual('../actions'),
-//   {
-//     addInterestAndUpdateUser: jest.fn().mockImplementation(() => {
-//         return mockFetchBoardAction;
-//     })
-//   }
-// ));
+jest.mock('../actions/interests', () => Object.assign({},
+  require.requireActual('../actions/interests'),
+  {
+    addInterestAndUpdateUser: jest.fn().mockImplementation(() => {
+        return mockAddInterestAndUpdateUser;
+    })
+  }
+));
 
 describe('<AddInterest />', () => {
   
@@ -34,8 +32,8 @@ describe('<AddInterest />', () => {
     const wrapper = mount(<AddInterest autoCompleteData={autoCompleteData} isTest={true} dispatch={dispatch} />);
     let input = wrapper.find('input').first();
     input.simulate('change', { target: { value: 'Sun' } })
-    // call to dispatch should be to addInterestAndUpdateUser
-    expect(dispatch.mock.calls[0][0].toString()).toEqual(addInterestAndUpdateUser(dispatch).toString());
+    // call to dispatch should be to mockAddInterestAndUpdateUser
+    expect(dispatch).toHaveBeenCalledWith(mockAddInterestAndUpdateUser);
   });
 
 });
