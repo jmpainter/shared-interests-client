@@ -11,12 +11,15 @@ import { connect } from 'react-redux';
 import requiresLogin from './RequiresLogin';
 
 export class Profile extends React.Component {
+
   componentDidMount() {
-    this.props.dispatch(getUserInfo());
-    this.props.dispatch(getInterestMatches());
-    this.props.dispatch(getConversations());
-    this.props.dispatch(getNearbyUsers());
-    this.props.dispatch(getOtherUsers());
+    if(this.props.loggedIn) {
+      this.props.dispatch(getUserInfo());
+      this.props.dispatch(getInterestMatches());
+      this.props.dispatch(getConversations());
+      this.props.dispatch(getNearbyUsers());
+      this.props.dispatch(getOtherUsers());
+    }
   }
   render() {
     return (
@@ -63,6 +66,7 @@ export class Profile extends React.Component {
 }
 
 Profile.defaultProps = {
+  loggedIn: false,
   user: { interests:[] },
   conversations: [],
   latestInterests: [],
@@ -72,6 +76,7 @@ Profile.defaultProps = {
 };
 
 export const mapStateToProps = state => ({
+  loggedIn: state.auth.authToken !== null,
   user: state.user.user,
   conversations: state.conversations.conversations,
   latestInterests: state.interests.latestInterests,
