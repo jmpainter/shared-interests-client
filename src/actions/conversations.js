@@ -2,13 +2,13 @@ import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 
 export const GET_CONVERSATIONS_SUCCESS = 'GET_CONVERSATIONS_SUCCESS';
-export const getConversationSuccess = data => ({
+export const getConversationsSuccess = data => ({
   type: GET_CONVERSATIONS_SUCCESS,
   data
 });
 
 export const GET_CONVERSATIONS_ERROR = 'GET_CONVERSATIONS_ERROR';
-export const getConversationError = error => ({
+export const getConversationsError = error => ({
   type: GET_CONVERSATIONS_ERROR,
   error
 });
@@ -24,10 +24,10 @@ export const getConversations = () => (dispatch, getState) => {
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then(data => {
-    dispatch(getConversationSuccess(data.conversations));
+    dispatch(getConversationsSuccess(data.conversations));
   })
   .catch(err => {
-    dispatch(getConversationError(err));
+    dispatch(getConversationsError(err));
   });
 }
 

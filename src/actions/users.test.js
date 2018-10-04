@@ -14,14 +14,11 @@ import {
   putUserInfo
 } from './users';
 
-import { formatIntoInterestCategories } from './utils';
-
 import {API_BASE_URL} from '../config';
-
 
 describe('registerUser', () => {
   it('Should call fetch /users the action', () => {
-    const user = '{ fake }';
+    const user = {};
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
@@ -33,7 +30,7 @@ describe('registerUser', () => {
     const dispatch = jest.fn();
 
     return registerUser(user)(dispatch).then(() => {
-      expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/users`,  {"body": "\"{ fake }\"", "headers": {"content-type": "application/json"}, "method": "POST"});
+      expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/users`,  {"body": "{}", "headers": {"content-type": "application/json"}, "method": "POST"});
     });
   });
 });
@@ -74,9 +71,6 @@ describe('getInterestMatches', () => {
       });
     });
     const dispatch = jest.fn();
-
-    const resultArray = formatIntoInterestCategories(matches);
-    dispatch(getInterestMatchesSuccess(resultArray));
 
     return getInterestMatches()(dispatch, getState).then(() => {
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/users?interests=true`, {"headers": {"Authorization": "Bearer fake"}, "method": "GET"} );
