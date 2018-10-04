@@ -9,7 +9,7 @@ describe('<EditInterests />', () => {
     shallow(<EditInterests interests={[]} />);
   });
 
-  it('Renders a list of intererests', () => {
+  it('Renders a list of interests', () => {
     const interests = initialState.user.user.interests;
     const wrapper =  shallow(<EditInterests interests={interests} />);
     expect(wrapper.html()).toEqual('<ul class=\"edit-interests\"><li><i class=\"delete-icon far fa-minus-square\"></i>Mountain Biking </li><li><i class=\"delete-icon far fa-minus-square\"></i>Scuba diving </li><li><i class=\"delete-icon far fa-minus-square\"></i>Jazz </li></ul>');

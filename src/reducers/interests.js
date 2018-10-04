@@ -4,7 +4,7 @@ import {
   DELETE_INTEREST_SUCCESS,
   DELETE_INTEREST_ERROR,
   GET_LATEST_INTERESTS_SUCCESS,
-  GET_LATEST_INTERESTS_ERROR } from '../actions/intererests';
+  GET_LATEST_INTERESTS_ERROR } from '../actions/interests';
 
 const initialState = {
   error: null,

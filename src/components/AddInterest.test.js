@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { addInterestAndUpdateUser } from '../actions/intererests';
+import { addInterestAndUpdateUser } from '../actions/interests';
 
 import { AddInterest } from './AddInterest';
 

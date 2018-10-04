@@ -1,7 +1,7 @@
 import React from 'react';
 import './Start.css';
 import InterestsList from './InterestsList';
-import { getLatestInterests } from '../actions/intererests';
+import { getLatestInterests } from '../actions/interests';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 

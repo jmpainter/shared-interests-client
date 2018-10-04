@@ -1,5 +1,5 @@
 import React from 'react';
-import { deleteInterestAndUpdateUser } from '../actions/intererests';
+import { deleteInterestAndUpdateUser } from '../actions/interests';
 
 import './DeleteInterest.css';
 

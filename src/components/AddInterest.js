@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Autocomplete from 'react-autocomplete';
 import { setAutoCompleteData, setInputValue} from '../actions/misc';
-import { addInterestAndUpdateUser } from '../actions/intererests';
+import { addInterestAndUpdateUser } from '../actions/interests';
 import './AddInterest.css';
 
 export class AddInterest extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { deleteInterestAndUpdateUser } from '../actions/intererests';
+import { deleteInterestAndUpdateUser } from '../actions/interests';
 
 import DeleteInterest from './DeleteInterest';
 
