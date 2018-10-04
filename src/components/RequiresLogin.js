@@ -12,7 +12,7 @@ export default () => Component => {
     }
     return <Component {...passThroughProps} />;
   }
-
+  
   const displayName = Component.displayName || Component.name || 'Component';
   RequiresLogin.displayName = `RequiresLogin(${displayName})`;
 

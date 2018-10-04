@@ -11,7 +11,6 @@ const initialState = {
 
 export const messagesReducer = (state = initialState, action) => {
   if(action.type === ADD_MESSAGE_SUCCESS) {
-
     return Object.assign({}, state, {
       error: null
     });
