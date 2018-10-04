@@ -15,6 +15,8 @@ import {
 } from './auth';
 import {API_BASE_URL} from '../config';
 
+import { initialState } from '../setupTests';
+
 describe('setAuthToken', () => {
   it('Should return the action', () => {
     const authToken = 'fake';
@@ -58,8 +60,7 @@ describe('authError', () => {
 
 describe('login', () => {
   it('Should dispatch authSuccess', () => {
-    const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWJiNTczY2I0NGYyNDkzNjU4OTAxYmUwIiwiZmlyc3ROYW1lIjoiU2FtIiwibGFzdE5hbWUiOiJSZXlub2xkcyIsInNjcmVlbk5hbWUiOiJzcmVub2xkcyIsImxvY2F0aW9uIjoiQmVya2VsZXksIENBLCBVU0EiLCJ1c2VybmFtZSI6InNhbUBnbWFpbC5jb20ifSwiaWF0IjoxNTM4NjE4Mzc3LCJleHAiOjE1MzkyMjMxNzcsInN1YiI6InNhbUBnbWFpbC5jb20ifQ.2RqwJPuOmvPb5k4T-9HoEYfH4-AyLNGQwqjM43Bu11o';
-
+    const authToken = initialState.auth.authToken;
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
@@ -80,8 +81,7 @@ describe('login', () => {
 
 describe('refreshAuthToken', () => {
   it('Should dispatch authSuccess', () => {
-    const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWJiNTczY2I0NGYyNDkzNjU4OTAxYmUwIiwiZmlyc3ROYW1lIjoiU2FtIiwibGFzdE5hbWUiOiJSZXlub2xkcyIsInNjcmVlbk5hbWUiOiJzcmVub2xkcyIsImxvY2F0aW9uIjoiQmVya2VsZXksIENBLCBVU0EiLCJ1c2VybmFtZSI6InNhbUBnbWFpbC5jb20ifSwiaWF0IjoxNTM4NjE4Mzc3LCJleHAiOjE1MzkyMjMxNzcsInN1YiI6InNhbUBnbWFpbC5jb20ifQ.2RqwJPuOmvPb5k4T-9HoEYfH4-AyLNGQwqjM43Bu11o';
-
+    const authToken = initialState.auth.authToken;
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,

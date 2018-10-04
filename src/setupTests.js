@@ -7,14 +7,14 @@ export const initialState =
 {
   form: {},
   auth: {
-    authToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWI5NzJhNmMxZDRhNmI1YWNjMTQ1NTVjIiwiZmlyc3ROYW1lIjoiSm9zaCIsImxhc3ROYW1lIjoiUGFpbnRlciIsInNjcmVlbk5hbWUiOiJqb3NoIiwibG9jYXRpb24iOiJNaWxsIFZhbGxleSIsInVzZXJuYW1lIjoianBhaW50ZXI0QGdtYWlsLmNvbSJ9LCJpYXQiOjE1MzgxNzAwMTIsImV4cCI6MTUzODc3NDgxMiwic3ViIjoianBhaW50ZXI0QGdtYWlsLmNvbSJ9.1Xo2tr5_x8J7H4WmM_H7w7Xjl5eQN-bQIykk8-1WXyk',
+    authToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWJiNTczY2I0NGYyNDkzNjU4OTAxYmUwIiwiZmlyc3ROYW1lIjoiU2FtIiwibGFzdE5hbWUiOiJSZXlub2xkcyIsInNjcmVlbk5hbWUiOiJzcmVub2xkcyIsImxvY2F0aW9uIjoiQmVya2VsZXksIENBLCBVU0EiLCJ1c2VybmFtZSI6InNhbUBnbWFpbC5jb20ifSwiaWF0IjoxNTM4NjE4Mzc3LCJleHAiOjE1MzkyMjMxNzcsInN1YiI6InNhbUBnbWFpbC5jb20ifQ.2RqwJPuOmvPb5k4T-9HoEYfH4-AyLNGQwqjM43Bu11o',
     currentUser: {
       id: '5b972a6c1d4a6b5acc14555c',
-      firstName: 'Josh',
-      lastName: 'Painter',
-      screenName: 'josh',
-      location: 'Mill Valley',
-      username: 'jpainter4@gmail.com'
+      firstName: 'Sam',
+      lastName: 'Reynolds',
+      screenName: 'sreynolds',
+      location: 'San Rafael',
+      username: 'sam@gmail.com'
     },
     loading: false,
     error: null
@@ -22,10 +22,10 @@ export const initialState =
   user: {
     user: {
       id: '5b972a6c1d4a6b5acc14555c',
-      firstName: 'Josh',
-      lastName: 'Painter',
-      screenName: 'josh',
-      location: 'Mill Valley',
+      firstName: 'Sam',
+      lastName: 'Reynolds',
+      screenName: 'sreynolds',
+      location: 'San Rafael',
       interests: [
         {
           _id: '5b9beb7f016c7837a0e36f30',

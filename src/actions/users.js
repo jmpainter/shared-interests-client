@@ -140,8 +140,8 @@ export const getNearbyUsers = userId => (dispatch, getState) => {
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then(user => {
-    dispatch(getNearbyUsersSuccess(user));
+  .then(users => {
+    dispatch(getNearbyUsersSuccess(users));
   })
   .catch(err => {
     dispatch(getNearbyUsersError(err));
@@ -181,9 +181,8 @@ export const getOtherUsers = userId => (dispatch, getState) => {
 }
 
 export const PUT_USER_INFO_SUCCESS = 'PUT_USER_INFO_SUCCESS';
-export const putUserInfoSuccess = data => ({
-  type: PUT_USER_INFO_SUCCESS,
-  data
+export const putUserInfoSuccess = () => ({
+  type: PUT_USER_INFO_SUCCESS
 });
 
 export const PUT_USER_INFO_ERROR = 'PUT_USER_INFO_ERROR';
@@ -204,7 +203,7 @@ export const putUserInfo = newUserData => (dispatch, getState) => {
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
-  .then(({ data }) => dispatch(putUserInfoSuccess(data)))
+  .then(() => dispatch(putUserInfoSuccess()))
   .catch(err => {
     dispatch(putUserInfoError(err));
   });
