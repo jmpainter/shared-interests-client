@@ -4,6 +4,20 @@ import { addInterestAndUpdateUser } from '../actions/intererests';
 
 import { AddInterest } from './AddInterest';
 
+// Mock the async fetchBoard action
+// const mockAddInterestAndUpdateUser = {
+//   type: 'ADD_INTEREST_AND_UPDATE_USER'
+// };
+
+// jest.mock('../actions', () => Object.assign({},
+//   require.requireActual('../actions'),
+//   {
+//     addInterestAndUpdateUser: jest.fn().mockImplementation(() => {
+//         return mockFetchBoardAction;
+//     })
+//   }
+// ));
+
 describe('<AddInterest />', () => {
   
   it('Renders without crashing', () => {
