@@ -6,4 +6,5 @@
 .suggestion-item {
   background-color: #ffffff;
   cursor: pointer;
+  padding: .4rem 0;
 }

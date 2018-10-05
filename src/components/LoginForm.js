@@ -62,11 +62,9 @@ export class LoginForm extends React.Component {
               </button>
             </form>
             <div className="example-account">
-              <div>
-                <p>Example account:</p>
-                <p>Username: sam</p>
-                <p>Password: password</p>
-              </div>
+              <p>Example account:</p>
+              <p>Username: sam</p>
+              <p>Password: password</p>
             </div>
           </div>
         </div>
@@ -91,7 +89,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     onSubmit: values => {
-      dispatch(login(values.username, values.password));
+      return dispatch(login(values.username, values.password));
     }
   }
 }
@@ -110,7 +108,7 @@ export default reduxForm({
   onSubmitFail: (errors, dispatch) => {
     // There is a possible failed submit with no errors during testing
     if(errors) {
-      dispatch(focus('login', Object.keys(errors)[0]))
+      return dispatch(focus('login', Object.keys(errors)[0]))
     }
   }
  })(connect(mapStateToProps, mapDispatchToProps, mergeProps)(LoginForm));

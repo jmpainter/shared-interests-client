@@ -4,7 +4,9 @@
 .example-account {
   margin-top: 2rem;
 }
-.example-account div {
-  margin: auto;
-  width: 60%;
+.example-account {
+  padding-left: 2rem;
+}
+.example-account p {
+  font-size: 1rem;
 }

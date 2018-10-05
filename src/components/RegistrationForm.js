@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
-import { registerUserAndLoginUser } from '../actions/users';
+import { registerUser, registerUserAndLoginUser } from '../actions/users';
 import Input from './Input';
 import LocationSelect from './LocationSelect';
 import { required, nonEmpty, matches, length, isTrimmed } from '../validators';
@@ -14,11 +14,9 @@ export class RegistrationForm extends React.Component {
   mySubmit(values) {
     // will use either the actual onSubmit passed in mapDispatchToProps
     // or the version from test
-
     const { firstName, lastName, screenName, location, username, password } = values;
     const { latitude, longitude } = this.props;
     values = { firstName, lastName, screenName, location, latitude, longitude, username, password };
-
 
     return this.props.props.onSubmit(values);
   }
@@ -68,7 +66,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     onSubmit: values => {
-      dispatch(registerUserAndLoginUser(values));
+      return dispatch(registerUser(values));
     }
   }
 }
@@ -83,11 +81,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 }
 
 export default reduxForm({
-  form: 'login',
+  form: 'registration',
   onSubmitFail: (errors, dispatch) => {
     // There is a possible failed submit with no errors during testing
     if(errors) {
-      dispatch(focus('login', Object.keys(errors)[0]))
+      return dispatch(focus('registration', Object.keys(errors)[0]))
     }
   }
  })(connect(mapStateToProps, mapDispatchToProps, mergeProps)(RegistrationForm));
