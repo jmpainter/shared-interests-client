@@ -6,7 +6,7 @@ import {
   GET_LATEST_INTERESTS_SUCCESS,
   GET_LATEST_INTERESTS_ERROR } from '../actions/interests';
 
-const initialState = {
+export const initialState = {
   error: null,
   latestInterests: []
 }

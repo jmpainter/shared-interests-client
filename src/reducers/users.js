@@ -13,7 +13,7 @@ import {
   PUT_USER_INFO_ERROR
 } from "../actions/users";
 
-const initialState = {
+export const initialState = {
   user: { interests:[] },
   interestMatches: [],
   nearbyUsers: [],

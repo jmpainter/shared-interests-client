@@ -9,10 +9,7 @@ import {
   getLatestInterestsError
 } from '../actions/interests';
 
-const initialState = {
-  error: null,
-  latestInterests: []
-}
+import { initialState } from './interests';
 
 describe('interestsReducer', () => {
 
@@ -28,7 +25,7 @@ describe('interestsReducer', () => {
     expect(state).toBe(currentState);
   });
 
-  describe('addInterest', () => {
+  describe('addInterestSuccess', () => {
     it('It should clear any errors on addInterestSuccess', () => {
       let state = {
         error: 'some error'

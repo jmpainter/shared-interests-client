@@ -8,19 +8,14 @@ import {
   setEditorState
 } from '../actions/misc';
 
-const initialState = {
-  latitude: null,
-  longitude: null,
-  mainMenuOpen: false,
-  autoCompleteData: [],
-  inputValue: ''
-}
+import { initialState } from './misc';
+// editor state has randomly generated keys
+delete initialState.editorState;
 
 describe('miscReducer', () => {
-
+  
   it('Should set the initial state when nothing is passed in', () => {
     const state = miscReducer(undefined, {type: '__UNKNOWN'});
-    delete state.editorState;
     expect(state).toEqual(initialState);
   });
 

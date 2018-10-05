@@ -7,7 +7,7 @@ import {
 
 import RichTextEditor from 'react-rte';
 
-const initialState = {
+export const initialState = {
   latitude: null,
   longitude: null,
   mainMenuOpen: false,
