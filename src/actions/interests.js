@@ -37,9 +37,8 @@ export const addInterest = interest => (dispatch, getState) => {
 }
 
 export const DELETE_INTEREST_SUCCESS = 'DELETE_INTEREST_SUCCESS';
-export const deleteInterestSuccess = interests => ({
-  type: DELETE_INTEREST_SUCCESS,
-  interests
+export const deleteInterestSuccess = () => ({
+  type: DELETE_INTEREST_SUCCESS
 });
 
 export const DELETE_INTEREST_ERROR = 'DELETE_INTEREST_ERROR';

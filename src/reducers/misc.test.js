@@ -1,5 +1,4 @@
 import { miscReducer } from './index';
-import RichTextEditor from 'react-rte';
 
 import {
   setCoordinates,
@@ -32,7 +31,7 @@ describe('miscReducer', () => {
   });
 
   describe('addMessage', () => {
-    it('It should clear any errors', () => {
+    it('It set latitude and longitude', () => {
       let state = {
         latitude: null,
         longitude: null
