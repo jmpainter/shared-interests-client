@@ -51,7 +51,7 @@ h1 {
   padding: 2rem 0;
 }
 h2 {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   line-height: 1.9rem;
   padding: 1rem 0;
 }
@@ -173,18 +173,6 @@ button.special,
   margin: 17px;
 }
 
-input[type="submit"].special:hover,
-input[type="button"].special:hover,
-button.special:hover,
-.button.special:hover {
-}
-
-input[type="submit"].special:active,
-input[type="button"].special:active,
-button.special:active,
-.button.special:active {
-}
-
 input[type="submit"].disabled, 
 input[type="submit"]:disabled,
 button.disabled,
@@ -206,7 +194,7 @@ form {
 label {
   color: #555;
   display: block;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin: 1rem 0 .4rem;
 }
@@ -426,7 +414,7 @@ input[type="radio"] + label:before {
 }
 
 /* Mobile defaults */
-.col-2, .col-3, .col-4, .col-6, .col-12 {
+.col-2, .col-3, .col-4, .col-6, .col-8, .col-12 {
   width: 100%;
 }
 
@@ -479,7 +467,6 @@ input[type="radio"] + label:before {
   input[type="submit"],
   input[type="button"],
   button,
-  .button.special,
   .button {
     padding: 0;
     width: 100%;

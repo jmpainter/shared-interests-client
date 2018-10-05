@@ -59,7 +59,7 @@ export class Start extends React.Component {
           <div className="container start">
             <div className="row">
               <div className="col-12">
-                <Link to="/register"><button className="button special">Get Started!</button></Link>
+                <Link to="/register"><button className="button big">Get Started!</button></Link>
               </div>
             </div>
           </div>

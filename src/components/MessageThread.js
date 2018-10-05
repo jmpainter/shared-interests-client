@@ -11,7 +11,6 @@ export default function MessageThread(props) {
   ));
   return (
     <div className="message-thread">
-      <h3>Conversation:</h3>
       { thread }
     </div>
   );

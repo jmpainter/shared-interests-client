@@ -65,7 +65,7 @@ export class LoginForm extends React.Component {
               <div>
                 <p>Example account:</p>
                 <p>Username: sam</p>
-                <p>Password: password12</p>
+                <p>Password: password</p>
               </div>
             </div>
           </div>

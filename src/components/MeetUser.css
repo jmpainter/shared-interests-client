@@ -1,23 +1,50 @@
+.meet-user .container {
+  margin-top: 3rem;
+}
 .user-detail {
   display: inline-block;
   text-align: center;
-  border: 1px solid #cfcfcf;
   margin: auto;
-  padding: 1rem 1.5rem;
+  padding: 0 1.5rem;
   border-radius: 7px;
 }
 .user-detail h1 {
-  padding-bottom: 0;
-  padding: 1rem 0 0;
+  padding: 0 0 .3rem;
+  line-height: 1.4rem;
 }
 .block-user {
-  font-size: .7rem;
+  font-size: .8rem;
   cursor: pointer;
-  margin-top: 5rem;
+  margin: 4rem 0 0;
+  display: inline-block;
 }
 .user-location {
   font-size: 1rem;
 }
 .user-detail-container {
   text-align: center;
+}
+.meet-user h2 {
+  padding: 0 0 1.2rem;
+}
+.start-conversation {
+  margin: 0 0 6rem;
+}
+.meet-user .col-8 {
+  border-left: 1px solid grey;
+  padding-left: 2rem;
+  min-height: 6rem;
+}
+
+/* Mobile */
+@media only screen and (max-width: 640px) {
+  .meet-user .col-8 {
+    border-left: none;
+    padding-left: 0;
+    min-height: 6rem;
+    text-align: center;
+  }
+  .meet-user h2 {
+    padding: 1rem 0 1.2rem;
+  }
 }

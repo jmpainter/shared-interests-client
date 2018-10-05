@@ -1,7 +1,11 @@
 .editor {
   min-height: 160px;
   max-width: 615px;
+  margin-top: 25px;
+}
+.submit-button {
+  margin-top: 40px;
 }
 .send-message {
-  margin-top: 40px;
+  margin-top: 25px;
 }

@@ -54,10 +54,8 @@ describe('<MeetUser />', () => {
     // send in the user id parameter which would have been in the URL
     const match = { params: { id: 'fakeId' } };
     const wrapper =  shallow(<MeetUser store={store} isTest={true} history={[]} user={initialState.user.user} dispatch={dispatch} match={match} list={[]} />);
-    debugger;
     wrapper.find('.block-user').simulate('click');
     // make sure the last call to dispatch is for the correct thunk
-    debugger;
     expect(dispatch).toHaveBeenLastCalledWith(mockPutUserInfoAndGetUserInfo);
   });
 

@@ -3,8 +3,6 @@ import {
   ADD_MESSAGE_ERROR
 } from '../actions/messages';
 
-import { getConversations } from '../actions/conversations';
-
 const initialState = {
   error: null
 }

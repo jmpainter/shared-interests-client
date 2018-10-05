@@ -21,7 +21,6 @@ export class MeetUser extends React.Component {
     if(this.props.isTest || window.confirm('Are you sure you want to block this user?')) {
       const blockedUsers = this.props.user.blockedUsers;
       blockedUsers.push(this.props.match.params.id);
-      debugger;
       this.props.dispatch(putUserInfoAndGetUserInfo({ id: this.props.user.id, blockedUsers }));
       this.props.history.push('/profile');    
     }
@@ -41,13 +40,14 @@ export class MeetUser extends React.Component {
         <div>
           <MessageThread messages={ currentConversation.messages }/>
           <SendMessage conversationId={ currentConversation._id } />       
+          <a className="block-user" onClick={() => this.blockUser()}>Block User</a>
         </div>
       )
     } else {
       conversationInterface = <button className="start-conversation" onClick={() => this.startConversation()}>Start a conversation</button>;
     }
     return (
-      <section>
+      <section className="meet-user">
         <div className="container">
           <div className="row">
             <div className="col-4 user-detail-container">
@@ -55,10 +55,10 @@ export class MeetUser extends React.Component {
                 <h1>{ this.props.meetUser.screenName }</h1>
                 <p className="user-location">{ this.props.meetUser.location }</p>
                 <InterestsList list={ this.props.meetUser.interests }/>
-                <a className="block-user button" onClick={() => this.blockUser()}>Block User</a>
               </div>
             </div>
             <div className="col-8">
+              <h2>Conversation:</h2>
               { conversationInterface }
             </div>
           </div>
