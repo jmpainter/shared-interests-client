@@ -6,7 +6,7 @@ import {
   AUTH_ERROR
 } from '../actions/auth';
 
-const initialState = {
+export const initialState = {
   authToken: null,
   currentUser: null,
   loading: false,
@@ -27,8 +27,7 @@ export const authReducer = (state = initialState, action) => {
     });
   } else if (action.type === AUTH_REQUEST) {
     return Object.assign({}, state, {
-      loading: false,
-      currentUser: action.currentUser
+      loading: false
     });
   } else if (action.type === AUTH_SUCCESS) {
     return Object.assign({}, state, {
