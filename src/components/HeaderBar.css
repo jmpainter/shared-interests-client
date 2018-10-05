@@ -14,6 +14,9 @@
   float: right;
   margin-top: 20px;
 }
+.nav-links a:hover {
+  font-weight: normal;
+}
 .logo {
   margin: 7px;
   float: left;

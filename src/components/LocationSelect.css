@@ -1,6 +1,7 @@
 .suggestion-item--active {
   background-color: #fafafa;
   cursor: pointer;
+  padding: .4rem 0;
 }
 
 .suggestion-item {

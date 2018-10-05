@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
-import { registerUser, registerUserAndLoginUser } from '../actions/users';
+import { registerUserAndLoginUser } from '../actions/users';
 import Input from './Input';
 import LocationSelect from './LocationSelect';
 import { required, nonEmpty, matches, length, isTrimmed } from '../validators';
@@ -66,7 +66,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     onSubmit: values => {
-      return dispatch(registerUser(values));
+      return dispatch(registerUserAndLoginUser(values));
     }
   }
 }

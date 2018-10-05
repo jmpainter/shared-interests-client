@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-
+import './RegistrationPage.css'
 import RegistrationForm from './RegistrationForm';
 
 export function RegistrationPage(props) {
@@ -14,7 +14,7 @@ export function RegistrationPage(props) {
       <section className="registration-form">
         <div className="container">
           <div className="row">
-            <div className="col-4">
+            <div className="col-6">
               <h1>Sign Up</h1>
               <RegistrationForm />
             </div>

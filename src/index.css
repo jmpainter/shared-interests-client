@@ -34,10 +34,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  font-weight: 700;
-}
-.nav-links a:hover {
-  font-weight: normal;
+  color: rgb(102, 175, 195);
 }
 main {
   padding: 0;
@@ -70,6 +67,14 @@ ul {
 li {
   font-size: 1.2rem;
   line-height: 1.7rem;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #747474;
+  margin: 1em 0;
+  padding: 0; 
 }
 .clr {
   clear: both;

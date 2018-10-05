@@ -14,10 +14,8 @@ export const registerUser = user => dispatch => {
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .catch(err => {
-    debugger;
     const { reason, message, location } = err;
     if(reason === 'ValidationError') {
-      debugger;
       // Convert ValidationErrors into SubmissionErrors for Redux Form
       return Promise.reject(
         new SubmissionError({
@@ -212,11 +210,11 @@ export const putUserInfo = newUserData => (dispatch, getState) => {
 }
 
 export const putUserInfoAndGetUserInfo = newUserData => dispatch => {
-  dispatch(putUserInfo(newUserData))
+  return dispatch(putUserInfo(newUserData))
     .then(() => dispatch(getUserInfo()));
 }
 
 export const registerUserAndLoginUser = user => dispatch => {
-  dispatch(registerUser(user))
+  return dispatch(registerUser(user))
     .then(() => dispatch(login(user.username, user.password)));
 }

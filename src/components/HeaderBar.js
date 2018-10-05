@@ -55,7 +55,7 @@ export class HeaderBar extends React.Component {
       <div className="container header">
         <div className="row">
           <div className="col-12">
-              <Link to='/'><img src={require('../images/logo.png')} className="logo" alt="Shared Interests logo" /><span className="logo-type">Shared Interests</span></Link>
+              <Link className="logo-link" to='/'><img src={require('../images/logo.png')} className="logo" alt="Shared Interests logo" /><span className="logo-type">Shared Interests</span></Link>
             <nav>
               <ul className={navLinksClassName}>
                 { userLinks }
