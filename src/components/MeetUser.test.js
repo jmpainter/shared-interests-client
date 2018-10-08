@@ -43,7 +43,7 @@ describe('<MeetUser />', () => {
   it('Renders without crashing', () => {
     const dispatch = jest.fn();
     const match = { params: { id: 'fakeId' } };
-    shallow(<MeetUser store={store} dispatch={dispatch} match={match}list={[]} />);
+    shallow(<MeetUser store={store} dispatch={dispatch} match={match} list={[]} />);
   });
 
   it('Should start a conversation', () => {

@@ -6,7 +6,7 @@ import DeleteInterest from './DeleteInterest';
 export class EditInterests extends React.Component {
   render() {
     const editInterests = this.props.interests.map((interest, index) => (
-      <DeleteInterest dispatch={ this.props.dispatch} key={ index } id={ interest._id } name={ interest.name } />
+      <DeleteInterest key={ interest._id } dispatch={ this.props.dispatch} id={ interest._id } name={ interest.name } />
     ));
     return (
       <ul className="edit-interests">
@@ -14,10 +14,6 @@ export class EditInterests extends React.Component {
       </ul>
     );
   }
-}
-
-EditInterests.defaultProps = {
-  interests: []
 }
 
 const mapStateToProps = state => ({

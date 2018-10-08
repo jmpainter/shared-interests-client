@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function InterestsList(props) {
   const interests = props.list.map((interest, index) => 
@@ -9,4 +10,12 @@ export default function InterestsList(props) {
       { interests }
     </ul>
   );
+}
+
+InterestsList.defaultProps = {
+  list: []
+}
+
+InterestsList.propTypes = {
+  list: PropTypes.array
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Conversations.css';
 import { Link } from 'react-router-dom';
 import stripTags from 'striptags';
@@ -26,4 +27,14 @@ export default function Conversations(props) {
       { conversations }
     </ul>    
   );
+}
+
+Conversations.defaultProps = {
+  list: [],
+  user: {}
+}
+
+Conversations.propTypes = {
+  list: PropTypes.array,
+  user: PropTypes.object
 }

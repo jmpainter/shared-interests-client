@@ -3,6 +3,7 @@ import './MeetUser.css';
 import InterestsList from './InterestsList';
 import MessageThread from './MessageThread';
 import SendMessage from './SendMessage';
+import requiresLogin from './RequiresLogin';
 import { getOtherUser, putUserInfoAndGetUserInfo } from '../actions/users';
 import { addConversation } from '../actions/conversations';
 import { connect } from 'react-redux';
@@ -67,7 +68,7 @@ export class MeetUser extends React.Component {
     );
   }
 }
-  
+
 MeetUser.defaultProps = {
   meetUser: { interests:[] },
   conversations: [],
@@ -80,5 +81,5 @@ const mapStateToProps = state => ({
   user: state.user.user
 });
 
-export default connect(mapStateToProps)(MeetUser);
+export default requiresLogin()(connect(mapStateToProps)(MeetUser));
 

@@ -11,9 +11,13 @@ describe('<InterestsList />', () => {
   });
 
   it('Renders a list of interests', () => {
-    const interests = initialState.user.user.interests;
-    const wrapper = shallow(<InterestsList list={interests} />);
-    expect(wrapper.html()).toEqual('<ul><li>Mountain Biking</li><li>Scuba diving</li><li>Jazz</li></ul>');
+    const interestList = initialState.user.user.interests;
+    const wrapper = shallow(<InterestsList list={interestList} />);
+    debugger;
+    const interests = wrapper.find('li');
+    interests.forEach((interest, index) => {
+      expect(interest.text()).toEqual(interestList[index].name)
+    });
   });
 
 });

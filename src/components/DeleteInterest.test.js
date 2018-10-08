@@ -1,7 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { deleteInterestAndUpdateUser } from '../actions/interests';
-
 import DeleteInterest from './DeleteInterest';
 
 // Mock the async action
@@ -26,7 +24,8 @@ describe('<DeleteInterest />', () => {
 
   it('Renders the interest to be deleted', () => {
     const wrapper = shallow(<DeleteInterest key="1" id="1"name="fake" />);
-    expect(wrapper.html()).toEqual('<li><i class=\"delete-icon far fa-minus-square\"></i>fake </li>');
+    // expect(wrapper.html()).toEqual('<li><i class=\"delete-icon far fa-minus-square\"></i>fake</li>');
+    expect(wrapper.text()).toEqual('fake');
   });
 
   it('Deletes the interest', () => {

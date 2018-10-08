@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-
 import { HeaderBar } from './HeaderBar';
 import { clearAuth } from '../actions/auth';
 import { toggleMainMenu } from '../actions/misc';
@@ -13,13 +12,19 @@ describe('<HeaderBar />', () => {
   });
 
   it('Renders the right menu when a user is not logged in', () => {
-    const wrapper = shallow(<BrowserRouter history={browserHistory}><HeaderBar loggedIn={false} /></BrowserRouter>);
-    expect(wrapper.html()).toEqual('<header role=\"banner\" class=\"top-nav\"><div class=\"container header\"><div class=\"row\"><div class=\"col-12\"><a class=\"logo-link\" href=\"/\"><img src=\"logo.png\" class=\"logo\" alt=\"Shared Interests logo\"/><span class=\"logo-type\">Shared Interests</span></a><nav><ul class=\"nav-links\"><span><li><a href=\"/\">Home</a></li><li><a href=\"/register\">Sign Up</a></li><li><a href=\"/login\">Log In</a></li></span></ul></nav><a class=\"toggle-button\">≡</a></div></div></div></header>');
+    const wrapper = mount(<BrowserRouter history={browserHistory}><HeaderBar loggedIn={false} /></BrowserRouter>);
+    const links = wrapper.find('Link');
+    expect(links.at(1).getElement().props.to).toEqual('/');
+    expect(links.at(2).getElement().props.to).toEqual('/register');
+    expect(links.at(3).getElement().props.to).toEqual('/login');
   });
 
   it('Renders the right menu when a user is logged in', () => {
-    const wrapper = shallow(<BrowserRouter history={browserHistory}><HeaderBar loggedIn={true} /></BrowserRouter>);
-    expect(wrapper.html()).toEqual('<header role=\"banner\" class=\"top-nav\"><div class=\"container header\"><div class=\"row\"><div class=\"col-12\"><a class=\"logo-link\" href=\"/\"><img src=\"logo.png\" class=\"logo\" alt=\"Shared Interests logo\"/><span class=\"logo-type\">Shared Interests</span></a><nav><ul class=\"nav-links\"><span><li><a href=\"/\">Home</a></li><li><a href=\"/profile\">Profile</a></li><li><a class=\"logout-link\">Log Out</a></li></span></ul></nav><a class=\"toggle-button\">≡</a></div></div></div></header>');
+    const wrapper = mount(<BrowserRouter history={browserHistory}><HeaderBar loggedIn={true} /></BrowserRouter>);
+    const links = wrapper.find('Link');
+    expect(links.at(1).getElement().props.to).toEqual('/');
+    expect(links.at(2).getElement().props.to).toEqual('/profile');
+    expect(wrapper.find('a').at(3).text()).toEqual('Log Out');
   });
 
   it('Renders the right class for nav links when menu is open', () => {

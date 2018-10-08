@@ -2,8 +2,8 @@ import React from 'react';
 import './AddEditInterests.css';
 import EditInterests from './EditInterests';
 import AddInterest from './AddInterest';
-// import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import requiresLogin from './RequiresLogin';
 
 export class AddEditInterests extends React.Component {
 
@@ -29,12 +29,8 @@ export class AddEditInterests extends React.Component {
   }
 }
 
-AddEditInterests.defaultProps = {
-  interests: []
-}
-
 const mapStateToProps = state => ({
   interests: state.user.interests
 });
 
-export default connect(mapStateToProps)(AddEditInterests);
+export default requiresLogin()(connect(mapStateToProps)(AddEditInterests));

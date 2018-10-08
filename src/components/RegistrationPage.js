@@ -24,10 +24,6 @@ export function RegistrationPage(props) {
     )
 }
 
-RegistrationPage.defaultProps = {
-  loggedIn: false
-};
-
 const mapStatetoProps = state => ({
   loggedIn: state.auth.authToken !== null
 });
