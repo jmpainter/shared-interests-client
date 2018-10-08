@@ -6,15 +6,15 @@ const editorState = RichTextEditor.createEmptyValue();
 import { SendMessage } from './SendMessage';
 
 // Mock the async actions
-const mockAddMessageAndGetConversations = {
-  type: 'ADD_MESSAGE_AND_GET_CONVERSATIONS'
+const mockAddMessage = {
+  type: 'ADD_MESSAGE'
 };
 
 jest.mock('../actions/messages', () => Object.assign({},
   require.requireActual('../actions/messages'),
   {
-    addMessageAndGetConversations: jest.fn().mockImplementation(() => {
-        return mockAddMessageAndGetConversations;
+    addMessage: jest.fn().mockImplementation(() => {
+        return mockAddMessage;
     })
   }
 ));
@@ -26,11 +26,11 @@ describe('<SendMessage />', () => {
   });
 
   it('Sends the message', () => {
-    const dispatch = jest.fn();
+    const dispatch = jest.fn(() => Promise.resolve());
     const wrapper = shallow(<SendMessage dispatch={dispatch} editorState={editorState} conversationId={'fake'} />);
     const form = wrapper.find('form');
     form.simulate('submit');
-    expect(dispatch).toHaveBeenLastCalledWith(mockAddMessageAndGetConversations);
+    expect(dispatch).toHaveBeenLastCalledWith(mockAddMessage);
   });
 
 });

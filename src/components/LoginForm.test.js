@@ -1,6 +1,5 @@
 import LoginForm from './LoginForm';
 import React from 'react';
-import sinon from 'sinon';
 import { shallow, mount } from 'enzyme'
 import { reducer as formReducer } from 'redux-form';
 import { authReducer } from '../reducers/auth';
@@ -14,7 +13,7 @@ describe("LoginForm", () => {
   });
   
   it('should dispatch login action when submitted', () => {
-    const onSubmit = sinon.stub().returns(Promise.resolve());
+    const onSubmit = jest.fn(() => Promise.resolve());
     // create the simplest redux store possible that will work with Redux-Form.
     const store = createStore(combineReducers({ form: formReducer, auth: authReducer }));
     const props = { onSubmit }
@@ -31,7 +30,7 @@ describe("LoginForm", () => {
     input = component.find('input').last();
     input.simulate('change', { target: { value: 'password12345' } })
     form.simulate('submit');
-    expect(onSubmit.callCount).toEqual(1);
+    expect(onSubmit).toHaveBeenCalled();
   });
   
 });

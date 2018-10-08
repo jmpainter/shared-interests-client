@@ -17,7 +17,7 @@ describe("RegistrationForm", () => {
   });
 
   it('Should submit when the form is completed', () => {
-    const onSubmit = sinon.stub().returns(Promise.resolve());
+    const onSubmit = jest.fn(() => Promise.resolve());
     // create the simplest redux store possible that will work with Redux-Form.
     const store = createStore(combineReducers({ form: formReducer, auth: authReducer, misc: miscReducer }));
     const props = { onSubmit };
@@ -60,7 +60,7 @@ describe("RegistrationForm", () => {
     input.simulate('change', { target: { value: 'password1234' } });
 
     component.find('form').simulate('submit');
-    expect(onSubmit.callCount).toEqual(1);
+    expect(onSubmit).toHaveBeenCalled();
   }); 
   
 });

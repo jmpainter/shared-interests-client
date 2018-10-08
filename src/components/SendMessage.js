@@ -2,7 +2,9 @@ import React from 'react';
 import './SendMessage.css';
 import { connect } from 'react-redux';
 import { setEditorState } from '../actions/misc';
-import { addMessageAndGetConversations } from '../actions/messages';
+import { addMessage } from '../actions/messages';
+import { getConversations } from '../actions/conversations';
+
 import RichTextEditor from 'react-rte';
 
 export class SendMessage extends React.Component {
@@ -12,7 +14,8 @@ export class SendMessage extends React.Component {
       event.preventDefault();
     }
     const message = this.props.editorState.toString('html');
-    this.props.dispatch(addMessageAndGetConversations(this.props.conversationId, message));
+    return this.props.dispatch(addMessage(this.props.conversationId, message))
+      .then(() => this.props.dispatch(getConversations()));
   }
 
   onChange = (value) => {

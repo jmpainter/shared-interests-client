@@ -3,16 +3,16 @@ import { shallow, mount } from 'enzyme';
 import { AddInterest } from './AddInterest';
 
 // Mock the async action
-const mockAddInterestAndUpdateUser = {
-  type: 'ADD_INTEREST_AND_UPDATE_USER'
+const mockAddInterest = {
+  type: 'ADD_INTEREST'
 };
 
 jest.mock('../actions/interests', () => Object.assign({},
   require.requireActual('../actions/interests'),
   {
-    addInterestAndUpdateUser: jest.fn().mockImplementation(() => {
-        return mockAddInterestAndUpdateUser;
-    })
+    addInterest: jest.fn().mockImplementation(() => {
+      return mockAddInterest;
+  })
   }
 ));
 
@@ -23,7 +23,7 @@ describe('<AddInterest />', () => {
   });
 
   it('Adds the interest', () => {
-    const dispatch = jest.fn();
+    const dispatch = jest.fn(() => Promise.resolve());
     // inject autoCompleteData
     const autoCompleteData = [{
       title: "Sun",
@@ -33,7 +33,7 @@ describe('<AddInterest />', () => {
     let input = wrapper.find('input').first();
     input.simulate('change', { target: { value: 'Sun' } })
     // call to dispatch should be to mockAddInterestAndUpdateUser
-    expect(dispatch).toHaveBeenCalledWith(mockAddInterestAndUpdateUser);
+    expect(dispatch).toHaveBeenCalledWith(mockAddInterest);
   });
 
 });

@@ -9,9 +9,6 @@ const mockStore = configureStore(middlewares);
 const store = mockStore(initialState);
 
 // Mock the async actions
-const mockPutUserInfoAndGetUserInfo = {
-  type: 'PUT_USER_INFO_AND_GET_USER_INFO'
-};
 
 const mockAddConversation = {
   type: 'ADD_CONVERSATION'

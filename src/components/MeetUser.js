@@ -4,7 +4,7 @@ import InterestsList from './InterestsList';
 import MessageThread from './MessageThread';
 import SendMessage from './SendMessage';
 import requiresLogin from './RequiresLogin';
-import { getOtherUser, putUserInfoAndGetUserInfo } from '../actions/users';
+import { getOtherUser, putUserInfo, getUserInfo } from '../actions/users';
 import { addConversation } from '../actions/conversations';
 import { connect } from 'react-redux';
 
@@ -22,8 +22,9 @@ export class MeetUser extends React.Component {
     if(this.props.isTest || window.confirm('Are you sure you want to block this user?')) {
       const blockedUsers = this.props.user.blockedUsers;
       blockedUsers.push(this.props.match.params.id);
-      this.props.dispatch(putUserInfoAndGetUserInfo({ id: this.props.user.id, blockedUsers }));
       this.props.history.push('/profile');    
+      return this.props.dispatch(putUserInfo({ id: this.props.user.id, blockedUsers }))
+        .then(() => this.props.dispatch(getUserInfo()));
     }
   }
 

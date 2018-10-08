@@ -1,6 +1,5 @@
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
-import { getConversations } from './conversations';
 
 export const ADD_MESSAGE_SUCCESS = 'ADD_MESSAGE_SUCCESS';
 export const addMessageSuccess = () => ({
@@ -32,9 +31,4 @@ export const addMessage = (conversationId, text) => (dispatch, getState) => {
   .catch(err => {
     dispatch(addMessageError(err));
   });
-}
-
-export const addMessageAndGetConversations = (conversationId, text) => dispatch => {
-  dispatch(addMessage(conversationId, text))
-    .then(() => dispatch(getConversations()));
 }

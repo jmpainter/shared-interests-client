@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Autocomplete from 'react-autocomplete';
 import { setAutoCompleteData, setInputValue} from '../actions/misc';
-import { addInterestAndUpdateUser } from '../actions/interests';
+import { addInterest } from '../actions/interests';
+import { getUserInfo } from '../actions/users';
+
 import './AddInterest.css';
 
 export class AddInterest extends React.Component {
@@ -21,10 +23,10 @@ export class AddInterest extends React.Component {
   addInterest(interest) {
     // get wikipidiaId from state
     const item = this.props.autoCompleteData.find(item => item.title === interest);
-    this.props.dispatch(addInterestAndUpdateUser({
+    return this.props.dispatch(addInterest({
       wikiPageId: item.pageid,
       name: item.title}
-    ));
+    )).then(() => this.props.dispatch(getUserInfo()));
   }
 
   // Updates the state of the autocomplete data with the remote data obtained via AJAX.
