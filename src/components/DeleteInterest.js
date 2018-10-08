@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { deleteInterestAndUpdateUser } from '../actions/interests';
 
 import './DeleteInterest.css';
@@ -12,7 +13,19 @@ export default class DeleteInterest extends React.Component {
   }
   render() {
     return (
-      <li key={ this.props.id }><i className="delete-icon far fa-minus-square" onClick={event => this.deleteInterest(event)}></i>{ this.props.name } </li>
+      <li key={ this.props.id }><i className="delete-icon far fa-minus-square" onClick={event => this.deleteInterest(event)}></i>{ this.props.name }</li>
     )  
   }
+}
+
+DeleteInterest.defaultProps = {
+  dispatch: () => {},
+  id: '',
+  name: ''
+}
+
+DeleteInterest.propTypes = {
+  dispatch: PropTypes.func,
+  id: PropTypes.string,
+  name: PropTypes.string
 }

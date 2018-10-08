@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './MessageThread.css';
 
 export default function MessageThread(props) {
@@ -14,4 +15,12 @@ export default function MessageThread(props) {
       { thread }
     </div>
   );
+}
+
+MessageThread.defaultProps = {
+  messages: []
+}
+
+MessageThread.propTypes = {
+  messages: PropTypes.array
 }

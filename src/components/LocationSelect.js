@@ -58,7 +58,6 @@ export class LocationSelect extends React.Component {
         <PlacesAutocomplete
           value={this.state.address}
           onChange={this.handleChange}
-          // onChange={this.props.input.onChange}
           onSelect={this.handleSelect}
           ref={input => (this.input = input)}
         >
@@ -95,6 +94,4 @@ export class LocationSelect extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({});
-
-export default connect(mapStateToProps)(LocationSelect);
+export default connect()(LocationSelect);

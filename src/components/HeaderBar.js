@@ -70,11 +70,6 @@ export class HeaderBar extends React.Component {
   }
 }
 
-HeaderBar.defaultProps = {
-  loggedIn: false,
-  mainMenuOpen: false
-};
-
 const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null,
   mainMenuOpen: state.misc.mainMenuOpen

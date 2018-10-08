@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 export default function UserList(props) {
@@ -16,4 +17,12 @@ export default function UserList(props) {
       </ul>
     </div>
   )
+}
+
+UserList.defaultProps = {
+  list: []
+}
+
+UserList.propTypes = {
+  list: PropTypes.array
 }

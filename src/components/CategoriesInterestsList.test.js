@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import CategoriesInterestsList from './CategoriesInterestsList';
 import { initialState } from '../setupTests';
 import { BrowserRouter, browserHistory} from 'react-router-dom';
@@ -9,9 +9,24 @@ describe('<CategoriesInterestsList />', () => {
     shallow(<CategoriesInterestsList list={[]} />);
   });
 
-  it('Renders a list of interests and users', () => {
+  it('Renders a list of interests', () => {
     const interestMatches = initialState.user.interestMatches;
-    const wrapper = shallow(<BrowserRouter history={browserHistory}><CategoriesInterestsList list={interestMatches} /></BrowserRouter>);
-    expect(wrapper.html()).toEqual('<ul class="categoriesInterests"><div><li class="interest">Mountain Biking</li><ul><li><a href="/meet-user/5b9881ec8b887645bc2454a0">amy - Larkspur</a></li></ul></div><div><li class="interest">Mexican cuisine</li><ul><li><a href="/meet-user/5b9881ec8b887645bc2454a0">amy - Larkspur</a></li></ul></div></ul>');
+    const wrapper = mount(<BrowserRouter history={browserHistory}><CategoriesInterestsList list={interestMatches} /></BrowserRouter>);
+    const interests = wrapper.find('.interest');
+    expect (interests.length).toEqual(interestMatches.length);
+    interests.forEach((interest, index) => {
+      expect(interest.text()).toEqual(interestMatches[index].interest);
+    });
+  });
+
+  it('Renders a list of users', () => {
+    const interestMatches = initialState.user.interestMatches;
+    const userList = [];
+    interestMatches.forEach(interest => userList.push(...interest.users));
+    const wrapper = mount(<BrowserRouter history={browserHistory}><CategoriesInterestsList list={interestMatches} /></BrowserRouter>);
+    const users = wrapper.find('Link');
+    users.forEach((user, index) => {
+      expect(user.text()).toEqual(userList[index].screenName + ' - ' + userList[index].location);
+    });
   });
 });

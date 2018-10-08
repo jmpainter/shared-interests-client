@@ -75,12 +75,6 @@ export class LoginForm extends React.Component {
   }
 }
 
-LoginForm.defaultProps = {
-  latitude: 0,
-  longitude: 0,
-  authToken: null,
-};
-
 const mapStateToProps = state => ({
   authToken: state.auth.authToken,
   error: state.auth.error

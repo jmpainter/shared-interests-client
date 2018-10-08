@@ -82,10 +82,6 @@ export class Start extends React.Component {
   }
 }
 
-Start.defaultProps = {
-  interestsList: []
-};
-
 export const mapStateToProps = state => ({
   interestsList: state.interests.latestInterests
 });

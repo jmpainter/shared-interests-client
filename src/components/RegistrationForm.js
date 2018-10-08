@@ -53,11 +53,6 @@ export class RegistrationForm extends React.Component {
   }
 }
 
-RegistrationForm.defaultProps = {
-  latitude: 0,
-  longitude: 0
-};
-
 const mapStateToProps = state => ({
   latitude: state.misc.latitude,
   longitude: state.misc.longitude
