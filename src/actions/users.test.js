@@ -19,6 +19,7 @@ import {API_BASE_URL} from '../config';
 describe('registerUser', () => {
   it('Should call fetch /users the action', () => {
     const user = {};
+    // mock the call to fetch so test can run without request to api
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
@@ -28,7 +29,7 @@ describe('registerUser', () => {
       });
     });
     const dispatch = jest.fn();
-
+    // call the function returned from the async action creator
     return registerUser(user)(dispatch).then(() => {
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/users`,  {"body": "{}", "headers": {"content-type": "application/json"}, "method": "POST"});
     });
@@ -38,8 +39,7 @@ describe('registerUser', () => {
 describe('getUserInfo', () => {
   it('Should dispatch getUserInfoSuccess', () => {
     const user = {};
-    // mocking getState
-    const getState = () => ({ auth: { authToken: 'fake' }});
+    // mock the call to fetch so test can run without request to api
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
@@ -49,7 +49,9 @@ describe('getUserInfo', () => {
       });
     });
     const dispatch = jest.fn();
-    
+    // mock getState to return authtoken for authorization header in async action creator        
+    const getState = () => ({ auth: { authToken: 'fake' }});
+    // call the function returned from the async action creator    
     return getUserInfo()(dispatch, getState).then(() => {
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/users`, {"headers": {"Authorization": "Bearer fake"}, "method": "GET"} );
       expect(dispatch).toHaveBeenCalledWith(getUserInfoSuccess(user));
@@ -60,8 +62,7 @@ describe('getUserInfo', () => {
 describe('getInterestMatches', () => {
   it('Should dispatch getInterestMatchesSuccess', () => {
     const matches = [];
-    // mocking getState
-    const getState = () => ({ auth: { authToken: 'fake' }});
+    // mock the call to fetch so test can run without request to api
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
@@ -71,7 +72,9 @@ describe('getInterestMatches', () => {
       });
     });
     const dispatch = jest.fn();
-
+    // mock getState to return authtoken for authorization header in async action creator    
+    const getState = () => ({ auth: { authToken: 'fake' }});
+    // call the function returned from the async action creator    
     return getInterestMatches()(dispatch, getState).then(() => {
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/users?interests=true`, {"headers": {"Authorization": "Bearer fake"}, "method": "GET"} );
       expect(dispatch).toHaveBeenCalledWith(getInterestMatchesSuccess(matches));
@@ -82,8 +85,7 @@ describe('getInterestMatches', () => {
 describe('getOtherUser', () => {
   it('Should dispatch getOtherUserSuccess', () => {
     const otherUser = {};
-    // mocking getState
-    const getState = () => ({ auth: { authToken: 'fake' }});
+    // mock the call to fetch so test can run without request to api
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
@@ -93,7 +95,9 @@ describe('getOtherUser', () => {
       });
     });
     const dispatch = jest.fn();
-
+    // mock getState to return authtoken for authorization header in async action creator        
+    const getState = () => ({ auth: { authToken: 'fake' }});
+    // call the function returned from the async action creator
     return getOtherUser('fakeId')(dispatch, getState).then(() => {
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/users/fakeId`, {"headers": {"Authorization": "Bearer fake"}, "method": "GET"} );
       expect(dispatch).toHaveBeenCalledWith(getOtherUserSuccess(otherUser));
@@ -104,8 +108,7 @@ describe('getOtherUser', () => {
 describe('getNearbyUsers', () => {
   it('Should dispatch getOtherUserSuccess', () => {
     const users = [];
-    // mocking getState
-    const getState = () => ({ auth: { authToken: 'fake' }});
+    // mock the call to fetch so test can run without request to api
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
@@ -115,7 +118,9 @@ describe('getNearbyUsers', () => {
       });
     });
     const dispatch = jest.fn();
-
+    // mock getState to return authtoken for authorization header in async action creator    
+    const getState = () => ({ auth: { authToken: 'fake' }});
+    // call the function returned from the async action creator    
     return getNearbyUsers()(dispatch, getState).then(() => {
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/users?nearby=true`, {"headers": {"Authorization": "Bearer fake"}, "method": "GET"} );
       expect(dispatch).toHaveBeenCalledWith(getNearbyUsersSuccess(users));
@@ -126,8 +131,7 @@ describe('getNearbyUsers', () => {
 describe('getOtherUsers', () => {
   it('Should dispatch getOtherUserSuccess', () => {
     const users = [];
-    // mocking getState
-    const getState = () => ({ auth: { authToken: 'fake' }});
+    // mock the call to fetch so test can run without request to api
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
@@ -137,7 +141,9 @@ describe('getOtherUsers', () => {
       });
     });
     const dispatch = jest.fn();
-
+    // mock getState to return authtoken for authorization header in async action creator    
+    const getState = () => ({ auth: { authToken: 'fake' }});
+    // call the function returned from the async action creator    
     return getOtherUsers()(dispatch, getState).then(() => {
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/users?other=true`, {"headers": {"Authorization": "Bearer fake"}, "method": "GET"} );
       expect(dispatch).toHaveBeenCalledWith(getOtherUsersSuccess(users));
@@ -149,7 +155,6 @@ describe('putUserInfo', () => {
   it('Should dispatch getOtherUserSuccess', () => {
     const newUserData =  { id: 'fakeId'};
     // mocking getState
-    const getState = () => ({ auth: { authToken: 'fake' }});
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
@@ -159,7 +164,9 @@ describe('putUserInfo', () => {
       });
     });
     const dispatch = jest.fn();
-
+    // mock getState to return authtoken for authorization header in async action creator        
+    const getState = () => ({ auth: { authToken: 'fake' }});
+    // call the function returned from the async action creator    
     return putUserInfo(newUserData)(dispatch, getState).then(() => {
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/users/fakeId`, {"body": "{\"id\":\"fakeId\"}", "headers": {"Authorization": "Bearer fake", "content-type": "application/json"}, "method": "PUT"} );
       expect(dispatch).toHaveBeenCalledWith(putUserInfoSuccess());

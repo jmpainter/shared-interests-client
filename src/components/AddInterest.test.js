@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { AddInterest } from './AddInterest';
 
-// Mock the async action
+// Replace the async action with a mocked synchronous version to test against
 const mockAddInterest = {
   type: 'ADD_INTEREST'
 };
@@ -24,7 +24,8 @@ describe('<AddInterest />', () => {
 
   it('Adds the interest', () => {
     const dispatch = jest.fn(() => Promise.resolve());
-    // inject autoCompleteData
+    // autoCompleteData is required for the component to add
+    // a interest, so it is injected here
     const autoCompleteData = [{
       title: "Sun",
       pageid: 26751
@@ -32,7 +33,7 @@ describe('<AddInterest />', () => {
     const wrapper = mount(<AddInterest autoCompleteData={autoCompleteData} isTest={true} dispatch={dispatch} />);
     let input = wrapper.find('input').first();
     input.simulate('change', { target: { value: 'Sun' } })
-    // call to dispatch should be to mockAddInterestAndUpdateUser
+    // call to dispatch should be to mockAddInterest
     expect(dispatch).toHaveBeenCalledWith(mockAddInterest);
   });
 

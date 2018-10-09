@@ -13,7 +13,7 @@ import {
   login,
   refreshAuthToken
 } from './auth';
-import {API_BASE_URL} from '../config';
+import { API_BASE_URL } from '../config';
 
 import { initialState } from '../setupTests';
 
@@ -60,7 +60,9 @@ describe('authError', () => {
 
 describe('login', () => {
   it('Should dispatch authSuccess', () => {
+    // initialState contains a test user authtoken
     const authToken = initialState.auth.authToken;
+    // mock the call to fetch so test can run without request to api
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
@@ -71,7 +73,7 @@ describe('login', () => {
     });
     const dispatch = jest.fn();
     const decodedToken = jwtDecode(authToken);
-    
+    // call the function returned from the async action creator
     return login('sam@gmail.com', 'password')(dispatch).then(() => {
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/auth/login`,  {"body": "{\"username\":\"sam@gmail.com\",\"password\":\"password\"}", "headers": {"Content-Type": "application/json"}, "method": "POST"});
       expect(dispatch).toHaveBeenCalledWith(authSuccess(decodedToken.user));
@@ -81,7 +83,9 @@ describe('login', () => {
 
 describe('refreshAuthToken', () => {
   it('Should dispatch authSuccess', () => {
+    // initialState contains a test user authtoken
     const authToken = initialState.auth.authToken;
+    // mock the call to fetch so test can run without request to api
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
@@ -92,13 +96,11 @@ describe('refreshAuthToken', () => {
     });
     const dispatch = jest.fn();
     const decodedToken = jwtDecode(authToken);
-
-    const getState = () => {
-      return { auth: { authToken }}
-    }
-    
+    // mock getState to return authtoken for authorization header in async action creator
+    const getState = () => ({ auth: { authToken: 'fake' }});
+    // call the function returned from the async action creator
     return refreshAuthToken('sam@gmail.com', 'password')(dispatch, getState).then(() => {
-      expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/auth/refresh`,  {"headers": {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWJiNTczY2I0NGYyNDkzNjU4OTAxYmUwIiwiZmlyc3ROYW1lIjoiU2FtIiwibGFzdE5hbWUiOiJSZXlub2xkcyIsInNjcmVlbk5hbWUiOiJzcmVub2xkcyIsImxvY2F0aW9uIjoiQmVya2VsZXksIENBLCBVU0EiLCJ1c2VybmFtZSI6InNhbUBnbWFpbC5jb20ifSwiaWF0IjoxNTM4NjE4Mzc3LCJleHAiOjE1MzkyMjMxNzcsInN1YiI6InNhbUBnbWFpbC5jb20ifQ.2RqwJPuOmvPb5k4T-9HoEYfH4-AyLNGQwqjM43Bu11o"}, "method": "POST"});
+      expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/auth/refresh`,  {"headers": {"Authorization": "Bearer fake"}, "method": "POST"});
       expect(dispatch).toHaveBeenCalledWith(authSuccess(decodedToken.user));
     });
   });

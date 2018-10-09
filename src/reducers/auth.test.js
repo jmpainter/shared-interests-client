@@ -14,7 +14,6 @@ describe('authReducer', () => {
 
   it('Should set the initial state when nothing is passed in', () => {
     const state = authReducer(undefined, {type: '__UNKNOWN'});
-    delete state.editorState;
     expect(state).toEqual(initialState);
   });
 

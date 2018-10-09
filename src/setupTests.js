@@ -3,6 +3,8 @@ import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({adapter: new Adapter()});
 
+// This export of an example redux state is used in 
+// different portions for tests
 export const initialState = 
 {
   form: {},
@@ -273,88 +275,5 @@ export const initialState =
         __v: 0
       }
     ]
-  },
-  misc: {
-    latitude: null,
-    longitude: null,
-    mainMenuOpen: false,
-    autoCompleteData: [],
-    inputValue: '',
-    editorState: {
-      _cache: {},
-      _editorState: {
-        _immutable: {
-          allowUndo: true,
-          currentContent: {
-            entityMap: {},
-            blockMap: {
-              bkldi: {
-                key: 'bkldi',
-                type: 'unstyled',
-                text: '',
-                characterList: [],
-                depth: 0,
-                data: {}
-              }
-            },
-            selectionBefore: {
-              anchorKey: 'bkldi',
-              anchorOffset: 0,
-              focusKey: 'bkldi',
-              focusOffset: 0,
-              isBackward: false,
-              hasFocus: false
-            },
-            selectionAfter: {
-              anchorKey: 'bkldi',
-              anchorOffset: 0,
-              focusKey: 'bkldi',
-              focusOffset: 0,
-              isBackward: false,
-              hasFocus: false
-            }
-          },
-          decorator: {
-            _decorators: [
-              {},
-              {}
-            ]
-          },
-          directionMap: {
-            bkldi: 'LTR'
-          },
-          forceSelection: false,
-          inCompositionMode: false,
-          inlineStyleOverride: null,
-          lastChangeType: null,
-          nativelyRenderedContent: null,
-          redoStack: [],
-          selection: {
-            anchorKey: 'bkldi',
-            anchorOffset: 0,
-            focusKey: 'bkldi',
-            focusOffset: 0,
-            isBackward: false,
-            hasFocus: false
-          },
-          treeMap: {
-            bkldi: [
-              {
-                start: 0,
-                end: 0,
-                decoratorKey: null,
-                leaves: [
-                  {
-                    start: 0,
-                    end: 0
-                  }
-                ]
-              }
-            ]
-          },
-          undoStack: []
-        }
-      }
-    }
   }
 }

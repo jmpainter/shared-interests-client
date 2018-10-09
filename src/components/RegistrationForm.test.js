@@ -1,9 +1,11 @@
+// Project requirements for component testing: 
+// Smoke tests,
+// Component rendering based on props and state,
+// Testing callbacks and events
+
 import RegistrationForm from './RegistrationForm';
 import React from 'react';
-import sinon from 'sinon';
-
 import { shallow, mount } from 'enzyme'
-
 import { reducer as formReducer } from 'redux-form';
 import { authReducer } from '../reducers/auth';
 import { miscReducer } from '../reducers/misc';
@@ -17,6 +19,7 @@ describe("RegistrationForm", () => {
   });
 
   it('Should submit when the form is completed', () => {
+    // Mock onSubmit will replace the form's onSubmit function when passed in as a prop
     const onSubmit = jest.fn(() => Promise.resolve());
     // create the simplest redux store possible that will work with Redux-Form.
     const store = createStore(combineReducers({ form: formReducer, auth: authReducer, misc: miscReducer }));
@@ -35,31 +38,31 @@ describe("RegistrationForm", () => {
       }}
     }
 
-    const component = mount (
+    const wrapper = mount (
       <Provider store={store}>
         <RegistrationForm props={props}/>
       </Provider>
     );
-    component.find('input');
+    wrapper.find('input');
 
-    // the Form, connected to Redux-Form, won't submit unless it's
+    // the form, connected to Redux-Form, won't submit unless it's
     // valid. Therefor, all input fields are filled
-    let input = component.find('input').at(0);
+    let input = wrapper.find('input').at(0);
     input.simulate('change', { target: { value: 'John' } });
-    input = component.find('input').at(1);
+    input = wrapper.find('input').at(1);
     input.simulate('change', { target: { value: 'Smith' } });
-    input = component.find('input').at(2);
+    input = wrapper.find('input').at(2);
     input.simulate('change', { target: { value: 'jSmith' } });
-    input = component.find('input').at(3);
+    input = wrapper.find('input').at(3);
     input.simulate('change', { target: { value: 'San Francisco' } });
-    input = component.find('input').at(4);
+    input = wrapper.find('input').at(4);
     input.simulate('change', { target: { value: 'john@gmail.com' } });
-    input = component.find('input').at(5);
+    input = wrapper.find('input').at(5);
     input.simulate('change', { target: { value: 'password1234' } });
-    input = component.find('input').at(6);
+    input = wrapper.find('input').at(6);
     input.simulate('change', { target: { value: 'password1234' } });
 
-    component.find('form').simulate('submit');
+    wrapper.find('form').simulate('submit');
     expect(onSubmit).toHaveBeenCalled();
   }); 
   

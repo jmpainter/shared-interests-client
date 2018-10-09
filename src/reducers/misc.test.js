@@ -9,7 +9,8 @@ import {
 } from '../actions/misc';
 
 import { initialState } from './misc';
-// editor state has randomly generated keys
+// The rich text editor state has randomly generated keys, so editorState
+// must be removed from tests
 delete initialState.editorState;
 
 describe('miscReducer', () => {

@@ -2,10 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import DeleteInterest from './DeleteInterest';
 
-// Mock the async action
-// const mockDeleteInterest = () => Promise.resolve();
-
-// Mock the async action
+// Replace the async action with a mocked synchronous version to test against
 const mockDeleteInterest = {
   type: 'DELETE_INTEREST'
 };
@@ -33,9 +30,8 @@ describe('<DeleteInterest />', () => {
   it('Deletes the interest', () => {
     const dispatch = jest.fn(() => Promise.resolve());
     const wrapper = shallow(<DeleteInterest isTest={true} dispatch={dispatch} key="1" id="1"name="fake" />);
-    debugger;
     wrapper.find('.delete-icon').simulate('click');
-    // check that the first call to dispatch is for the mock action
+    // call to dispatch should be to mockDeleteInterest
     expect(dispatch).toHaveBeenCalledWith(mockDeleteInterest);
   });
 

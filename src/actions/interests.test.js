@@ -15,8 +15,7 @@ describe('addInterest', () => {
       wikiPageId: 43353,
       name: 'baseball'
     }
-    // mocking getState
-    const getState = () => ({ auth: { authToken: 'fake' }});
+    // mock the call to fetch so test can run without request to api
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
@@ -26,7 +25,9 @@ describe('addInterest', () => {
       });
     });
     const dispatch = jest.fn();
-    
+    // mock getState to return authtoken for authorization header in async action creator
+    const getState = () => ({ auth: { authToken: 'fake' }});
+    // call the function returned from the async action creator
     return addInterest(interest)(dispatch, getState).then(() => {
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/interests`, {"body": "{\"wikiPageId\":\"43353\",\"name\":\"baseball\"}", "headers": {"Authorization": "Bearer fake", "Content-Type": "application/json"}, "method": "POST"} );
       expect(dispatch).toHaveBeenCalledWith(addInterestSuccess());
@@ -37,15 +38,16 @@ describe('addInterest', () => {
 describe('deleteInterest', () => {
   it('Should dispatch deleteInterestSuccess', () => {
     const id = 'fake';
-    // mocking getState
-    const getState = () => ({ auth: { authToken: 'fake' }});
+    // mock the call to fetch so test can run without request to api
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true
       });
     });
     const dispatch = jest.fn();
-    
+    // mock getState to return authtoken for authorization header in async action creator    
+    const getState = () => ({ auth: { authToken: 'fake' }});
+    // call the function returned from the async action creator
     return deleteInterest(id)(dispatch, getState).then(() => {
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/interests/fake`, {"headers": {"Authorization": "Bearer fake"}, "method": "DELETE"} );
       expect(dispatch).toHaveBeenCalledWith(deleteInterestSuccess());
@@ -56,8 +58,7 @@ describe('deleteInterest', () => {
 describe('getLatestInterests', () => {
   it('Should dispatch getLatestInterestsSuccess', () => {
     const interests = [];
-    // mocking getState
-    const getState = () => ({ auth: { authToken: 'fake' }});
+    // mock the call to fetch so test can run without request to api
     global.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
@@ -67,7 +68,9 @@ describe('getLatestInterests', () => {
       });
     });
     const dispatch = jest.fn();
-    
+    // mock getState to return authtoken for authorization header in async action creator    
+    const getState = () => ({ auth: { authToken: 'fake' }});
+    // call the function returned from the async action creator    
     return getLatestInterests()(dispatch, getState).then(() => {
       expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/interests`, {"method": "GET"} );
       expect(dispatch).toHaveBeenCalledWith(getLatestInterestsSuccess(interests));

@@ -1,19 +1,14 @@
-// Boilerplate code for handling errors from the API.  If the error response
-// contains JSON then we return a rejected promise containing the decoded
-// JSON.  If the error doesn't contain JSON then we return a rejected promise
-// containing the status text.  If there is no error then we continue with
-// the promise chain.
-
+// Handle errors from the API.
 export const normalizeResponseErrors = res => {
   if(!res.ok) {
     if (
       res.headers.has('content-type') &&
       res.headers.get('content-type').startsWith('application/json')
     ) {
-      // It's a nice JSON error returned by us, so decode it
+      // JSON error returned by api
       return res.json().then(err => Promise.reject(err));
     }
-     // It's a less informative error returned by express
+     // less informative error returned by express
      return Promise.reject({
        code: res.status,
        message: res.statusText
@@ -22,6 +17,7 @@ export const normalizeResponseErrors = res => {
   return res;
 }
 
+// Used to convert data from the api into interest categories with associated users
 export const formatIntoInterestCategories = data => {
   const resultObj = {};
   const resultArray = [];

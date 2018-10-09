@@ -21,7 +21,6 @@ describe('userReducer', () => {
 
   it('Should set the initial state when nothing is passed in', () => {
     const state = userReducer(undefined, {type: '__UNKNOWN'});
-    delete state.editorState;
     expect(state).toEqual(initialState);
   });
 
@@ -142,6 +141,34 @@ describe('userReducer', () => {
       });
     });
   });  
+
+  describe('getOtherUsersSuccess', () => {
+    it('It should clear any errors and set the meetUser on getOtherUserSuccess', () => {
+      let state = {
+        otherUsers: null,
+        error: 'some error'
+      }
+      const otherUsers = {};
+      state = userReducer(state, getOtherUsersSuccess(otherUsers));
+      expect(state).toEqual({
+        otherUsers,
+        error: null
+      });
+    });
+  });  
+
+  describe('getOtherUsersError', () => {
+    it('It should add an error on getNearbyUsersError', () => {
+      let state = {
+        error: null
+      }
+      const error = {};
+      state = userReducer(state, getOtherUsersError(error));
+      expect(state).toEqual({
+        error
+      });
+    });
+  });    
 
   describe('putUserInfoSuccess', () => {
     it('It should clear any errors on putUserInfoSuccess', () => {

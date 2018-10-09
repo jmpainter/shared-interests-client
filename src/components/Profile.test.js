@@ -1,9 +1,14 @@
+// Project requirements for component testing: 
+// Smoke tests,
+// Component rendering based on props and state,
+// Testing callbacks and events
+
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import { Profile } from './Profile';
 
-// Mock the async actions
+// Replace the async actions with mocked synchronous versions to test againsts
 const mockGetUserInfo = {
   type: 'GET_USER_INFO'
 };
@@ -62,6 +67,7 @@ describe('<Profile />', () => {
   it('Gets all the user updates when mounted', () => {
     const dispatch = jest.fn();
     shallow(<Profile dispatch={dispatch} loggedIn={true} />);
+    // expect all of the mocked functions to have been called in componentDidMount
     expect(dispatch).toHaveBeenCalledWith(mockGetUserInfo);
     expect(dispatch).toHaveBeenCalledWith(mockGetInterestMatches);
     expect(dispatch).toHaveBeenCalledWith(mockGetConversations);

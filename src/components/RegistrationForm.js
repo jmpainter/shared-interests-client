@@ -72,7 +72,6 @@ const mapDispatchToProps = dispatch => {
 // in for testing
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const mergedProps = Object.assign({}, stateProps, { props: dispatchProps }, ownProps);
-  // getting warning during test
   delete mergedProps.ref;
   return mergedProps;
 }

@@ -1,7 +1,11 @@
+// Project requirements for component testing: 
+// Smoke tests,
+// Component rendering based on props and state,
+// Testing callbacks and events
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import { LocationSelect } from './LocationSelect';
-
 
 describe('<LocationSelect />', () => {
   

@@ -1,3 +1,5 @@
+// All state is handled by redux in this app, so various elements such 
+// as ui operations and input values are handled by this reducer
 import { 
   SET_COORDINATES, 
   TOGGLE_MAIN_MENU, 

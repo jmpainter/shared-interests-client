@@ -1,3 +1,8 @@
+// Project requirements for component testing: 
+// Smoke tests,
+// Component rendering based on props and state,
+// Testing callbacks and events
+
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { MeetUser } from './MeetUser';
@@ -8,7 +13,7 @@ const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const store = mockStore(initialState);
 
-// Mock the async actions
+// Replace the async action with a mocked synchronous version to test againsts
 
 const mockAddConversation = {
   type: 'ADD_CONVERSATION'
@@ -49,8 +54,7 @@ describe('<MeetUser />', () => {
     const match = { params: { id: 'fakeId' } };
     const wrapper =  shallow(<MeetUser store={store} history={[]} user={initialState.user.user} dispatch={dispatch} match={match} list={[]} />);
     wrapper.find('.start-conversation').simulate('click');
-    // make sure the last call to dispatch is for the correct thunk
-    // expect(dispatch.mock.calls[dispatch.mock.calls.length - 1][0].toString()).toEqual(addConversation(dispatch).toString());
+    // call to dispatch should be to mockAddConversation
     expect(dispatch).toHaveBeenLastCalledWith(mockAddConversation);
   });
 
@@ -59,7 +63,7 @@ describe('<MeetUser />', () => {
     // send in the user id parameter which would have been in the URL
     const match = { params: { id: 'fakeId' } };
     const wrapper =  shallow(<MeetUser store={store} history={[]} user={initialState.user.user} dispatch={dispatch} match={match} list={[]} />);
-    // make sure the first call to dispatch is for the correct thunk
+    // call to dispatch should be to mockGetOtherUser
     expect(dispatch).toHaveBeenLastCalledWith(mockGetOtherUser);
   });
 

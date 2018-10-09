@@ -8,6 +8,7 @@ import requiresLogin from './RequiresLogin';
 export class AddEditInterests extends React.Component {
 
   doneEditing() {
+    // redirect to profile screen
     this.props.history.push('/profile');
   }
   render() {
@@ -33,4 +34,5 @@ const mapStateToProps = state => ({
   interests: state.user.interests
 });
 
+// connecting this component to requiresLogin will redirect unautheticated users
 export default requiresLogin()(connect(mapStateToProps)(AddEditInterests));

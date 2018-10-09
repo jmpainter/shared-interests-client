@@ -21,7 +21,7 @@ export class AddInterest extends React.Component {
   }
 
   addInterest(interest) {
-    // get wikipidiaId from state
+    // get wikipidiaId from autoComplete data in state
     const item = this.props.autoCompleteData.find(item => item.title === interest);
     return this.props.dispatch(addInterest({
       wikiPageId: item.pageid,
@@ -30,7 +30,6 @@ export class AddInterest extends React.Component {
   }
 
   // Updates the state of the autocomplete data with the remote data obtained via AJAX.
-
   retrieveDataAsynchronously(searchText){
     if(searchText.length >= 3) {
       const url = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=1&origin=*&srsearch=${searchText}`
@@ -47,7 +46,6 @@ export class AddInterest extends React.Component {
   }
 
   // Callback triggered when the user types in the autocomplete field
-
   onChange(e){
     if(this.props.isTest) {
       this.addInterest(e.target.value);
@@ -58,7 +56,6 @@ export class AddInterest extends React.Component {
   }
   
   // Callback triggered when the autocomplete input changes.
-
   onSelect(val){
     this.addInterest(val);
     this.props.dispatch(setInputValue(''));    
@@ -66,7 +63,6 @@ export class AddInterest extends React.Component {
   }
 
   // Markup of every rendered item of the autocomplete.
-
   renderItem(item, isHighlighted){
     let className = 'suggestion';
     className = isHighlighted ? className + ' highlighted' : className;
@@ -78,7 +74,6 @@ export class AddInterest extends React.Component {
   }
 
   // Which property of the autocomplete source will be shown to the user.
-
   getItemValue(item){
     return item.title;
   }

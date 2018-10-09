@@ -10,7 +10,6 @@ export default class DeleteInterest extends React.Component {
   
   deleteInterest(event) {
     if(this.props.isTest || window.confirm(`Are you sure you want to delete ${event.target.nextSibling.data}?`)) {
-     debugger;
       return this.props.dispatch(deleteInterest(this.props.id))
         .then(() => this.props.dispatch(getUserInfo()));
     }

@@ -14,6 +14,7 @@ export class Profile extends React.Component {
 
   componentDidMount() {
     if(this.props.loggedIn) {
+      // get all relevant user information
       this.props.dispatch(getUserInfo());
       this.props.dispatch(getInterestMatches());
       this.props.dispatch(getConversations());
@@ -85,4 +86,5 @@ export const mapStateToProps = state => ({
   otherUsers: state.user.otherUsers
 });
 
+// connecting this component to requiresLogin will redirect unautheticated users
 export default requiresLogin()(connect(mapStateToProps)(Profile));

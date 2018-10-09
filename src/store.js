@@ -10,6 +10,9 @@ import {
   interestsReducer } from './reducers';
 import { setAuthToken, refreshAuthToken } from './actions/auth';
 
+// Redux devtools must be installed in the browser if the Redux devtools compose function
+// is used. Therefore, composeEnhancers detects whether it is present and uses
+// the correct compose function.
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(

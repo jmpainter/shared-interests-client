@@ -15,7 +15,6 @@ describe('interestsReducer', () => {
 
   it('Should set the initial state when nothing is passed in', () => {
     const state = interestsReducer(undefined, {type: '__UNKNOWN'});
-    delete state.editorState;
     expect(state).toEqual(initialState);
   });
 

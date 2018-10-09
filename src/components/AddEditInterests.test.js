@@ -14,6 +14,6 @@ describe('<AddEditInterests />', () => {
     const wrapper = shallow(<AddEditInterests history={history} />);
     wrapper.find('.done-editing').simulate('click');
     expect(history[0]).toEqual('/profile');
-  })
+  });
 
 });

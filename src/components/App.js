@@ -10,7 +10,6 @@ import HeaderBar from './HeaderBar';
 import Footer from './Footer';
 import { refreshAuthToken } from '../actions/auth';
 import { connect } from 'react-redux';
-import './App.css';
 
 export class App extends React.Component {
   componentDidUpdate(prevProps) {
@@ -30,7 +29,7 @@ export class App extends React.Component {
   startPeriodicRefresh() {
     this.refreshInterval = setInterval(
       () => this.props.dispatch(refreshAuthToken()),
-      60 * 60 * 1000 // One hour
+      60 * 60  // One hour
     );
   }
 
@@ -38,7 +37,6 @@ export class App extends React.Component {
     if (!this.refreshInterval) {
       return;
     }
-
     clearInterval(this.refreshInterval);
   }
 

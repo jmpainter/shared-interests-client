@@ -4,9 +4,8 @@ import {
   ADD_CONVERSATION_SUCCESS,
   ADD_CONVERSATION_ERROR } from '../actions/conversations';
 
-const initialState = {
+export const initialState = {
   conversations: [],
-  currentConversation: null,
   error: null
 }
 

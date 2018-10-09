@@ -82,5 +82,6 @@ const mapStateToProps = state => ({
   user: state.user.user
 });
 
+// connecting this component to requiresLogin will redirect unautheticated users
 export default requiresLogin()(connect(mapStateToProps)(MeetUser));
 
