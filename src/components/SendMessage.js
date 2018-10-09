@@ -8,14 +8,17 @@ import { getConversations } from '../actions/conversations';
 import RichTextEditor from 'react-rte';
 
 export class SendMessage extends React.Component {
+
   submit(event) {
-    // event not present in test
+    // event is not present in test
     if(event) {
       event.preventDefault();
     }
     const message = this.props.editorState.toString('html');
+    // add the message, update the conversations in state, and reset editor
     return this.props.dispatch(addMessage(this.props.conversationId, message))
-      .then(() => this.props.dispatch(getConversations()));
+      .then(() => this.props.dispatch(getConversations()))
+      .then(() => this.props.dispatch(setEditorState(RichTextEditor.createEmptyValue())));
   }
 
   onChange = (value) => {
