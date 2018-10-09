@@ -8,7 +8,7 @@
   width: 53px;
   padding-right: 7px;
 }
-.profile h3 {
+.profile h2, .profile h3 {
   padding-bottom: 0;
 }
 .profile ul li header {

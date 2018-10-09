@@ -11,12 +11,15 @@ export default function Conversations(props) {
     const otherUserId = otherUser._id;
     const linkUrl = '/meet-user/' + otherUserId;
     //get last message in each conversation
-    let lastMessageText = '';
     if(conversation.messages.length > 0) {
-      lastMessageText = conversation.messages[conversation.messages.length - 1].text + ' -';
-      lastMessageText = stripTags(lastMessageText);
+      const lastMessage = conversation.messages[conversation.messages.length - 1];
       return (
-        <li key={ otherUserId } ><Link to={ linkUrl }>{ lastMessageText } { otherUser.screenName }</Link></li>
+        <li key={ otherUserId } >
+          <Link to={ linkUrl }>
+            <p>Conversation with { otherUser.screenName }:</p>
+            <p className="lastMessage">{ stripTags(lastMessage.text) } - { lastMessage.sender.screenName }</p>
+          </Link>
+        </li>
       )
     } else {
       return null;
