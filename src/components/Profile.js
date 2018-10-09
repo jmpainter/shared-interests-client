@@ -29,7 +29,7 @@ export class Profile extends React.Component {
           <div className="row">
             <div className="col-12">
               <img className="face" src={require('../images/head.png')} alt="smiling face" />
-              <h1>Profile</h1>
+              <h1>{ this.props.user.firstName + ' ' + this.props.user.lastName}</h1>
             </div>
           </div>
           <div className="row">

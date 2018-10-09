@@ -29,7 +29,7 @@ export class App extends React.Component {
   startPeriodicRefresh() {
     this.refreshInterval = setInterval(
       () => this.props.dispatch(refreshAuthToken()),
-      60 * 60  // one hour
+      60 * 60 * 1000  // one hour
     );
   }
 
