@@ -1,4 +1,4 @@
-// Handle errors from the API.
+// handle errors from the API.
 export const normalizeResponseErrors = res => {
   if(!res.ok) {
     if (
@@ -17,7 +17,7 @@ export const normalizeResponseErrors = res => {
   return res;
 }
 
-// Used to convert data from the api into interest categories with associated users
+// used to convert data from the api into interest categories with associated users
 export const formatIntoInterestCategories = data => {
   const resultObj = {};
   const resultArray = [];

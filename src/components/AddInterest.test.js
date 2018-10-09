@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { AddInterest } from './AddInterest';
 
-// Replace the async action with a mocked synchronous version to test against
+// replace the async action with a mocked synchronous version to test against
 const mockAddInterest = {
   type: 'ADD_INTEREST'
 };
@@ -23,6 +23,7 @@ describe('<AddInterest />', () => {
   });
 
   it('Adds the interest', () => {
+    // mock dispatch needs to return a promise for chained calls in component
     const dispatch = jest.fn(() => Promise.resolve());
     // autoCompleteData is required for the component to add
     // a interest, so it is injected here

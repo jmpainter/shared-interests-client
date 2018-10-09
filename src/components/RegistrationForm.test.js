@@ -1,7 +1,7 @@
-// Project requirements for component testing: 
-// Smoke tests,
-// Component rendering based on props and state,
-// Testing callbacks and events
+// project requirements for component testing: 
+// smoke tests,
+// component rendering based on props and state,
+// testing callbacks and events
 
 import RegistrationForm from './RegistrationForm';
 import React from 'react';
@@ -19,7 +19,7 @@ describe("RegistrationForm", () => {
   });
 
   it('Should submit when the form is completed', () => {
-    // Mock onSubmit will replace the form's onSubmit function when passed in as a prop
+    // mock onSubmit will replace the form's onSubmit function when passed in as a prop
     const onSubmit = jest.fn(() => Promise.resolve());
     // create the simplest redux store possible that will work with Redux-Form.
     const store = createStore(combineReducers({ form: formReducer, auth: authReducer, misc: miscReducer }));

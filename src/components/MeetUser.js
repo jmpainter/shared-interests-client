@@ -5,7 +5,7 @@ import MessageThread from './MessageThread';
 import SendMessage from './SendMessage';
 import requiresLogin from './RequiresLogin';
 import { getOtherUser, putUserInfo, getUserInfo } from '../actions/users';
-import { addConversation } from '../actions/conversations';
+import { addConversation, getConversations } from '../actions/conversations';
 import { connect } from 'react-redux';
 
 export class MeetUser extends React.Component {
@@ -15,7 +15,8 @@ export class MeetUser extends React.Component {
   }
   
   startConversation() {
-    this.props.dispatch(addConversation(this.props.match.params.id));
+    return this.props.dispatch(addConversation(this.props.match.params.id))
+      .then(() => this.props.dispatch(getConversations()));
   }
 
   blockUser() {

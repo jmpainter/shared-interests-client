@@ -1,7 +1,7 @@
-// Project requirements for component testing: 
-// Smoke tests,
-// Component rendering based on props and state,
-// Testing callbacks and events
+// project requirements for component testing: 
+// smoke tests,
+// component rendering based on props and state,
+// testing callbacks and events
 
 import React from 'react';
 import { shallow } from 'enzyme';

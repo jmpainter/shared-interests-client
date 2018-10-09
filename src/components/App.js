@@ -14,10 +14,10 @@ import { connect } from 'react-redux';
 export class App extends React.Component {
   componentDidUpdate(prevProps) {
     if (!prevProps.loggedIn && this.props.loggedIn) {
-      // When we are logged in, refresh the auth token periodically
+      // when we are logged in, refresh the auth token periodically
       this.startPeriodicRefresh();
     } else if (prevProps.loggedIn && !this.props.loggedIn) {
-      // Stop refreshing when we log out
+      // stop refreshing when we log out
       this.stopPeriodicRefresh();
     }
   }
@@ -29,7 +29,7 @@ export class App extends React.Component {
   startPeriodicRefresh() {
     this.refreshInterval = setInterval(
       () => this.props.dispatch(refreshAuthToken()),
-      60 * 60  // One hour
+      60 * 60  // one hour
     );
   }
 

@@ -3,7 +3,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({adapter: new Adapter()});
 
-// This export of an example redux state is used in 
+// this export of an example redux state is used in 
 // different portions for tests
 export const initialState = 
 {

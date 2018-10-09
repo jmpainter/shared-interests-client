@@ -1,7 +1,7 @@
-// Project requirements for component testing: 
-// Smoke tests,
-// Component rendering based on props and state,
-// Testing callbacks and events
+// project requirements for component testing: 
+// smoke tests,
+// component rendering based on props and state,
+// testing callbacks and events
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
@@ -49,7 +49,8 @@ describe('<MeetUser />', () => {
   });
 
   it('Should start a conversation', () => {
-    const dispatch = jest.fn();
+    // mock dispatch needs to return a promise for chained calls in component
+    const dispatch = jest.fn(() => Promise.resolve());
     // send in the user id parameter which would have been in the URL
     const match = { params: { id: 'fakeId' } };
     const wrapper =  shallow(<MeetUser store={store} history={[]} user={initialState.user.user} dispatch={dispatch} match={match} list={[]} />);

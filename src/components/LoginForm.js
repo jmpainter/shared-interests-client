@@ -88,7 +88,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-// Here we can override the dispatch onSubmit with an onSubmit function passed
+// here we can override the dispatch onSubmit with an onSubmit function passed
 // in for testing
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const mergedProps = Object.assign({}, stateProps, { props: dispatchProps }, ownProps);
@@ -99,7 +99,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 export default reduxForm({
   form: 'login',
   onSubmitFail: (errors, dispatch) => {
-    // There is a possible failed submit with no errors during testing
+    // there is a possible failed submit with no errors during testing
     if(errors) {
       return dispatch(focus('login', Object.keys(errors)[0]))
     }

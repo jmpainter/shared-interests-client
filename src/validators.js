@@ -1,4 +1,4 @@
-// Validators used in Redux Form
+// validators used in Redux Form
 
 export const required = value => (value ? undefined : 'Required');
 export const nonEmpty = value =>
