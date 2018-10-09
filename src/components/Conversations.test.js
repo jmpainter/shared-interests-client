@@ -15,8 +15,8 @@ describe('<Conversations />', () => {
     const wrapper = mount(<BrowserRouter history={browserHistory}><Conversations user={user} list={conversations} /></BrowserRouter>);
     const conversationList = wrapper.find('a');
     expect(conversationList.at(0).getElement().props.href).toEqual('/meet-user/5b9881ec8b887645bc2454a0');
-    expect(conversationList.at(0).text()).toEqual('Another message from Josh - amy');
+    expect(conversationList.at(0).text()).toEqual('Conversation with amy:Another message from Josh - josh');
     expect(conversationList.at(1).getElement().props.href).toEqual('/meet-user/5ba45dd712578b538c5d4257');
-    expect(conversationList.at(1).text()).toEqual('hello - sworth');
+    expect(conversationList.at(1).text()).toEqual('Conversation with sworth:hello - josh');
   });
 });
