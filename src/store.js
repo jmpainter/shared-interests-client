@@ -10,7 +10,7 @@ import {
   interestsReducer } from './reducers';
 import { setAuthToken, refreshAuthToken } from './actions/auth';
 
-const middleware = applyMiddleware(thunk);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   combineReducers({
@@ -21,7 +21,7 @@ const store = createStore(
     interests: interestsReducer,
     misc: miscReducer
   }),
-  compose(middleware,  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+  composeEnhancers(applyMiddleware(thunk))
 );
 
 // apply the authToken from localStorage if it exists
