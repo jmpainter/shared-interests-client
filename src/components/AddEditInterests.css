@@ -1,5 +1,6 @@
 .add-edit-interests button {
-  display: inline;
+  display: block;
+  margin-top: 2rem;
 }
 .add-edit-interests h1 {
   padding: 2rem 0 .5rem;
@@ -8,4 +9,11 @@
   font-size: 1.2rem;
   margin: 2.3rem 0 .5rem;
   font-weight: 700;
+}
+
+/* Mobile */
+@media only screen and (max-width: 640px) {
+  .add-edit-interests h1 {
+    padding: 0;
+  }
 }

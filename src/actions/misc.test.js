@@ -79,6 +79,7 @@ describe('setEditorState', () => {
 
 describe('loadSuggestions', () => {
   it('Should dispatch loadSuggestionsBegin and maybeUpdateSuggestions', () => {
+    // mock response from Wikipedia
     const result = { query: {search: []}};
     // mock the call to fetch so test can run without request to api
     global.fetch = jest.fn().mockImplementation(() => {
@@ -90,7 +91,6 @@ describe('loadSuggestions', () => {
       });
     });
     const dispatch = jest.fn();
-    debugger;
     // call the function returned from the async action creator
     return loadSuggestions('abc')(dispatch).then(() => {
       expect(fetch).toHaveBeenCalledWith('https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=1&origin=*&srsearch=abc');

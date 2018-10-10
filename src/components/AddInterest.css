@@ -4,3 +4,10 @@
   cursor: pointer;
   line-height: 2rem;
 }
+
+/* Mobile */
+@media only screen and (max-width: 640px) {
+  .autocomplete-suggestion {
+    line-height: 2.5rem;
+  }
+}

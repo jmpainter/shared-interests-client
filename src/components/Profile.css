@@ -14,3 +14,10 @@
 .profile ul li header {
   margin: 7px 0 3px;
 }
+
+/* Mobile */
+@media only screen and (max-width: 640px) {
+  .profile h1 {
+    padding: 0 0 1rem;
+  }
+}

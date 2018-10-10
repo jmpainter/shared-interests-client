@@ -13,6 +13,7 @@ export const addInterestError = error => ({
 });
 
 export const addInterest = interest => (dispatch, getState) => {
+  debugger;
   const authToken = getState().auth.authToken;
   const data = {
     wikiPageId: interest.wikiPageId.toString(),

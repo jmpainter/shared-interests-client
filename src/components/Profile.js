@@ -68,7 +68,11 @@ export class Profile extends React.Component {
 
 Profile.defaultProps = {
   loggedIn: false,
-  user: { interests:[] },
+  user: { 
+    firstName: '', 
+    lastName: '', 
+    interests:[] 
+  },
   conversations: [],
   latestInterests: [],
   interestMatches: [],

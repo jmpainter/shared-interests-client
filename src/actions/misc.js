@@ -48,11 +48,9 @@ export const loadSuggestions = value => dispatch => {
 
   return fetch(url)
     .then(response => {
-      debugger;
       return response.json();
     })
     .then(myJson => {
-      debugger;
       dispatch(maybeUpdateSuggestions(myJson.query.search, value));
     })
     .catch(err => console.error(err));

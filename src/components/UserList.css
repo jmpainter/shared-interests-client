@@ -1,0 +1,6 @@
+.user-list li {
+  padding-bottom: 1rem;
+}
+.user-list .user-location p {
+  line-height: 1.3rem;
+}

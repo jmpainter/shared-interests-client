@@ -3,9 +3,11 @@ import { miscReducer } from './index';
 import {
   setCoordinates,
   toggleMainMenu,
-  setAutoCompleteData,
-  setInputValue,
-  setEditorState
+  setEditorState,
+  updateInputValue,
+  clearSuggestions,
+  loadSuggestionsBegin,
+  maybeUpdateSuggestions
 } from '../actions/misc';
 
 import { initialState } from './misc';
@@ -48,6 +50,88 @@ describe('miscReducer', () => {
       state = miscReducer(state, toggleMainMenu());
       expect(state).toEqual({
         mainMenuOpen: true
+      });
+    });
+  });  
+
+  describe('setEditorState', () => {
+    it('It should set the editor state', () => {
+      let state = {
+        editorState: 'fake'
+      }
+      const value = 'new value'
+      state = miscReducer(state, setEditorState(value));
+      expect(state).toEqual({
+        editorState: value
+      });
+    });
+  });  
+
+  describe('updateInputValue', () => {
+    it('It should set the value state', () => {
+      let state = {
+        value: 'fake'
+      }
+      const value = 'new value'
+      state = miscReducer(state, updateInputValue(value));
+      expect(state).toEqual({
+        value
+      });
+    });
+  });  
+
+  describe('clearSuggestions', () => {
+    it('It should clear the suggestions', () => {
+      let state = {
+        suggestions: [1, 2, 3]
+      }
+      const value = 'new value'
+      state = miscReducer(state, clearSuggestions());
+      expect(state).toEqual({
+        suggestions: []
+      });
+    });
+  });  
+
+  describe('loadSuggestionsBegin', () => {
+    it('It should set isLoading to true', () => {
+      let state = {
+        isLoading: false
+      }
+      state = miscReducer(state, loadSuggestionsBegin());
+      expect(state).toEqual({
+        isLoading: true
+      });
+    });
+  });  
+
+  describe('maybeUpdateSuggestions', () => {
+    it('It should set isLoading to true if the action value does not equal the state value', () => {
+      let state = {
+        isLoading: false,
+        value: 'a'
+      }
+      state = miscReducer(state, maybeUpdateSuggestions('ab', []));
+      expect(state).toEqual({
+        isLoading: true,
+        value: 'a'
+      });
+    });
+  });  
+
+  describe('maybeUpdateSuggestions', () => {
+    it('It should set isLoading to false and suggestions if the action value does not equal the state value', () => {
+      let state = {
+        isLoading: true,
+        suggestions: [],
+        value: 'a'
+      }
+      const newSuggestions = [1, 2, 3];
+      state = miscReducer(state, maybeUpdateSuggestions(newSuggestions, 'a'));
+      expect(state).toEqual({
+        isLoading: false,
+        suggestions: newSuggestions,
+        value: 'a'
       });
     });
   });  

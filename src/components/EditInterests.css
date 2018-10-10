@@ -2,3 +2,11 @@ ul.edit-interests li {
   font-size: 1.2rem;
   line-height: 2.2rem;
 }
+
+/* Mobile */
+@media only screen and (max-width: 640px) {
+  ul.edit-interests li {
+    font-size: 1.2rem;
+    line-height: 3rem;
+  }
+}

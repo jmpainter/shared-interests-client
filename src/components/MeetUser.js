@@ -23,9 +23,9 @@ export class MeetUser extends React.Component {
     if(this.props.isTest || window.confirm('Are you sure you want to block this user?')) {
       const blockedUsers = this.props.user.blockedUsers;
       blockedUsers.push(this.props.match.params.id);
-      this.props.history.push('/profile');    
       return this.props.dispatch(putUserInfo({ id: this.props.user.id, blockedUsers }))
-        .then(() => this.props.dispatch(getUserInfo()));
+        .then(() => this.props.dispatch(getUserInfo()))
+        .then(() => this.props.history.push('/profile'))
     }
   }
 

@@ -12,7 +12,10 @@ describe('<Conversations />', () => {
   it('Renders a list of conversations', () => {
     const conversations = initialState.conversations.conversations;
     const user = initialState.user.user;
-    const wrapper = mount(<BrowserRouter history={browserHistory}><Conversations user={user} list={conversations} /></BrowserRouter>);
+    const wrapper = mount(
+      <BrowserRouter history={browserHistory}>
+        <Conversations user={user} list={conversations} />
+      </BrowserRouter>);
     const conversationList = wrapper.find('a');
     expect(conversationList.at(0).getElement().props.href).toEqual('/meet-user/5b9881ec8b887645bc2454a0');
     expect(conversationList.at(0).text()).toEqual('Conversation with amy:Another message from Josh - josh');
