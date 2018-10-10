@@ -29,13 +29,13 @@ export class Profile extends React.Component {
           <div className="row">
             <div className="col-12">
               <img className="face" src={require('../images/head.png')} alt="smiling face" />
-              <h1>{ this.props.user.firstName + ' ' + this.props.user.lastName}</h1>
+              <h1>{ this.props.user.firstName || '' }  { this.props.user.lastName || '' }</h1>
             </div>
           </div>
           <div className="row">
             <div className="col-6">
               <h2>Conversations</h2>
-              <Conversations user={this.props.user} list={ this.props.conversations } />
+              <Conversations user={ this.props.user } list={ this.props.conversations } />
             </div>
           </div>
           <hr />
@@ -53,7 +53,8 @@ export class Profile extends React.Component {
             <div className="col-6">
               <h3>My Interests</h3>
               <InterestsList list={ this.props.user.interests } />    
-              <Link className="button add-edit-interests" to='/add-edit-interests'>Edit</Link>
+              <Link className="button 
+              " to='/add-edit-interests'>Edit</Link>
             </div>
             <div className="col-6">
               <h3>Other's Interests</h3>
