@@ -10,17 +10,53 @@ export const toggleMainMenu = () => ({
   type: TOGGLE_MAIN_MENU
 });
 
-export const SET_AUTO_COMPLETE_DATA = 'SET_AUTO_COMPLETE_DATA';
-export const setAutoCompleteData = data => ({
-  type: SET_AUTO_COMPLETE_DATA,
-  data
-});
+export const UPDATE_INPUT_VALUE = 'UPDATE_INPUT_VALUE';
+export const updateInputValue = (value) => {
+  return {
+    type: UPDATE_INPUT_VALUE,
+    value
+  };
+}
 
-export const SET_INPUT_VALUE = 'SET_INPUT_VALUE';
-export const setInputValue = value => ({
-  type: SET_INPUT_VALUE,
-  value
-});
+export const CLEAR_SUGGESTIONS = 'CLEAR_SUGGESTIONS';
+export const clearSuggestions = () => {
+  return {
+    type: CLEAR_SUGGESTIONS
+  };
+}
+
+export const MAYBE_UPDATE_SUGGESTIONS = 'MAYBE_UPDATE_SUGGESTIONS';
+export const maybeUpdateSuggestions = (suggestions, value) => {
+  return {
+    type: MAYBE_UPDATE_SUGGESTIONS,
+    suggestions,
+    value
+  };
+}
+
+export const LOAD_SUGGESTIONS_BEGIN = 'LOAD_SUGGESTIONS_BEGIN';
+export const loadSuggestionsBegin = () => {
+  return {
+    type: LOAD_SUGGESTIONS_BEGIN
+  };
+}
+
+export const loadSuggestions = value => {
+  return dispatch => {
+    dispatch(loadSuggestionsBegin());
+
+    const url = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=1&origin=*&srsearch=${value}`
+
+    fetch(url)
+      .then(response => {
+        return response.json();
+      })
+      .then(myJson => {
+        dispatch(maybeUpdateSuggestions(myJson.query.search, value));
+      })
+      .catch(err => console.error(err));
+  };
+}
 
 export const SET_EDITOR_STATE = 'SET_EDITOR_STATE';
 export const setEditorState = value => ({
