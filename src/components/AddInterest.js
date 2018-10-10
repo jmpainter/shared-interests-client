@@ -7,7 +7,7 @@ import Autosuggest from 'react-autosuggest';
 
 import './AddInterest.css';
 
-class AddInterest extends React.Component {
+export class AddInterest extends React.Component {
   
   render() {
     const { 

@@ -41,21 +41,21 @@ export const loadSuggestionsBegin = () => {
   };
 }
 
-export const loadSuggestions = value => {
-  return dispatch => {
-    dispatch(loadSuggestionsBegin());
+export const loadSuggestions = value => dispatch => {
+  dispatch(loadSuggestionsBegin());
 
-    const url = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=1&origin=*&srsearch=${value}`
+  const url = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=1&origin=*&srsearch=${value}`
 
-    fetch(url)
-      .then(response => {
-        return response.json();
-      })
-      .then(myJson => {
-        dispatch(maybeUpdateSuggestions(myJson.query.search, value));
-      })
-      .catch(err => console.error(err));
-  };
+  return fetch(url)
+    .then(response => {
+      debugger;
+      return response.json();
+    })
+    .then(myJson => {
+      debugger;
+      dispatch(maybeUpdateSuggestions(myJson.query.search, value));
+    })
+    .catch(err => console.error(err));
 }
 
 export const SET_EDITOR_STATE = 'SET_EDITOR_STATE';

@@ -52,43 +52,4 @@ describe('miscReducer', () => {
     });
   });  
 
-  describe('setAutoCompleteData', () => {
-    it('It should toggle the main menu state', () => {
-      let state = {
-        autoCompleteData: []
-      }
-      const data = [1, 2];
-      state = miscReducer(state, setAutoCompleteData(data));
-      expect(state).toEqual({
-        autoCompleteData: data
-      });
-    });
-  });  
-
-  describe('setInputValue', () => {
-    it('It should set the input value', () => {
-      let state = {
-        inputValue: ''
-      }
-      const value = 'new value';
-      state = miscReducer(state, setInputValue(value));
-      expect(state).toEqual({
-        inputValue: value
-      });
-    });
-  });  
-
-  describe('setInputValue', () => {
-    it('It should set the input value', () => {
-      let state = {
-        editorState: ''
-      }
-      const newState = 'new state';
-      state = miscReducer(state, setEditorState(newState));
-      expect(state).toEqual({
-        editorState: newState
-      });
-    });
-  });  
-
 });
