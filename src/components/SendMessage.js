@@ -35,7 +35,7 @@ export class SendMessage extends React.Component {
             value={this.props.editorState}
             onChange={this.onChange}
           />
-          <button className="submit-button" type="submit">Send</button>
+          <button className="submit-button wide" type="submit">Send</button>
         </form>
       </div>
     );

@@ -1,11 +1,14 @@
 .suggestion-item--active {
   background-color: #fafafa;
   cursor: pointer;
-  padding: .4rem 0;
+  padding: .6rem 0 .3rem;
 }
 
 .suggestion-item {
   background-color: #ffffff;
   cursor: pointer;
   padding: .4rem 0;
+  padding: .5rem 0;
+  font-size: 1.2rem;
+  color: #3B7A8C;
 }

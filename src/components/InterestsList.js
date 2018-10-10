@@ -6,7 +6,7 @@ export default function InterestsList(props) {
     <li key={ index } >{ interest.name }</li>
   );
   return (  
-    <ul>
+    <ul className="interests-list">
       { interests }
     </ul>
   );

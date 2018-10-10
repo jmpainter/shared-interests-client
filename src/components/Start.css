@@ -12,6 +12,9 @@
 .splash h3 {
   padding: 0 0 2rem;
 }
+.splash h2 {
+  font-size: 1.4rem;
+}
 .steps {
   padding: 1rem;
 }
@@ -40,7 +43,8 @@
 .latest ul li {
   display: inline-block;
   margin: 0 1rem 1rem 0;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  line-height: 1.4rem;
 }
 
 @media only screen and (max-width: 950px) {
