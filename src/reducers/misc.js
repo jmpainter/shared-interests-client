@@ -3,9 +3,11 @@
 import { 
   SET_COORDINATES, 
   TOGGLE_MAIN_MENU, 
-  SET_AUTO_COMPLETE_DATA, 
-  SET_INPUT_VALUE,
-  SET_EDITOR_STATE } from '../actions/misc';
+  SET_EDITOR_STATE,
+  UPDATE_INPUT_VALUE,
+  CLEAR_SUGGESTIONS,
+  MAYBE_UPDATE_SUGGESTIONS,
+  LOAD_SUGGESTIONS_BEGIN } from '../actions/misc';
 
 import RichTextEditor from 'react-rte';
 
@@ -13,9 +15,10 @@ export const initialState = {
   latitude: null,
   longitude: null,
   mainMenuOpen: false,
-  autoCompleteData: [],
-  inputValue: '',
-  editorState: RichTextEditor.createEmptyValue()
+  editorState: RichTextEditor.createEmptyValue(),
+  value: '',
+  suggestions: ['one', 'two', 'three'],
+  isLoading: false
 };
 
 export const miscReducer = (state = initialState, action) => {
@@ -28,19 +31,33 @@ export const miscReducer = (state = initialState, action) => {
     return Object.assign({}, state, {
       mainMenuOpen: !state.mainMenuOpen
     });
-  } else if (action.type === SET_AUTO_COMPLETE_DATA) {
-    return Object.assign({}, state, {
-      autoCompleteData: action.data
-    });
-  } else if (action.type === SET_INPUT_VALUE) {
-    return Object.assign({}, state, {
-      inputValue: action.value
-    });
   } else if (action.type === SET_EDITOR_STATE) {
     return Object.assign({}, state, {
       editorState: action.value
     });
-  } 
-
+  } else if (action.type === UPDATE_INPUT_VALUE) {
+    return Object.assign({}, state, {
+      value: action.value
+    });
+  } else if (action.type === CLEAR_SUGGESTIONS) {
+    return Object.assign({}, state, {
+      suggestions: []
+    });
+  } else if (action.type === LOAD_SUGGESTIONS_BEGIN) {
+    return Object.assign({}, state, {
+      isLoading: true
+    });
+  } else if (action.type === MAYBE_UPDATE_SUGGESTIONS) {
+      if (action.value !== state.value) {
+        return Object.assign({}, state, {
+          isLoading: true
+        });
+      } else {
+        return Object.assign({}, state, {
+          suggestions: action.suggestions,
+          isLoading: false
+        });
+      }
+  }
   return state;
 }
