@@ -439,6 +439,9 @@ input[type="radio"] + label:before {
   html {
     font-size: 14px;
   }
+  h1 {
+    padding: 0 0 .6rem;
+  }
   .wide {
     width: 100%;
   }
