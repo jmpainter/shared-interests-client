@@ -81,7 +81,21 @@ export class Start extends React.Component {
             </div>
           </div>
         </section>      
+
+        <section>
+          <div className="container start">
+            <div className="row">
+              <div className="col-12">
+                <p>Demonstration account information for a sample user can be found on the Login screen.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </div>
+
+
+
     );
   }
 }
