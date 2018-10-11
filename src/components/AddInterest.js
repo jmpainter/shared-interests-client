@@ -54,7 +54,6 @@ function renderSuggestion(suggestion) {
         dispatch(updateInputValue(newValue));
       },
       onSuggestionSelected(event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) {
-        debugger;
         return dispatch(addInterest({
           wikiPageId: suggestion.pageid,
           name: suggestion.title}
