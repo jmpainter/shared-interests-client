@@ -47,7 +47,7 @@ Conversation
 
 POST /auth/login - for user authentication
 
-POST /auth/refresh - for Json Web Token renewal
+POST /auth/refresh - for JSON Web Token renewal
 
 POST /users - for user account creation
 
