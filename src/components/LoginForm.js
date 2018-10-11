@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import Input from './Input';
 import { login } from '../actions/auth';
+import { getUserInfo } from '../actions/users';
 import { required, nonEmpty } from '../validators';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -83,7 +84,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     onSubmit: values => {
-      return dispatch(login(values.username, values.password));
+      return dispatch(login(values.username, values.password))
+        .then(() => dispatch(getUserInfo()));
     }
   }
 }

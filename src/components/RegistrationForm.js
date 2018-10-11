@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
-import { registerUser } from '../actions/users';
+import { registerUser, getUserInfo } from '../actions/users';
 import { login } from '../actions/auth';
 import Input from './Input';
 import LocationSelect from './LocationSelect';
@@ -64,7 +64,8 @@ const mapDispatchToProps = dispatch => {
   return {
     onSubmit: values => {
       return dispatch(registerUser(values))
-        .then(() => dispatch(login(values.username, values.password)));
+        .then(() => dispatch(login(values.username, values.password)))
+        .then(() => dispatch(getUserInfo()));
     }
   }
 }
@@ -82,6 +83,7 @@ export default reduxForm({
   onSubmitFail: (errors, dispatch) => {
     // There is a possible failed submit with no errors during testing
     if(errors) {
+      debugger;
       return dispatch(focus('registration', Object.keys(errors)[0]))
     }
   }
