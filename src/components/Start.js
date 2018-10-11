@@ -2,6 +2,7 @@ import React from 'react';
 import './Start.css';
 import InterestsList from './InterestsList';
 import { getLatestInterests } from '../actions/interests';
+import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -12,6 +13,9 @@ export class Start extends React.Component {
   }
 
   render() {
+    if(this.props.loggedIn) {
+      return <Redirect to="/profile" />;
+    }
     return (
       <div className="start">
         <section>
@@ -83,7 +87,8 @@ export class Start extends React.Component {
 }
 
 export const mapStateToProps = state => ({
-  interestsList: state.interests.latestInterests
+  interestsList: state.interests.latestInterests,
+  loggedIn: state.auth.authToken !== null
 });
 
 export default connect(mapStateToProps)(Start);

@@ -31,7 +31,6 @@ export class HeaderBar extends React.Component {
     if(this.props.loggedIn) {
       userLinks = (
         <span>
-          <li><Link onClick={() => this.linkClick()} to="/">Home</Link></li>
           <li><Link onClick={() => this.linkClick()} to="/profile">Profile</Link></li>
           <li><a className="logout-link" onClick={() => this.logOut()}>Log Out</a></li>
         </span>

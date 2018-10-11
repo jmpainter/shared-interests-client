@@ -30,9 +30,8 @@ describe('<HeaderBar />', () => {
         <HeaderBar loggedIn={true} />
       </BrowserRouter>);
     const links = wrapper.find('Link');
-    expect(links.at(1).getElement().props.to).toEqual('/');
-    expect(links.at(2).getElement().props.to).toEqual('/profile');
-    expect(wrapper.find('a').at(3).text()).toEqual('Log Out');
+    expect(links.at(1).getElement().props.to).toEqual('/profile');
+    expect(wrapper.find('a').at(2).text()).toEqual('Log Out');
   });
 
   it('Renders the right class for nav links when menu is open', () => {

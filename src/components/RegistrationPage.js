@@ -6,7 +6,7 @@ import RegistrationForm from './RegistrationForm';
 
 export function RegistrationPage(props) {
     // If we are logged in (which happens automatically when registration
-    // is successful) redirect to the user's profile
+    // is successful) redirect to add interests
     if(props.loggedIn) {
       return <Redirect to="/add-edit-interests" />;
     }
