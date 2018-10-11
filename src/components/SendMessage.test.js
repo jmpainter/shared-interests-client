@@ -5,10 +5,10 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import RichTextEditor from 'react-rte';
-const editorState = RichTextEditor.createEmptyValue();
 
 import { SendMessage } from './SendMessage';
+
+const editorState = { text: ''};
 
 // Replace the async action with a mocked synchronous version to test againsts
 const mockAddMessage = {

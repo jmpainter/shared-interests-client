@@ -9,13 +9,11 @@ import {
   MAYBE_UPDATE_SUGGESTIONS,
   LOAD_SUGGESTIONS_BEGIN } from '../actions/misc';
 
-import RichTextEditor from 'react-rte';
-
 export const initialState = {
   latitude: null,
   longitude: null,
   mainMenuOpen: false,
-  editorState: RichTextEditor.createEmptyValue(),
+  editorState: { text: '' },
   value: '',
   suggestions: ['one', 'two', 'three'],
   isLoading: false
@@ -33,7 +31,7 @@ export const miscReducer = (state = initialState, action) => {
     });
   } else if (action.type === SET_EDITOR_STATE) {
     return Object.assign({}, state, {
-      editorState: action.value
+      editorState: { text: action.value }
     });
   } else if (action.type === UPDATE_INPUT_VALUE) {
     return Object.assign({}, state, {

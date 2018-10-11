@@ -9,3 +9,6 @@
 .send-message {
   margin-top: 40px;
 }
+.ql-snow.ql-toolbar button, .ql-snow .ql-toolbar button {
+  margin-top: 0;
+}

@@ -57,12 +57,12 @@ describe('miscReducer', () => {
   describe('setEditorState', () => {
     it('It should set the editor state', () => {
       let state = {
-        editorState: 'fake'
+        editorState: { text: 'fake' }
       }
       const value = 'new value'
       state = miscReducer(state, setEditorState(value));
       expect(state).toEqual({
-        editorState: value
+        editorState: { text: value }
       });
     });
   });  
