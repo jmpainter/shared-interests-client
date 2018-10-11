@@ -83,7 +83,6 @@ export default reduxForm({
   onSubmitFail: (errors, dispatch) => {
     // There is a possible failed submit with no errors during testing
     if(errors) {
-      debugger;
       return dispatch(focus('registration', Object.keys(errors)[0]))
     }
   }
