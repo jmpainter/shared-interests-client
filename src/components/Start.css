@@ -2,9 +2,8 @@
   margin: 30px 0;
   text-align: center;
 }
-.splash button {
-  display: block;
-  margin: 12px auto;
+.start button {
+  margin-top: 0;
 }
 .splash img {
   width: 430px;
